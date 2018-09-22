@@ -10,7 +10,10 @@ from bs4 import BeautifulSoup
 import codecs
 import time
 
-CATEGORY = 'Senior'
+PREFIX_TABLEU = "/table?suitTable=SuiteTab_A&table="
+PREFIX_128 = PREFIX_TABLEU + "128"
+PREFIX_64 = PREFIX_TABLEU + "64"
+PREFIX_8 = PREFIX_TABLEU + "8"
 
 '''
 def filtros:
@@ -62,7 +65,6 @@ def obtenerPaginas():
         
 def obtenerCompeticiones(page):
     req = requests.get(page)
-        
     if req.status_code == 200:
         html = BeautifulSoup(req.text, "html.parser")
         
@@ -71,13 +73,10 @@ def obtenerCompeticiones(page):
             competitions.append(x.find('a')['href'])
     else:
         print "Fallo con página --> " + page
-
     
 def obtenerInformacionCompeticion(urlCompeticion):
     try:
-            
         req = requests.get(urlCompeticion)
-        
         if req.status_code == 200:
             html = BeautifulSoup(req.text, "html.parser")
             
@@ -94,9 +93,7 @@ def obtenerInformacionCompeticion(urlCompeticion):
             competitionInfo = {}
             for h in head:
                 competitionInfo = dict(competitionInfo.items() + {h.text: info[head.index(h)].text}.items())
-            
-    
-    
+
             #obtener resultados
             body = html.find('ul', {'id': 'yw0'})
             options = filter(lambda x: x != u'\n', body.contents)
@@ -105,6 +102,7 @@ def obtenerInformacionCompeticion(urlCompeticion):
             '''
         else:
             print "Fallo en competición --> " + urlCompeticion
+            
     except:
         return "Fallo en competición --> " + urlCompeticion
 
@@ -124,6 +122,7 @@ def obtenerRankingCompeticion(urlCompeticion):
                        "Nationality": infoParticipante[3].text,
                        "Birth Time": infoParticipante[4].text
                        })
+        
             return ranking
         
         else:
@@ -137,9 +136,7 @@ def obtenerRankingCompeticion(urlCompeticion):
 def obtenerPoulesCompeticion(urlCompeticion):
     try:
         req = requests.get(urlCompeticion)
-
         if req.status_code == 200:
-
             html = BeautifulSoup(req.text, "html.parser")
             poules = html.find('div', {'class': 'pools-table'}).find_all('table')            
             poulesResults = []
@@ -149,7 +146,6 @@ def obtenerPoulesCompeticion(urlCompeticion):
                 index = len(fencers)
                 for fencer in fencers:
                     results = fencer.find_all('td')
-                                        
                     assaults = []
                     for assault in range(0,index):
                         assaults.append({
@@ -168,8 +164,6 @@ def obtenerPoulesCompeticion(urlCompeticion):
                             "HSHR": results[5 + index].text
                             })
                     
-                    
-                   
                 poulesResults.append(resultsPool)    
             print poulesResults[0]
             
@@ -182,7 +176,60 @@ def obtenerPoulesCompeticion(urlCompeticion):
         print "\n"
         print "Excepción: Fallo en competición --> " + urlCompeticion
         return  []
-
+    
+def obtenerTablon128Y64(urlCompeticion):
+    try:
+        req = requests.get(urlCompeticion)
+        if req.status_code == 200:
+            html = BeautifulSoup(req.text, "html.parser")
+            tables = html.find('div', {'class': 'rank-table'}).find_all('table')
+            
+            tableu_128 = []
+            tableu_64 = []
+            for table in tables:
+                table_128 = table.find('td', {'class': 'col_1'}).find_all('div', {'class': 'rank-table__teams'})
+                table_64 = table.find('td', {'class': 'col_2'}).find_all('div', {'class': 'rank-table__teams'})
+                        
+                for part_1 in table_128:
+                    assault = part_1.find_all('div', {'class': 'item'})
+                    assault_result = []
+                    for fencer in assault:
+                        if fencer.find('div', {'class': 'col2'}).text == "":
+                            break
+                        assault_result.append({
+                                "Fencer": fencer.find('div', {'class': 'col2'}).text,
+                                "Fencer link": fencer.find('div', {'class': 'col2'}).find('a')['href'],
+                                "Nationality": fencer.find('div', {'class': 'col3'}).text,
+                                "Result": fencer.find('div', {'class': 'col4'}).text
+                                })
+                    tableu_128.append(assault_result)
+                
+                for part_2 in table_64:
+                    assault = part_2.find_all('div', {'class': 'item'})
+                    assault_result = []
+                    
+                    for fencer in assault:
+                        if fencer.find('div', {'class': 'col2'}).text == "":
+                            break
+                        assault_result.append({
+                                "Fencer": fencer.find('div', {'class': 'col2'}).text,
+                                "Fencer link": fencer.find('div', {'class': 'col2'}).find('a')['href'],
+                                "Nationality": fencer.find('div', {'class': 'col3'}).text,
+                                "Result": fencer.find('div', {'class': 'col4'}).text
+                                })
+                    tableu_64.append(assault_result)
+            
+            return tableu_128, tableu_64
+            
+        else:
+            print "Conexión: Fallo en competición --> " + urlCompeticion
+            return []
+        
+    except Exception as e:        
+        print e
+        print "\n"
+        print "Excepción: Fallo en competición --> " + urlCompeticion
+        return  []
 
 pages = []    
 competitions = []
@@ -211,7 +258,7 @@ for competition in competitions:
 '''
 
 
-obtenerPoulesCompeticion("http://fie.org/competitions/2018/47/results/pools")
+obtenerTablon128Y64("http://fie.org/competitions/2018/47/results/table?suitTable=SuiteTab_A&table=128")
 
 
 b = time.clock()
