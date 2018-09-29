@@ -231,6 +231,78 @@ def obtenerTablon128Y64(urlCompeticion):
         print "Excepción: Fallo en competición --> " + urlCompeticion
         return  []
 
+def obtenerTablon64(urlCompeticion):
+    try:
+        req = requests.get(urlCompeticion)
+        if req.status_code == 200:
+            html = BeautifulSoup(req.text, "html.parser")
+            tables = html.find('div', {'class': 'rank-table'})
+            
+            table32 = tables.find('td', {'class': 'col_2'}).find_all('div', {'class': 'rank-table__teams'})
+            table16 = tables.find('td', {'class': 'col_3'}).find_all('div', {'class': 'rank-table__teams'})
+            table8 = tables.find('td', {'class': 'col_4'}).find_all('div', {'class': 'rank-table__teams'})
+            
+            tableu_32 = obtenerDatosTablon(table32)
+            tableu_16 = obtenerDatosTablon(table16)
+            tableu_8 = obtenerDatosTablon(table8)
+
+            return tableu_32, tableu_16, tableu_8
+                
+        else:
+            print "Conexión: Fallo en competición --> " + urlCompeticion
+            return []
+        
+    except Exception as e:        
+        print e
+        print "\n"
+        print "Excepción: Fallo en competición --> " + urlCompeticion
+        return  []
+            
+    
+def obtenerTablon8(urlCompeticion):
+    try:
+        req = requests.get(urlCompeticion)
+        if req.status_code == 200:
+            html = BeautifulSoup(req.text, "html.parser")
+            tables = html.find('div', {'class': 'rank-table'})
+            
+            
+            table4 = tables.find('td', {'class': 'col_2'}).find_all('div', {'class': 'rank-table__teams'})
+            table2 = tables.find('td', {'class': 'col_3'}).find_all('div', {'class': 'rank-table__teams'})
+            
+            tableu_4 = obtenerDatosTablon(table4)
+            tableu_2 = obtenerDatosTablon(table2)
+                    
+            return tableu_4, tableu_2
+        
+        else:
+            print "Conexión: Fallo en competición --> " + urlCompeticion
+        return []
+        
+    except Exception as e:        
+        print e
+        print "\n"
+        print "Excepción: Fallo en competición --> " + urlCompeticion
+        return  []
+    
+def obtenerDatosTablon(tablon):
+
+    board = []
+    
+    for part in tablon:
+        assault = part.find_all('div', {'class': 'item'})
+        assault_result = []
+        for fencer in assault:
+            if fencer.find('div', {'class': 'col2'}).text == "":
+                break
+            assault_result.append({
+                    "Fencer": fencer.find('div', {'class': 'col2'}).text,
+                    "Fencer link": fencer.find('div', {'class': 'col2'}).find('a')['href'],
+                    "Nationality": fencer.find('div', {'class': 'col3'}).text,
+                    "Result": fencer.find('div', {'class': 'col4'}).text
+                    })
+        board.append(assault_result)    
+    
 pages = []    
 competitions = []
 fieUrl = "http://fie.org"
@@ -258,8 +330,7 @@ for competition in competitions:
 '''
 
 
-obtenerTablon128Y64("http://fie.org/competitions/2018/47/results/table?suitTable=SuiteTab_A&table=128")
-
+obtenerTablon8("http://fie.org/competitions/2018/47/results/table?suitTable=SuiteTab_A&table=8")
 
 b = time.clock()
 
