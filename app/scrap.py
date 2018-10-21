@@ -9,60 +9,19 @@ import requests
 from bs4 import BeautifulSoup
 import codecs
 import time
-from sympy import sympify
-
-'''
-def filtros:
-        
-    url = "http://fie.org/es/results-statistic/result"
-    req = requests.get(url)
-    
-    values = {
-        'calendar_models_CalendarsCompetition_FencCatId': [],
-        'calendar_models_CalendarsCompetition_WeaponId': [],
-        'calendar_models_CalendarsCompetition_GenderId': [],
-        'calendar_models_CalendarsCompetition_CompTypeId': [],
-        'calendar_models_CalendarsCompetition_CompCatId': [],
-        'calendar_models_CalendarsCompetition_CPYear': [],
-        'calendar_models_CalendarsCompetition_FedId': []        
-            }
-    
-    if req.status_code == 200:
-        print "codigo correcto"
-    
-        html = BeautifulSoup(req.text, "html.parser")
-        formulario = html.find('form', {'id': 'calendar-form'})
-        cont = 1
-        for x in formulario.find_all('select'):
-            sacarValores(x, x['id'])
-        #print html
-        print "valores sacados"
-    
-        print values['calendar_models_CalendarsCompetition_CPYear'][1:-1]
-        
-        #print html.find_all('div', {'class': 'select2-container' })
-    else:
-        print "pagina no encontrada"
-'''
         
 def obtenerPaginas():
     baseUrl = "http://fie.org/results-statistic/result?calendar_models_CalendarsCompetition%5BFencCatId%5D=&calendar_models_CalendarsCompetition%5BWeaponId%5D=&calendar_models_CalendarsCompetition%5BGenderId%5D=&calendar_models_CalendarsCompetition%5BCompTypeId%5D=&calendar_models_CalendarsCompetition%5BCompCatId%5D=&calendar_models_CalendarsCompetition%5BCPYear%5D=&calendar_models_CalendarsCompetition%5BFedId%5D=&calendar_models_CalendarsCompetition%5BDateBegin%5D=&calendar_models_CalendarsCompetition%5BDateEnd%5D=&calendar_models_CalendarsCompetition_page="
-
-    # obtener páginas
-    #totalPages = int(html.find('li', {'class': 'last'}).text)
-    validPages = 54
+    validPages = 59
     for x in range(1,validPages+1):
         pages.append(baseUrl + str(x))
     for page in pages:
         obtenerCompeticiones(page)
-    print len(competitions)
 
-        
 def obtenerCompeticiones(page):
     req = requests.get(page)
     if req.status_code == 200:
         html = BeautifulSoup(req.text, "html.parser")
-        
         body = html.find_all('td', {'class': 'col1'})
         for x in body:
             competitions.append(x.find('a')['href'])
@@ -74,33 +33,17 @@ def obtenerInformacionCompeticion(urlCompeticion):
         req = requests.get(urlCompeticion)
         if req.status_code == 200:
             html = BeautifulSoup(req.text, "html.parser")
-            
-            #obtener información competición
             infoTable = html.find('div', {'class': 'table-white'}).find_all('tr')[1].find_all('td')
-            
             info = []
             for i in infoTable:
                 info.append(i.text)
                 
-    
             competitionsFile.write(", ".join(info) + "\n")
-            '''
-            competitionInfo = {}
-            for h in head:
-                competitionInfo = dict(competitionInfo.items() + {h.text: info[head.index(h)].text}.items())
-
-            #obtener resultados
-            body = html.find('ul', {'id': 'yw0'})
-            options = filter(lambda x: x != u'\n', body.contents)
-            for option in options:
-                print option.find('a')['href']
-            '''
         else:
             print "Fallo en competición --> " + urlCompeticion
             
     except:
         return "Fallo en competición --> " + urlCompeticion
-
 
 def obtenerRankingCompeticion(urlCompeticion):
     try:
@@ -186,14 +129,13 @@ def obtenerTablon128Y64(urlCompeticion):
         if req.status_code == 200:
             html = BeautifulSoup(req.text, "html.parser")
             tables = html.find('div', {'class': 'rank-table'}).find_all('table')
-            
             tableu_128 = []
             tableu_64 = []
             
             for table in tables:
                 table_128 = table.find('td', {'class': 'col_1'}).find_all('div', {'class': 'rank-table__teams'})
                 table_64 = table.find('td', {'class': 'col_2'}).find_all('div', {'class': 'rank-table__teams'})
-                        
+                       
                 for part_1 in table_128:
                     assault = part_1.find_all('div', {'class': 'item'})
                     assault_result = []
@@ -305,19 +247,15 @@ def obtenerTablon64(urlCompeticion):
         print "Excepción: Fallo en competición --> " + urlCompeticion
         return  []
 
-
-
 def obtenerTablon32(urlCompeticion):
     try:
         req = requests.get(urlCompeticion)
         if req.status_code == 200:
             html = BeautifulSoup(req.text, "html.parser")
-        
             tables = html.find('div', {'class': 'rank-table'}).find_all('table')
             tableu_32 = []
             tableu_16 = []
             tableu_8 = []
-            
             for table in tables:
                 table_32 = table.find('td', {'class': 'col_1'}).find_all('div', {'class': 'rank-table__teams'})
                 table_16 = table.find('td', {'class': 'col_2'}).find_all('div', {'class': 'rank-table__teams'})
@@ -377,7 +315,6 @@ def obtenerTablon32(urlCompeticion):
         print "Excepción: Fallo en competición --> " + urlCompeticion
         return  []
 
-
 def obtenerTablon16(urlCompeticion):
     try:
         req = requests.get(urlCompeticion)
@@ -432,7 +369,6 @@ def obtenerTablon16(urlCompeticion):
         print "Excepción: Fallo en competición --> " + urlCompeticion
         return  []
                  
-    
 def obtenerTablon8(urlCompeticion):
     try:
         req = requests.get(urlCompeticion)
@@ -611,8 +547,6 @@ for competition in competitions:
         print "\nRestantes --> " + str(len(competitions) - competitions.index(competition)) + "/" + str(len(competitions)) + "\n"
 
         errors.append(base_url)
-
-    #obtenerInformacionCompeticion(fieUrl + competition)
     
 print "\n \n -------------------- "
 print "Información obtenida"
