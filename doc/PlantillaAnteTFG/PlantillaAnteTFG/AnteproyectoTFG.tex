@@ -1,0 +1,289 @@
+%%%%%%%%%%%%%%
+% Fichero: AnteproyectoTFG
+% Autor: Jesús Salido Tercero (http://www.uclm.es/profesorado/jsalido)
+% Fecha (creación): Febrero 2014 
+% Rev. : Febrero 2017
+% Descripción: Plantilla para anteproyecto de TFG 
+% (Escuela Sup. de Informática, UCLM). Creada para el curso 
+% “LaTeX esencial para preparación de TFG, Tesis y otros documentos 
+% académicos” (Esc. Sup. Informática-UCLM)
+%
+% Comentarios: Preparada para `pdflatex' y `biblatex' (con `biber'). 
+% Documento editado con TeXstudio. 
+% Para su compilación se aconseja utilizar como compilador 
+% por defecto `latexmk.'
+%%%%%%%%%%%%%%
+
+
+
+% !TeX program = pdflatex
+
+%%%%%%%%%%%%%%
+% Preámbulo del documento
+%%%%%%%%%%%%%%
+\documentclass[11pt,a4paper,twoside,final]{article}
+\usepackage[utf8]{inputenx} % Codificación de entrada
+\usepackage[spanish,english]{babel} % Internacionalización
+\usepackage{indentfirst} % Para asegurar sangrado en 1ª línea tras sección (necesario con varios idiomas)
+\usepackage[top=2.5cm,bottom=2.5cm,inner=2cm,outer=2cm]{geometry}
+
+% Tipografía
+\usepackage{libertine}
+\usepackage[libertine]{newtxmath}
+
+
+\usepackage{textcomp,marvosym,pifont} % Símbolos
+\usepackage{cclicenses} % Para símbolos de licencias CC
+\usepackage{amsmath,amsfonts,amssymb} % Caracteres matemáticos
+\usepackage[T1]{fontenc} % Codificación de salida 
+\usepackage{microtype} % Mejoras tipográficas para pdflatex
+
+\usepackage{url} % Para escritura de URL
+\urlstyle{sf}
+\usepackage[bookmarks,hyperfootnotes=false,hidelinks]{hyperref}
+
+
+% Definición de colores
+% OJO: Este paquete debe cargarse antes de ctable. 
+\usepackage[usenames,dvipsnames,svgnames,x11names,table]{xcolor}
+\definecolor{sombra}{gray}{.70}
+
+
+% Tablas y gráficos
+\usepackage{ctable} % Inclusión de tablas. (ctable incluye): color,xkeyval,array,tabularx,booktabs,rotating
+\usepackage{multirow}
+\usepackage{graphicx}  % Inclusión de figuras
+\graphicspath{{./figs/}} % Path de búsqueda de ficheros gráficos
+\DeclareGraphicsExtensions{.pdf,.png,.jpg} % Precedencia de extensiones
+\usepackage{rotating}  % Giro de cajas (texto, figuras, tablas) (No DVI)
+
+
+
+
+% Ajustes de formato
+\usepackage{paralist, multicol} % Mayor control de listas
+\usepackage{titlesec} % Personalización completa de títulos de secciones
+\usepackage{sectsty} % Personalización de títulos de sección con una interfaz más simple que la suministrada por titlesec
+% Tipo de letra empleado en títulos de secciones (paquete sectsty)
+\sectionfont{\sffamily\bfseries\MakeUppercase}
+\subsectionfont{\sffamily\bfseries}
+\subsubsectionfont{\sffamily\bfseries}
+\usepackage[margin=10pt,font=small,labelfont=bf,format=hang]{caption} % Personalización de títulos de figuras y tablas
+
+
+
+% !TeX TXS-program:bibliography = txs:///biber
+% Bibliografía (Multilingüe en español e inglés, empleando el idioma de la fuente)
+\usepackage[backend=biber,sortcites,autolang=other,language=auto]{biblatex}
+% Línea añadida para eliminar el idioma de la fuente bibliográfica.
+\AtEveryBibitem{\clearfield{note} \clearlist{language}}
+\addbibresource{biblio.bib}
+\usepackage[autostyle]{csquotes}
+
+
+
+
+
+
+%====================================
+%====================================
+
+\begin{document}
+
+%Selección de idioma principal del texto
+\selectlanguage{spanish}
+
+
+
+
+\begin{titlepage}
+	\begin{center}
+	\includegraphics[width=3.5cm]{escudoInf}\\[1.5cm]
+	 
+	{\LARGE \textbf{UNIVERSIDAD DE CASTILLA-LA MANCHA \\[0.5em]
+	ESCUELA SUPERIOR DE INFORMÁTICA}}\\[0.5cm]
+	% EDITAR: Depto. del Director
+	{\Large \textbf{Depto. del Director}}\\[0.5cm]
+	% EDITAR: Tecnología Específica Cursada
+	{\large \textbf{Tecnología Específica Cursada}}\\[1.5cm]
+	{\LARGE \textbf{ANTEPROYECTO \\[0.5em]
+	TRABAJO FIN DE GRADO}}\\[1cm]
+	
+	% EDITAR: Título de TFG	
+	{\LARGE \textbf{Título del TFG}}\\[3cm]
+	\end{center}
+	
+	% EDITAR: Nombre del autor y director(es)
+	\begin{flushleft}
+		{\Large Autor(a): Nombre y Apellidos} \\[1em]
+		{\Large Director(a): Nombre y Apellidos} \\[1em]
+		{\Large Director(a): Nombre y Apellidos} % Si no hay codirector comentar esta línea
+	\end{flushleft}
+	\vfill%
+	
+	% EDITAR: mes y año
+	\begin{flushright}
+		{\Large mes, año}
+	\end{flushright}
+\end{titlepage}
+
+
+
+
+
+
+%-> Índice General
+\tableofcontents  % Índice general
+
+\renewcommand{\tablename}{Tabla} % Se sustituye 'Cuadro' por 'Tabla'
+
+\newpage
+
+\section{Introducción}
+El capítulo de introducción podrá abordar los siguientes aspectos:
+\begin{itemize}
+	\item Introducción al tema, entorno en el que el trabajo desempeñará su objetivo, justificación de la importancia del trabajo abordado.
+
+	\item Motivación y antecedentes (con algunas referencias bibliográficas).
+
+	\item Descripción gráfica del proyecto (es aconsejable incorporar una figura que describa el trabajo a desarrollar y que mejore la comprensión del mismo).
+\end{itemize}
+
+
+
+
+\section{Tecnología específica cursada}
+El Trabajo Fin de Grado (TFG, de ahora en adelante) siempre deberá demostrar la aplicación de las competencias generales de la titulación. Además, el TFG deberá aplicar algunas de las competencias específicas asociadas a la Tecnología Específica, Itinerario o Intensificación que el alumno ha cursado. Por lo tanto, el alumno incluirá en el anteproyecto dos tablas. Una tabla para seleccionar la tecnología cursada y en la que se contextualiza el TFG:
+
+
+% Tratamiento de la tabla como un float
+%\begin{table}[htb]
+   %\centering
+   %\caption{Tecnología Espécifica cursada por el alumno}
+	 %\label{tab:tecno}
+   %\rowcolors{1}{white}{sombra}
+   %\begin{tabular}{cl}
+		%\hline
+          %& Tecnologías de la Información \\
+          %& Computación   \\
+          %& Ingeniería del Software \\
+		%\ding{52}		& Ingeniería de Computadores \\
+		%\hline
+   %\end{tabular}
+%\end{table}
+
+% OJO: A petición de algunos alumnos he añadido un método poco ortodoxo para la creación de las tablas sin hacer uso de un entorno table. De este modo la tabla se incluye justo en el punto de su inclusión. El título y la numeración de la misma se incluye de modo "manual". En realidad este hack solo es preciso si la estructura final del documento es excepcionalmente rara con alguna sección en la que haya muy poco texto frente al tamaño de los elementos floats.
+
+\begin{center}
+   \textbf{Tabla 1}: Tecnología Espécifica cursada por el alumno\\[1em]
+   \rowcolors{1}{white}{sombra}
+   \begin{tabular}{cl}
+		\hline
+          & Tecnologías de la Información \\
+          & Computación   \\
+          & Ingeniería del Software \\
+		\ding{52}		& Ingeniería de Computadores \\
+		\hline
+   \end{tabular}
+\end{center}
+
+En la segunda tabla, el alumno deberá justificar cómo algunas de las competencias específicas de la intensificación (incluir descripción completa) se aplicarán o tomarán forma en el TFG. La relación de competencias por intensificación se encuentran en el Anexo I en la plantilla de TFG que proporciona el centro.
+
+%\begin{table}[htb]
+   %\centering
+   %\caption{Justificación de las competencias específicas abordadas en el TFG}
+	 %\label{tab:justif}
+   %\rowcolors{1}{white}{sombra}
+   %\begin{tabular}{p{.45\textwidth} p{.45\textwidth}}
+		%\textbf{Competencias} & \textbf{Justificación} \\
+		%\hline
+			%Competencia 1 & [Exponer y argumentar cómo y en qué parte se va a abordar estas competencia del TFG] \\
+          %&    \\
+          %&    \\
+					%&    \\
+		%\hline
+   %\end{tabular}
+%\end{table}
+
+\begin{center}
+   \textbf{Tabla 2}: Justificación de las competencias específicas abordadas en el TFG\\[1em]
+   \rowcolors{1}{white}{sombra}
+   \begin{tabular}{p{.45\textwidth} p{.45\textwidth}}
+		\textbf{Competencias} & \textbf{Justificación} \\
+		\hline
+			Competencia 1 & [Exponer y argumentar cómo y en qué parte se va a abordar estas competencia del TFG] \\
+          &    \\
+          &    \\
+					&    \\
+		\hline
+   \end{tabular}
+\end{center}
+
+
+
+
+
+
+\section{Objetivos}
+De acuerdo a la Introducción, el alumno deberá especificar cuál o cuáles son las hipótesis de trabajo de las que se parten, qué se pretende resolver, y en base a eso formular el objetivo principal delTFG.
+
+El objetivo principal deberá desglosarse en sub-objetivos parciales. Los sub-ojetivos deberán describirse de forma breve y concisa.
+
+Como preámbulo a la formulación del objetivo parcial, el alumno deberá discutir sobre las limitaciones y condicionantes a tener en cuenta en el desarrollo del TFG (lenguaje de desarrollo, equipos, madurez de la tecnología, etc.).
+
+Del mismo modo, será recomendable incluir una lista preliminar de requisitos del sistema a construir.
+
+
+
+
+
+
+\section{Métodos y fases de trabajo}
+Para el desarrollo del proyecto, el alumno deberá seguir algún proceso o metodología afín al problema que pretende resolver. Para ello, deberá aportar una pequeña descripción del proceso o metodología (no más de una página) y \textbf{justificar su adecuación al problema a resolver}.
+
+Del mismo modo, el alumno podrá realizar una breve planificación de la ejecución del proyecto según el proceso o metodología seleccionada.
+
+Como parte de la descripción del método y las fases de trabajo, el alumno podrá incluir una descripción preliminar de las tareas, una planificación temporal, diagramas de Gantt o recursos similares que pueda considerar necesarios.
+
+Si hubiera más de una metodología que a juicio del alumno podría ser afín al proyecto, éstas deberán mencionarse, y justificar la que considera más adecuada (esto puede considerarse parte de la justificación a la adecuación al problema a resolver).
+
+
+
+
+
+
+
+
+\section{Medios que se pretende utilizar}
+
+\subsection{Medios hardware}
+El alumno deberá describir los medios hardware que prevé serán necesarios para el desarrollo del proyecto.
+
+\subsection{Medios software}
+El alumno deberá describir los medios software (lenguajes, entornos de desarrollo, herramientas de gestión y planificación, etc.) que prevé serán necesarios para el desarrollo del proyecto
+
+
+
+
+
+
+
+
+
+\section{Preparación de bibliografía}
+Al final del documento se incluirá todas las referencias bibliográficas, ordenadas alfabéticamente por el primer apellido del primer autor, de las obras de las cuales se haya realizado alguna cita en los apartados anteriores. Las referencias deberán contener datos básicos como nombre y apellidos de los autores, título de la obra, evento al que pertenece, páginas, fecha y lugar de celebración (si se
+tratara de artículos de congreso), ISBN, editorial y ciudad (si se tratara de libro), nombre de revista, páginas, volumen y número (si se tratara de revista), etc.
+
+Con \LaTeX{} la elaboración de la bibliografía se puede realizar de modo explícito mediante el entorno \texttt{thebibliography}, o bien mediante \textsf{biblatex} empleando el estilo deseado y el fichero de referencias \texttt{\mbox{.bib}}. En este plantilla se emplea el paquete \texttt{biblatex} que permite la preparación de bibliografías multilingües siempre que los registros del fichero de bibliografía incluyan los campos de idioma \texttt{language} y \texttt{langid}. Al no estar incluido este último campo en los valores por defecto de los registros hay que añadirlo como un campo general.
+
+
+\addcontentsline{toc}{section}{Bibliografía} % Para añadir la bibliografía al TOC 
+
+\nocite{*} % Se incluyen todas las fuentes bibliográficas aunque no hayan sido citadas en el texto. En este caso la bibliografía es en realidad una lista de fuentes de consulta y así se podría indicar.
+\printbibliography[title=Bibliografía]
+
+\section{Contrato de propiedad intelectual (si lo hubiera)}
+
+\end{document}
+
+
