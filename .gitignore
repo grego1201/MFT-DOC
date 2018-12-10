@@ -1,3 +1,4 @@
-## Don't upload csv files
+# Ignore test local files
 
-*.csv
+doc/PlantillaAnteTFG/*
+doc/PlantillaTFG/*
