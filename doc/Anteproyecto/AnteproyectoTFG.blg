@@ -1,8 +1,15 @@
-[0] Config.pm:354> INFO - This is Biber 2.7
+[0] Config.pm:354> INFO - This is Biber 2.7 (beta)
 [0] Config.pm:357> INFO - Logfile is 'AnteproyectoTFG.blg'
-[26] biber-MSWIN64:303> INFO - === 
-[63] Biber.pm:359> INFO - Reading 'AnteproyectoTFG.bcf'
-[132] Utils.pm:180> ERROR - Error: Found biblatex control file version 3.4, expected version 3.3.
-This means that your biber (2.7) and biblatex (3.11) versions are incompatible.
-See compat matrix in biblatex or biber PDF documentation.
-[133] Biber.pm:113> INFO - ERRORS: 1
+[17] biber:303> INFO - === dom dic 30, 2018, 15:00:44
+[25] Biber.pm:360> INFO - Reading 'AnteproyectoTFG.bcf'
+[72] Biber.pm:833> INFO - Using all citekeys in bib section 0
+[79] Biber.pm:3671> INFO - Processing section 0
+[87] Biber.pm:3841> INFO - Looking for bibtex format file 'biblio.bib' for section 0
+[88] bibtex.pm:1424> INFO - Decoding LaTeX character macros into UTF-8
+[91] bibtex.pm:1281> INFO - Found BibTeX data source 'biblio.bib'
+[123] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[123] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[123] Biber.pm:3500> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-US'
+[123] Biber.pm:3506> INFO - No sort tailoring available for locale 'en-US'
+[133] bbl.pm:608> INFO - Writing 'AnteproyectoTFG.bbl' with encoding 'UTF-8'
+[135] bbl.pm:712> INFO - Output to AnteproyectoTFG.bbl
