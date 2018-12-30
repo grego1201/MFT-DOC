@@ -9,7 +9,11 @@ import requests
 from bs4 import BeautifulSoup
 import codecs
 import time
-        
+import pandas as pd
+import numpy as np
+
+
+
 def obtenerPaginas():
     baseUrl = "http://fie.org/results-statistic/result?calendar_models_CalendarsCompetition%5BFencCatId%5D=&calendar_models_CalendarsCompetition%5BWeaponId%5D=&calendar_models_CalendarsCompetition%5BGenderId%5D=&calendar_models_CalendarsCompetition%5BCompTypeId%5D=&calendar_models_CalendarsCompetition%5BCompCatId%5D=&calendar_models_CalendarsCompetition%5BCPYear%5D=&calendar_models_CalendarsCompetition%5BFedId%5D=&calendar_models_CalendarsCompetition%5BDateBegin%5D=&calendar_models_CalendarsCompetition%5BDateEnd%5D=&calendar_models_CalendarsCompetition_page="
     validPages = 59
@@ -478,94 +482,177 @@ def check64Tableu(urlCompeticion):
         return  []
     
     
-pages = []    
-competitions = []
-fieUrl = "http://fie.org"
-
-competitionHead = "Category, Gender, Weapon, Competition, Place, Date, Type, Event\n"
-competitionsFile = codecs.open("../data/competiciones.csv", "w+", encoding='utf-8')
-competitionsFile.write(competitionHead)
-
-eliminiatoriaHead = "CompetitionID, Tableu, Competitor1, Competitor2, ResultCompetitor1, ResultCompetitor2\n"
-eliminatoriaFile = codecs.open("../data/eliminatoria.csv", "w+", encoding='utf-8')
-eliminatoriaFile.write(eliminiatoriaHead)
-
-
-a = time.clock()
-
-obtenerPaginas()
-print "\n \n -------------------- "
-print "Paginas obtenidas"
-print " -------------------- \n \n"
-
-obtenerCompeticiones(fieUrl)
-print "\n \n -------------------- "
-print "Competiciones creadas"
-print " -------------------- \n \n"
-
-errors = []
-equipos = []
-
-for competition in competitions:
-    base_url = fieUrl + competition
-    print base_url
+def scrap_competitions():
+    pages = []    
+    competitions = []
+    fieUrl = "http://fie.org"
     
+    competitionHead = "Category, Gender, Weapon, Competition, Place, Date, Type, Event\n"
+    competitionsFile = codecs.open("../data/competiciones.csv", "w+", encoding='utf-8')
+    competitionsFile.write(competitionHead)
+    
+    eliminiatoriaHead = "CompetitionID, Tableu, Competitor1, Competitor2, ResultCompetitor1, ResultCompetitor2\n"
+    eliminatoriaFile = codecs.open("../data/eliminatoria.csv", "w+", encoding='utf-8')
+    eliminatoriaFile.write(eliminiatoriaHead)
+    
+    
+    a = time.clock()
+    
+    obtenerPaginas()
+    print "\n \n -------------------- "
+    print "Paginas obtenidas"
+    print " -------------------- \n \n"
+    
+    obtenerCompeticiones(fieUrl)
+    print "\n \n -------------------- "
+    print "Competiciones creadas"
+    print " -------------------- \n \n"
+    
+    errors = []
+    equipos = []
+    
+    for competition in competitions:
+        base_url = fieUrl + competition
+        print base_url
+        
+        try:
+            tipo, pestanias = detectarTipoCompeticionYTablones(base_url)
+            if tipo == "Individual":
+                obtenerRankingCompeticion(base_url + "/rank")
+                obtenerPoulesCompeticion(base_url + "/pools")
+                tablon128 = tablon64 = tablon32 = tablon16 = tablon8 = tablon4 = tablon2 = ""
+                
+                for pestania in pestanias:
+                    link = fieUrl + str(pestania[1])
+                    if pestania[0] == "tablo 64":
+                        tablon32, tablon16, tablon8 = obtenerTablon64(link)
+                    elif pestania[0] == "tablo 32":
+                        tablon32, tablon16, tablon8 = obtenerTablon32(link)
+                    elif pestania[0] == "tablo 16":
+                        tablon16, tablon8 = obtenerTablon16(link)
+                    elif pestania[0] == "quarterfinal":
+                        tablon4, tablon2 = obtenerTablon8(link)
+                        
+                tablones = [tablon128, tablon64, tablon32, tablon16, tablon8, tablon4, tablon2]
+                
+                for tablon in tablones:
+                    if tablon is "":
+                        next
+                    year, competitionID = base_url.split("competitions/")[1].split("/")[0:2]
+                    line = escribirResultados(year + "-" + competitionID, tablon)
+                    eliminatoriaFile.write(line)
+                print "Competición lista --> " + str(base_url) + "\n errores --> " + str(len(errors))
+            else:
+                print "Competición pasada por equipos --> "+ str(base_url)
+                equipos.append(base_url)
+            print "\nRestantes --> " + str(len(competitions) - competitions.index(competition)) + "/" + str(len(competitions)) + "\n"
+        
+        except Exception as e:
+            print "Error con la siguiente url -->" + str(base_url)
+            print "\nRestantes --> " + str(len(competitions) - competitions.index(competition)) + "/" + str(len(competitions)) + "\n"
+    
+            errors.append(base_url)
+        
+    print "\n \n -------------------- "
+    print "Información obtenida"
+    print " -------------------- \n \n"
+    
+    b = time.clock()
+    
+    competitionsFile.close
+    eliminatoriaFile.close
+    
+    print "Tiempo empleado --> " + str(b - a) + "segundos. Equivalente a --> " + str((b - a) / 60) + " minutos\n\n"
+    print "Errores\n"
+    print errors 
+    
+def obtain_competitor_data(url, debug = False):
     try:
-        tipo, pestanias = detectarTipoCompeticionYTablones(base_url)
-        if tipo == "Individual":
-            obtenerRankingCompeticion(base_url + "/rank")
-            obtenerPoulesCompeticion(base_url + "/pools")
-            tablon128 = tablon64 = tablon32 = tablon16 = tablon8 = tablon4 = tablon2 = ""
+        req = requests.get(url)
+        if req.status_code == 200:
+            html = BeautifulSoup(req.text, "html.parser")
+                        
+            fie_ranking_container = html.find('div', {'class': 'jumbotron__ranking'})
             
-            for pestania in pestanias:
-                link = fieUrl + str(pestania[1])
-                if pestania[0] == "tablo 64":
-                    tablon32, tablon16, tablon8 = obtenerTablon64(link)
-                elif pestania[0] == "tablo 32":
-                    tablon32, tablon16, tablon8 = obtenerTablon32(link)
-                elif pestania[0] == "tablo 16":
-                    tablon16, tablon8 = obtenerTablon16(link)
-                elif pestania[0] == "quarterfinal":
-                    tablon4, tablon2 = obtenerTablon8(link)
-                    
-            tablones = [tablon128, tablon64, tablon32, tablon16, tablon8, tablon4, tablon2]
+            if fie_ranking_container:
+                fie_ranking = str(html.find('div', {'class': 'jumbotron__ranking'}).text).translate(None, '\t\n')
+            else:
+                fie_ranking = None
             
-            for tablon in tablones:
-                if tablon is "":
-                    next
-                year, competitionID = base_url.split("competitions/")[1].split("/")[0:2]
-                line = escribirResultados(year + "-" + competitionID, tablon)
-                eliminatoriaFile.write(line)
-            print "Competición lista --> " + str(base_url) + "\n errores --> " + str(len(errors))
+            weapon_container = html.find('li', {'class': 'jumbotron__weapon'})
+            if weapon_container: 
+                weapon = str(html.find('li', {'class': 'jumbotron__weapon'}).text.encode('utf-8')).translate(None, '\t\n')
+            else:
+                weapon = None
+            if debug:
+                print "ID -> " + str(url.split("/")[-1])
+                print "\nAGE -> " + str(html.find_all('div', {'class': 'jumbotron__table-cell-title'})[1].text).translate(None, '\t\n')
+                print "\n HANDNESS -> " + str(html.find('div', {'class': 'jumbotron__handness'}).text).translate(None, '\t\n')
+                print "\n AGE -> " + str(html.find('div', {'class': 'jumbotron__age'}).text).translate(None, '\t\n')
+                print "\n WEAPON -> " + str(html.find('li', {'class': 'jumbotron__weapon'}).text.encode('utf-8')).translate(None, '\t\n')
+            
+            
+            
+            return {
+                    "fencer_id": str(url.split("/")[-2]),
+                    "nationality": str(html.find_all('div', {'class': 'jumbotron__table-cell-title'})[1].text).translate(None, '\t\n'),
+                    "handness": str(html.find('div', {'class': 'jumbotron__handness'}).text).translate(None, '\t\n'),
+                    "age": str(html.find('div', {'class': 'jumbotron__age'}).text).translate(None, '\t\n'),
+                    "weapon": weapon,
+                    "fie_ranking": fie_ranking
+                    }
+        
         else:
-            print "Competición pasada por equipos --> "+ str(base_url)
-            equipos.append(base_url)
-        print "\nRestantes --> " + str(len(competitions) - competitions.index(competition)) + "/" + str(len(competitions)) + "\n"
+            print "Conexión: Fallo en competidor --> " + url
+        return {}
+        
+    except Exception as e:        
+        print e
+        print "\n"
+        print "Excepción: Fallo en competidor --> " + url
+        return  {}
     
-    except Exception as e:
-        print "Error con la siguiente url -->" + str(base_url)
-        print "\nRestantes --> " + str(len(competitions) - competitions.index(competition)) + "/" + str(len(competitions)) + "\n"
-
-        errors.append(base_url)
     
-print "\n \n -------------------- "
-print "Información obtenida"
-print " -------------------- \n \n"
 
-b = time.clock()
+def scrap_competitors():
+    
+    pages = []    
+    competitors = []
+    wrong_competitors = []
+    correct_competitors = []
+    fieUrl = "http://fie.org"
+    
+    competitorHead = "ID, Edad, FieRanking, Nacionalidad, Mano, Arma\n"
+    competitorsFile = codecs.open("../data/competidores.csv", "w+", encoding='utf-8')
+    competitorsFile.write(competitorHead)
+    
+    a = time.clock()
+    
+    df = pd.read_csv("../data/eliminatoria - copia.csv")
+    
+    competitors1 = np.unique(df[" Competitor1"].values)
+    competitors2 = np.unique(df[" Competitor2"].values)
+    competitors = np.unique(np.concatenate((competitors1, competitors2)))
+    competitors = np.delete(competitors, [0, 1])    
+    
+    for competitor in competitors:    
+        base_url = fieUrl + competitor[1:]#  QUITAR [1:] CUANDO SE ESCRIBA BIEN EL FICHERO, SE USA PARA QUITAR EL ESPACIO EXTRA
+        competitor_data = obtain_competitor_data(base_url)
+        if not competitor_data:
+            wrong_competitors.append(base_url)
+            print "Error en competidor"
+        else:
+            correct_competitors.append(competitor_data)
+            print "Competidor correcto"
+        print " --> Restantes " + str(len(competitors) - (len(wrong_competitors) + len(correct_competitors))) + " de " + str(len(competitors))
+        print "Aciertos --> " + str(len(correct_competitors))
+        print "Fallos --> " + str(len(wrong_competitors))
+        
+    
+    b = time.clock()
+    print "Tiempo empleado --> " + str(b - a) + "segundos. Equivalente a --> " + str((b - a) / 60) + " minutos\n\n"
+    print "Errores\n"
+    print wrong_competitors 
 
-competitionsFile.close
-eliminatoriaFile.close
-
-print "Tiempo empleado --> " + str(b - a) + "segundos. Equivalente a --> " + str((b - a) / 60) + " minutos\n\n"
-print "Errores\n"
-print errors
-
-
-
-
-
-
-
-
-
+#print obtain_competitor_data("http://fie.org/fencers/Alexander-KASATOV-33540/", True)
+scrap_competitors()
