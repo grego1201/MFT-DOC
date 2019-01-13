@@ -6,35 +6,29 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{3}{section.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}Tecnolog\IeC {\'\i }a espec\IeC {\'\i }fica cursada}{4}{section.2}
+\contentsline {section}{\numberline {2}Tecnolog\IeC {\'\i }a espec\IeC {\'\i }fica cursada}{5}{section.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Objetivos}{5}{section.3}
-\defcounter {refsection}{0}\relax 
-\select@language {spanish}
-\defcounter {refsection}{0}\relax 
-\select@language {spanish}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}M\IeC {\'e}todos y fases de trabajo}{6}{section.4}
+\contentsline {section}{\numberline {3}Objetivos}{6}{section.3}
 \defcounter {refsection}{0}\relax 
 \select@language {spanish}
 \defcounter {refsection}{0}\relax 
 \select@language {spanish}
 \defcounter {refsection}{0}\relax 
-\select@language {spanish}
-\defcounter {refsection}{0}\relax 
-\select@language {spanish}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Medios que se pretende utilizar}{8}{section.5}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1}Medios hardware}{8}{subsection.5.1}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2}Medios software}{8}{subsection.5.2}
+\contentsline {section}{\numberline {4}M\IeC {\'e}todos y fases de trabajo}{7}{section.4}
 \defcounter {refsection}{0}\relax 
 \select@language {spanish}
 \defcounter {refsection}{0}\relax 
 \select@language {spanish}
 \defcounter {refsection}{0}\relax 
 \select@language {spanish}
+\defcounter {refsection}{0}\relax 
+\select@language {spanish}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Medios que se pretende utilizar}{9}{section.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1}Medios hardware}{9}{subsection.5.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2}Medios software}{9}{subsection.5.2}
 \defcounter {refsection}{0}\relax 
 \select@language {spanish}
 \defcounter {refsection}{0}\relax 
@@ -94,7 +88,13 @@
 \defcounter {refsection}{0}\relax 
 \select@language {spanish}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Bibliograf\IeC {\'\i }a}{9}{subsection.5.2}
+\select@language {spanish}
+\defcounter {refsection}{0}\relax 
+\select@language {spanish}
+\defcounter {refsection}{0}\relax 
+\select@language {spanish}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Bibliograf\IeC {\'\i }a}{10}{subsection.5.2}
 \defcounter {refsection}{0}\relax 
 \select@language {spanish}
 \defcounter {refsection}{0}\relax 

@@ -30,8 +30,8 @@ def obtenerCompeticiones(page):
         for x in body:
             competitions.append(x.find('a')['href'])
     else:
-        print "Fallo con página --> " + page
-    
+        print("Fallo con página --> " + page)
+
 def obtenerInformacionCompeticion(urlCompeticion):
     try:
         req = requests.get(urlCompeticion)
@@ -41,11 +41,11 @@ def obtenerInformacionCompeticion(urlCompeticion):
             info = []
             for i in infoTable:
                 info.append(i.text)
-                
+
             competitionsFile.write(", ".join(info) + "\n")
         else:
-            print "Fallo en competición --> " + urlCompeticion
-            
+            print("Fallo en competición --> " + urlCompeticion)
+
     except:
         return "Fallo en competición --> " + urlCompeticion
 
@@ -65,22 +65,22 @@ def obtenerRankingCompeticion(urlCompeticion):
                            "Nationality": infoParticipante[2].text,
                            "Birth Time": infoParticipante[3].text
                            })
-                else: 
+                else:
                     ranking.append({"Rank": infoParticipante[0].text,
                            "Points": infoParticipante[1].text,
                            "Name": infoParticipante[2].text,
                            "Nationality": infoParticipante[3].text,
                            "Birth Time": infoParticipante[4].text
                            })
-        
+
             return ranking
-        
+
         else:
-            print "obtenerRankingCompeticion Conexión: Fallo en competición --> " + urlCompeticion
+            print("obtenerRankingCompeticion Conexión: Fallo en competición --> " + urlCompeticioni)
             return []
-        
+
     except:
-        print "obtenerRankingCompeticion Excepción: Fallo en competición --> " + urlCompeticion
+        print("obtenerRankingCompeticion Excepción: Fallo en competición --> " + urlCompeticioni)
         return  []
 
 def obtenerPoulesCompeticion(urlCompeticion):
@@ -102,7 +102,7 @@ def obtenerPoulesCompeticion(urlCompeticion):
                                 "Oponent": assault,
                                 "Result": results[2 + assault].text,
                                 })
-                
+
                     resultsPool.append({
                            "Poule position": int(results[2]['class'][0].strip('col')) - 2,
                            "Nationality": results[0].text,
@@ -113,20 +113,20 @@ def obtenerPoulesCompeticion(urlCompeticion):
                            "HR": results[4 + index].text,
                             "HSHR": results[5 + index].text
                             })
-                    
-                poulesResults.append(resultsPool)    
+
+                poulesResults.append(resultsPool)
             return poulesResults
-            
+
         else:
-            print "obtenerPoulesCompeticion Conexión: Fallo en competición --> " + urlCompeticion
+            print("obtenerPoulesCompeticion Conexión: Fallo en competición --> " + urlCompeticion)
             return []
-        
+
     except Exception as e:
-        print e
-        print "\n"
-        print "obtenerPoulesCompeticion Excepción: Fallo en competición --> " + urlCompeticion
+        print(e)
+        print("\n")
+        print("obtenerPoulesCompeticion Excepción: Fallo en competición --> " + urlCompeticion)
         return  []
-    
+
 def obtenerTablon128Y64(urlCompeticion):
     try:
         req = requests.get(urlCompeticion)
@@ -135,11 +135,11 @@ def obtenerTablon128Y64(urlCompeticion):
             tables = html.find('div', {'class': 'rank-table'}).find_all('table')
             tableu_128 = []
             tableu_64 = []
-            
+
             for table in tables:
                 table_128 = table.find('td', {'class': 'col_1'}).find_all('div', {'class': 'rank-table__teams'})
                 table_64 = table.find('td', {'class': 'col_2'}).find_all('div', {'class': 'rank-table__teams'})
-                       
+
                 for part_1 in table_128:
                     assault = part_1.find_all('div', {'class': 'item'})
                     assault_result = []
@@ -153,11 +153,11 @@ def obtenerTablon128Y64(urlCompeticion):
                                 "Result": fencer.find('div', {'class': 'col4'}).text
                                 })
                     tableu_128.append(assault_result)
-                
+
                 for part_2 in table_64:
                     assault = part_2.find_all('div', {'class': 'item'})
                     assault_result = []
-                    
+
                     for fencer in assault:
                         if fencer.find('div', {'class': 'col2'}).text == "":
                             break
@@ -168,17 +168,17 @@ def obtenerTablon128Y64(urlCompeticion):
                                 "Result": fencer.find('div', {'class': 'col4'}).text
                                 })
                     tableu_64.append(assault_result)
-            
+
             return tableu_128, tableu_64
-            
+
         else:
-            print "Conexión: Fallo en competición --> " + urlCompeticion
+            print("Conexión: Fallo en competición --> " + urlCompeticion)
             return []
-        
-    except Exception as e:        
-        print e
-        print "\n"
-        print "Excepción: Fallo en competición --> " + urlCompeticion
+
+    except Exception as e:
+        print(e)
+        print("\n")
+        print("Excepción: Fallo en competición --> " + urlCompeticion)
         return  []
 
 def obtenerTablon64(urlCompeticion):
@@ -224,7 +224,7 @@ def obtenerTablon64(urlCompeticion):
                                 "Result": fencer.find('div', {'class': 'col4'}).text
                                 })
                     tableu_16.append(assault_result)
-                    
+
                 for part in table_8:
                     assault = part.find_all('div', {'class': 'item'})
                     assault_result = []
@@ -238,17 +238,17 @@ def obtenerTablon64(urlCompeticion):
                                 "Result": fencer.find('div', {'class': 'col4'}).text
                                 })
                     tableu_8.append(assault_result)
-                    
+
             return tableu_32, tableu_16, tableu_8
-                
+
         else:
-            print "Conexión: Fallo en competición --> " + urlCompeticion
+            print("Conexión: Fallo en competición --> " + urlCompeticion)
             return []
-        
-    except Exception as e:        
-        print e
-        print "\n"
-        print "Excepción: Fallo en competición --> " + urlCompeticion
+
+    except Exception as e:
+        print(e)
+        print("\n")
+        print("Excepción: Fallo en competición --> " + urlCompeticion)
         return  []
 
 def obtenerTablon32(urlCompeticion):
@@ -292,7 +292,7 @@ def obtenerTablon32(urlCompeticion):
                                 "Result": fencer.find('div', {'class': 'col4'}).text
                                 })
                     tableu_16.append(assault_result)
-                    
+
                 for part in table_8:
                     assault = part.find_all('div', {'class': 'item'})
                     assault_result = []
@@ -306,17 +306,17 @@ def obtenerTablon32(urlCompeticion):
                                 "Result": fencer.find('div', {'class': 'col4'}).text
                                 })
                     tableu_8.append(assault_result)
-                    
+
             return tableu_32, tableu_16, tableu_8
-                
+
         else:
-            print "Conexión: Fallo en competición --> " + urlCompeticion
+            print("Conexión: Fallo en competición --> " + urlCompeticion)
             return []
-        
-    except Exception as e:        
-        print e
-        print "\n"
-        print "Excepción: Fallo en competición --> " + urlCompeticion
+
+    except Exception as e:
+        print(e)
+        print("\n")
+        print("Excepción: Fallo en competición --> " + urlCompeticion)
         return  []
 
 def obtenerTablon16(urlCompeticion):
@@ -324,15 +324,15 @@ def obtenerTablon16(urlCompeticion):
         req = requests.get(urlCompeticion)
         if req.status_code == 200:
             html = BeautifulSoup(req.text, "html.parser")
-        
+
             tables = html.find('div', {'class': 'rank-table'}).find_all('table')
             tableu_16 = []
             tableu_8 = []
-            
+
             for table in tables:
                 table_16 = table.find('td', {'class': 'col_1'}).find_all('div', {'class': 'rank-table__teams'})
                 table_8 = table.find('td', {'class': 'col_2'}).find_all('div', {'class': 'rank-table__teams'})
-            
+
                 for part in table_16:
                     assault = part.find_all('div', {'class': 'item'})
                     assault_result = []
@@ -346,7 +346,7 @@ def obtenerTablon16(urlCompeticion):
                                 "Result": fencer.find('div', {'class': 'col4'}).text
                                 })
                     tableu_16.append(assault_result)
-                    
+
                 for part in table_8:
                     assault = part.find_all('div', {'class': 'item'})
                     assault_result = []
@@ -360,47 +360,47 @@ def obtenerTablon16(urlCompeticion):
                                 "Result": fencer.find('div', {'class': 'col4'}).text
                                 })
                     tableu_8.append(assault_result)
-                    
+
             return tableu_16, tableu_8
-                
+
         else:
-            print "Conexión: Fallo en competición --> " + urlCompeticion
+            print("Conexión: Fallo en competición --> " + urlCompeticion)
             return []
-        
-    except Exception as e:        
-        print e
-        print "\n"
-        print "Excepción: Fallo en competición --> " + urlCompeticion
+
+    except Exception as e:
+        print(e)
+        print("\n")
+        print("Excepción: Fallo en competición --> " + urlCompeticion)
         return  []
-                 
+
 def obtenerTablon8(urlCompeticion):
     try:
         req = requests.get(urlCompeticion)
         if req.status_code == 200:
             html = BeautifulSoup(req.text, "html.parser")
             tables = html.find('div', {'class': 'rank-table'})
-            
+
             table4 = tables.find('td', {'class': 'col_2'}).find_all('div', {'class': 'rank-table__teams'})
             table2 = tables.find('td', {'class': 'col_3'}).find_all('div', {'class': 'rank-table__teams'})
-            
+
             tableu_4 = obtenerDatosTablon(table4)
             tableu_2 = obtenerDatosTablon(table2)
-                    
+
             return tableu_4, tableu_2
-        
+
         else:
-            print "Conexión: Fallo en competición --> " + urlCompeticion
-        return []
-        
-    except Exception as e:        
-        print e
-        print "\n"
-        print "Excepción: Fallo en competición --> " + urlCompeticion
+            print("Conexión: Fallo en competición --> " + urlCompeticion)
+            return []
+
+    except Exception as e:
+        print(e)
+        print("\n")
+        print("Excepción: Fallo en competición --> " + urlCompeticion)
         return  []
-    
+
 def obtenerDatosTablon(tablon):
     board = []
-    
+
     for part in tablon:
         assault = part.find_all('div', {'class': 'item'})
         assault_result = []
@@ -441,29 +441,29 @@ def detectarTipoCompeticionYTablones(urlCompeticion):
             for pestania in pestanias:
                 item = pestania.find('a')
                 nombrePestanias.append((item.text, item['href']))
-            
+
             if tables[6].text == "T":
                 return "Equipos", nombrePestanias
             else:
                 return "Individual", nombrePestanias
 
         else:
-            print "Conexión: Fallo en competición --> " + urlCompeticion
+            print("Conexión: Fallo en competición --> " + urlCompeticion)
         return []
-        
+
     except Exception as e:
-        print e
-        print "\n"
-        print "Excepción: Fallo en competición --> " + urlCompeticion
+        print(e)
+        print("\n")
+        print("Excepción: Fallo en competición --> " + urlCompeticion)
         return  []
-    
+
 def check64Tableu(urlCompeticion):
     try:
         req = requests.get(urlCompeticion)
         if req.status_code == 200:
             html = BeautifulSoup(req.text, "html.parser")
             tables = html.find_all('a', {'class': 'btn-transparent'})
-            
+
             if tables[-3].text == "tablo 64":
                 return "64"
             elif tables[-3].text == "tablo 32":
@@ -472,56 +472,53 @@ def check64Tableu(urlCompeticion):
                 return "16"
 
         else:
-            print "Conexión: Fallo en competición --> " + urlCompeticion
+            print("Conexión: Fallo en competición --> " + urlCompeticion)
         return []
-        
+
     except Exception as e:
-        print e
-        print "\n"
-        print "Excepción: Fallo en competición --> " + urlCompeticion
+        print(e)
+        print("\n")
+        print("Excepción: Fallo en competición --> " + urlCompeticion)
         return  []
-    
-    
+
 def scrap_competitions():
-    pages = []    
+    pages = []
     competitions = []
     fieUrl = "http://fie.org"
-    
+
     competitionHead = "Category, Gender, Weapon, Competition, Place, Date, Type, Event\n"
     competitionsFile = codecs.open("../data/competiciones.csv", "w+", encoding='utf-8')
     competitionsFile.write(competitionHead)
-    
+
     eliminiatoriaHead = "CompetitionID, Tableu, Competitor1, Competitor2, ResultCompetitor1, ResultCompetitor2\n"
     eliminatoriaFile = codecs.open("../data/eliminatoria.csv", "w+", encoding='utf-8')
     eliminatoriaFile.write(eliminiatoriaHead)
-    
-    
+
     a = time.clock()
-    
+
     obtenerPaginas()
-    print "\n \n -------------------- "
-    print "Paginas obtenidas"
-    print " -------------------- \n \n"
-    
+    print("\n \n -------------------- ")
+    print("Paginas obtenidas")
+    print(" -------------------- \n \n")
     obtenerCompeticiones(fieUrl)
-    print "\n \n -------------------- "
-    print "Competiciones creadas"
-    print " -------------------- \n \n"
-    
+    print("\n \n -------------------- ")
+    print("Competiciones creadas")
+    print(" -------------------- \n \n")
+
     errors = []
     equipos = []
-    
+
     for competition in competitions:
         base_url = fieUrl + competition
-        print base_url
-        
+        print(base_url)
+
         try:
             tipo, pestanias = detectarTipoCompeticionYTablones(base_url)
             if tipo == "Individual":
                 obtenerRankingCompeticion(base_url + "/rank")
                 obtenerPoulesCompeticion(base_url + "/pools")
                 tablon128 = tablon64 = tablon32 = tablon16 = tablon8 = tablon4 = tablon2 = ""
-                
+
                 for pestania in pestanias:
                     link = fieUrl + str(pestania[1])
                     if pestania[0] == "tablo 64":
@@ -532,127 +529,138 @@ def scrap_competitions():
                         tablon16, tablon8 = obtenerTablon16(link)
                     elif pestania[0] == "quarterfinal":
                         tablon4, tablon2 = obtenerTablon8(link)
-                        
+
                 tablones = [tablon128, tablon64, tablon32, tablon16, tablon8, tablon4, tablon2]
-                
+
                 for tablon in tablones:
                     if tablon is "":
                         next
                     year, competitionID = base_url.split("competitions/")[1].split("/")[0:2]
                     line = escribirResultados(year + "-" + competitionID, tablon)
                     eliminatoriaFile.write(line)
-                print "Competición lista --> " + str(base_url) + "\n errores --> " + str(len(errors))
+                print("Competición lista --> " + str(base_url) + "\n errores --> " + str(len(errors)))
             else:
-                print "Competición pasada por equipos --> "+ str(base_url)
+                print("Competición pasada por equipos --> "+ str(base_url))
                 equipos.append(base_url)
-            print "\nRestantes --> " + str(len(competitions) - competitions.index(competition)) + "/" + str(len(competitions)) + "\n"
-        
+            print("\nRestantes --> " + str(len(competitions) - competitions.index(competition)) + "/" + str(len(competitions)) + "\n")
+
         except Exception as e:
-            print "Error con la siguiente url -->" + str(base_url)
-            print "\nRestantes --> " + str(len(competitions) - competitions.index(competition)) + "/" + str(len(competitions)) + "\n"
-    
+            print("Error con la siguiente url -->" + str(base_url))
+            print("\nRestantes --> " + str(len(competitions) - competitions.index(competition)) + "/" + str(len(competitions)) + "\n")
+
             errors.append(base_url)
-        
-    print "\n \n -------------------- "
-    print "Información obtenida"
-    print " -------------------- \n \n"
-    
+
+    print("\n \n -------------------- ")
+    print("Información obtenida")
+    print(" -------------------- \n \n")
+
     b = time.clock()
-    
+
     competitionsFile.close
     eliminatoriaFile.close
-    
-    print "Tiempo empleado --> " + str(b - a) + "segundos. Equivalente a --> " + str((b - a) / 60) + " minutos\n\n"
-    print "Errores\n"
-    print errors 
-    
+
+    print("Tiempo empleado --> " + str(b - a) + "segundos. Equivalente a --> " + str((b - a) / 60) + " minutos\n\n")
+    print("Errores\n")
+    print(errors )
+
 def obtain_competitor_data(url, debug = False):
     try:
         req = requests.get(url)
         if req.status_code == 200:
             html = BeautifulSoup(req.text, "html.parser")
-                        
+
             fie_ranking_container = html.find('div', {'class': 'jumbotron__ranking'})
-            
+
+            translation = {
+                10: "",
+                9: "",
+            }
             if fie_ranking_container:
-                fie_ranking = str(html.find('div', {'class': 'jumbotron__ranking'}).text).translate(None, '\t\n')
+                fie_ranking = str(html.find('div', {'class': 'jumbotron__ranking'}).text).translate(translation)
             else:
                 fie_ranking = None
-            
+
             weapon_container = html.find('li', {'class': 'jumbotron__weapon'})
-            if weapon_container: 
-                weapon = str(html.find('li', {'class': 'jumbotron__weapon'}).text.encode('utf-8')).translate(None, '\t\n')
+            if weapon_container:
+                weapon = str(html.find('li', {'class': 'jumbotron__weapon'}).text).translate(translation)
             else:
                 weapon = None
+
+            age = str(html.find('div', {'class': 'jumbotron__age'}).text).translate(translation)
+            handness = str(html.find('div', {'class': 'jumbotron__handness'}).text).translate(translation)
+            nationality = str(html.find_all('div', {'class': 'jumbotron__table-cell-title'})[1].text).translate(translation)
+            if nationality == "Age":
+                nationality = str(html.find_all('div', {'class': 'jumbotron__table-cell-title'})[0].text).translate(translation)
+
+            fencer_id = str(url.split("/")[-2])
+
             if debug:
-                print "ID -> " + str(url.split("/")[-1])
-                print "\nAGE -> " + str(html.find_all('div', {'class': 'jumbotron__table-cell-title'})[1].text).translate(None, '\t\n')
-                print "\n HANDNESS -> " + str(html.find('div', {'class': 'jumbotron__handness'}).text).translate(None, '\t\n')
-                print "\n AGE -> " + str(html.find('div', {'class': 'jumbotron__age'}).text).translate(None, '\t\n')
-                print "\n WEAPON -> " + str(html.find('li', {'class': 'jumbotron__weapon'}).text.encode('utf-8')).translate(None, '\t\n')
-            
-            
-            
+                print("ID -> " + fencer_id)
+                print("\n NATIONALITY -> "+ nationality)
+                print("\n HANDNESS -> " + handness)
+                print("\n AGE -> " + age)
+                print("\n WEAPON -> " + weapon)
+                print("\n FIE RANKING -> " + fie_ranking )
+
             return {
-                    "fencer_id": str(url.split("/")[-2]),
-                    "nationality": str(html.find_all('div', {'class': 'jumbotron__table-cell-title'})[1].text).translate(None, '\t\n'),
-                    "handness": str(html.find('div', {'class': 'jumbotron__handness'}).text).translate(None, '\t\n'),
-                    "age": str(html.find('div', {'class': 'jumbotron__age'}).text).translate(None, '\t\n'),
+                    "fencer_id": fencer_id,
+                    "nationality": nationality,
+                    "handness": handness,
+                    "age": age,
                     "weapon": weapon,
                     "fie_ranking": fie_ranking
                     }
-        
+
         else:
-            print "Conexión: Fallo en competidor --> " + url
+            print("Conexión: Fallo en competidor --> " + url)
         return {}
-        
-    except Exception as e:        
-        print e
-        print "\n"
-        print "Excepción: Fallo en competidor --> " + url
+
+    except Exception as e:
+        print(e)
+        print("\n")
+        print("Excepción: Fallo en competidor --> " + url)
         return  {}
-    
-    
 
 def scrap_competitors():
-    
-    pages = []    
+    pages = []
     competitors = []
     wrong_competitors = []
     correct_competitors = []
     fieUrl = "http://fie.org"
-    
+
     competitorHead = "ID, Edad, FieRanking, Nacionalidad, Mano, Arma\n"
     competitorsFile = codecs.open("../data/competidores.csv", "w+", encoding='utf-8')
     competitorsFile.write(competitorHead)
-    
+
     a = time.clock()
-    
+
     df = pd.read_csv("../data/eliminatoria - copia.csv")
-    
+
     competitors1 = np.unique(df[" Competitor1"].values)
     competitors2 = np.unique(df[" Competitor2"].values)
     competitors = np.unique(np.concatenate((competitors1, competitors2)))
-    competitors = np.delete(competitors, [0, 1])    
-    
-    for competitor in competitors:    
+    competitors = np.delete(competitors, [0, 1])
+
+    for competitor in competitors:
         base_url = fieUrl + competitor[1:]#  QUITAR [1:] CUANDO SE ESCRIBA BIEN EL FICHERO, SE USA PARA QUITAR EL ESPACIO EXTRA
         competitor_data = obtain_competitor_data(base_url)
         if not competitor_data:
             wrong_competitors.append(base_url)
-            print "Error en competidor"
+            print("Error en competidor")
         else:
             correct_competitors.append(competitor_data)
-            print "Competidor correcto"
-        print " --> Restantes " + str(len(competitors) - (len(wrong_competitors) + len(correct_competitors))) + " de " + str(len(competitors))
-        print "Aciertos --> " + str(len(correct_competitors))
-        print "Fallos --> " + str(len(wrong_competitors))
-        
-    
-    b = time.clock()
-    print "Tiempo empleado --> " + str(b - a) + "segundos. Equivalente a --> " + str((b - a) / 60) + " minutos\n\n"
-    print "Errores\n"
-    print wrong_competitors 
+            line = f"{competitor_data['fencer_id']}, {competitor_data['age']}, {competitor_data['fie_ranking']}, {competitor_data['nationality']}, {competitor_data['handness']}, {competitor_data['weapon']} \n"
+            competitorsFile.write(line)
+            print("Competidor correcto")
+        print(" --> Restantes " + str(len(competitors) - (len(wrong_competitors) + len(correct_competitors))) + " de " + str(len(competitors)))
+        print("Aciertos --> " + str(len(correct_competitors)))
+        print("Fallos --> " + str(len(wrong_competitors)))
+    competitorsFile.close
 
-#print obtain_competitor_data("http://fie.org/fencers/Alexander-KASATOV-33540/", True)
+    b = time.clock()
+    print("Tiempo empleado --> " + str(b - a) + "segundos. Equivalente a --> " + str((b - a) / 60) + " minutos\n\n")
+    print("Errores\n")
+    print(wrong_competitors)
+
+# print(obtain_competitor_data("http://fie.org/fencers/ADRIANA-MILANO-36467/", True))
 scrap_competitors()
