@@ -2,9 +2,14 @@
 
 doc/PlantillaAnteTFG/*
 doc/PlantillaTFG/*
+
+# Ignore vim files
 *.swp
 *.swo
 
-doc/Anteproyecto/AnteproyectoTFG.bcf
-
-doc/Anteproyecto/*.aux
+# Ignore latex files
+*.bcf
+*.aux
+*.log
+*.synctex.gz
+*.toc
