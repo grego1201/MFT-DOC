@@ -3,16 +3,8 @@
 doc/PlantillaAnteTFG/*
 doc/PlantillaTFG/*
 *.swp
+*.swo
 
-*.aux
-*.lof
-*.log
-*.lot
-*.fls
-*.out
-*.toc
-*.fmt
-*.fot
-*.cb
-*.cb2
-.*.lb
+doc/Anteproyecto/AnteproyectoTFG.bcf
+
+doc/Anteproyecto/*.aux
