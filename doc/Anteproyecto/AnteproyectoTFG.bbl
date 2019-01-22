@@ -67,6 +67,10 @@
       \field{labeltitlesource}{title}
       \field{langid}{spanish}
       \field{title}{Trello}
+      \field{urlday}{20}
+      \field{urlmonth}{12}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://trello.com/
       \endverb
@@ -173,6 +177,10 @@
       \field{labeltitlesource}{title}
       \field{langid}{spanish}
       \field{title}{Google Chrome}
+      \field{urlday}{28}
+      \field{urlmonth}{12}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://www.google.com/intl/es_ALL/chrome/
       \endverb
@@ -198,6 +206,10 @@
       \field{labeltitlesource}{title}
       \field{langid}{spanish}
       \field{title}{RoR}
+      \field{urlday}{12}
+      \field{urlmonth}{11}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://rubyonrails.org/
       \endverb
@@ -223,6 +235,10 @@
       \field{labeltitlesource}{title}
       \field{langid}{spanish}
       \field{title}{MatPlotLib}
+      \field{urlday}{30}
+      \field{urlmonth}{12}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://matplotlib.org/
       \endverb
@@ -248,6 +264,10 @@
       \field{labeltitlesource}{title}
       \field{langid}{spanish}
       \field{title}{The definitive guide to scrum: The rules of the game}
+      \field{urlday}{30}
+      \field{urlmonth}{12}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://www.scrumguides.org/scrum-guide.html
       \endverb
@@ -273,6 +293,10 @@
       \field{labeltitlesource}{title}
       \field{langid}{spanish}
       \field{title}{LaTeX}
+      \field{urlday}{12}
+      \field{urlmonth}{11}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://www.latex-project.org/
       \endverb
@@ -324,6 +348,10 @@
       \field{labeltitlesource}{title}
       \field{langid}{spanish}
       \field{title}{Git}
+      \field{urlday}{20}
+      \field{urlmonth}{12}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://git-scm.com/
       \endverb
@@ -347,6 +375,10 @@
       \field{labeltitlesource}{title}
       \field{langid}{spanish}
       \field{title}{Github}
+      \field{urlday}{20}
+      \field{urlmonth}{12}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://github.com/
       \endverb
@@ -372,6 +404,10 @@
       \field{labeltitlesource}{title}
       \field{langid}{spanish}
       \field{title}{Mozilla Firefox}
+      \field{urlday}{28}
+      \field{urlmonth}{12}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://www.mozilla.org/es-ES/firefox/
       \endverb
@@ -400,6 +436,10 @@
       \field{labeltitlesource}{title}
       \field{langid}{spanish}
       \field{title}{CLIPS}
+      \field{urlday}{10}
+      \field{urlmonth}{11}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://www.clipsrules.net/
       \endverb
@@ -425,6 +465,10 @@
       \field{labeltitlesource}{title}
       \field{langid}{spanish}
       \field{title}{Numpy}
+      \field{urlday}{30}
+      \field{urlmonth}{12}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://www.numpy.org/
       \endverb
@@ -450,6 +494,10 @@
       \field{labeltitlesource}{title}
       \field{langid}{spanish}
       \field{title}{Toggl}
+      \field{urlday}{20}
+      \field{urlmonth}{12}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://toggl.com/
       \endverb
@@ -473,6 +521,10 @@
       \field{labeltitlesource}{title}
       \field{langid}{spanish}
       \field{title}{Overleaf}
+      \field{urlday}{20}
+      \field{urlmonth}{12}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://www.overleaf.com
       \endverb
@@ -498,6 +550,10 @@
       \field{labeltitlesource}{title}
       \field{langid}{spanish}
       \field{title}{Spyder}
+      \field{urlday}{28}
+      \field{urlmonth}{12}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://www.spyder-ide.org/
       \endverb
@@ -523,6 +579,10 @@
       \field{labeltitlesource}{title}
       \field{langid}{spanish}
       \field{title}{BeatifulSoup}
+      \field{urlday}{30}
+      \field{urlmonth}{12}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://www.crummy.com/software/BeautifulSoup/bs4/doc/
       \endverb
@@ -550,6 +610,10 @@
       \field{labeltitlesource}{title}
       \field{langid}{spanish}
       \field{title}{Python}
+      \field{urlday}{10}
+      \field{urlmonth}{11}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://docs.python.org/3/
       \endverb

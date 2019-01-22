@@ -1,15 +1,15 @@
 [0] Config.pm:354> INFO - This is Biber 2.7 (beta)
 [0] Config.pm:357> INFO - Logfile is 'AnteproyectoTFG.blg'
-[17] biber:303> INFO - === dom dic 30, 2018, 15:00:44
+[17] biber:303> INFO - === mar ene 22, 2019, 17:48:46
 [25] Biber.pm:360> INFO - Reading 'AnteproyectoTFG.bcf'
 [72] Biber.pm:833> INFO - Using all citekeys in bib section 0
-[79] Biber.pm:3671> INFO - Processing section 0
+[80] Biber.pm:3671> INFO - Processing section 0
 [87] Biber.pm:3841> INFO - Looking for bibtex format file 'biblio.bib' for section 0
 [88] bibtex.pm:1424> INFO - Decoding LaTeX character macros into UTF-8
-[91] bibtex.pm:1281> INFO - Found BibTeX data source 'biblio.bib'
-[123] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[123] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[123] Biber.pm:3500> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-US'
-[123] Biber.pm:3506> INFO - No sort tailoring available for locale 'en-US'
-[133] bbl.pm:608> INFO - Writing 'AnteproyectoTFG.bbl' with encoding 'UTF-8'
-[135] bbl.pm:712> INFO - Output to AnteproyectoTFG.bbl
+[92] bibtex.pm:1281> INFO - Found BibTeX data source 'biblio.bib'
+[126] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[126] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[126] Biber.pm:3500> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-US'
+[126] Biber.pm:3506> INFO - No sort tailoring available for locale 'en-US'
+[136] bbl.pm:608> INFO - Writing 'AnteproyectoTFG.bbl' with encoding 'UTF-8'
+[138] bbl.pm:712> INFO - Output to AnteproyectoTFG.bbl

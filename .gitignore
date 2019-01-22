@@ -13,3 +13,9 @@ doc/PlantillaTFG/*
 *.log
 *.synctex.gz
 *.toc
+*.bbl
+*.blg
+*.run.xml
+
+# Ignore pycache
+app/__pycache__
