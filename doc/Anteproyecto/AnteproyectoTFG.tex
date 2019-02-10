@@ -14,9 +14,21 @@
 % por defecto `latexmk.'
 %%%%%%%%%%%%%%
 
+
+\iffalse
+log de revisiones
+
+\fi
+
 \iffalse
 % MEJORAS
 % MEJORAS PENDIENTES
+
+
+
+
+Crear un datawarehouse para estructurar los datos en tablas como hicimos en BBDD Avanzadas.
+A partir de aquí intentar hacer un arbol de decisión o red neuronal para predecir resultados.
 \fi
 
 % !TeX program = pdflatex
@@ -128,12 +140,10 @@
 \newpage
 
 \section{Introducción}
-%%%%%%%%%%%
-% nuevo
-%%%%%%%%%%
-
 % Hablamos sobre IA
-Actualmente está sucediendo una adaptación tecnológica por todos los cambios y posibilidades abiertas en los últimos años.
+Actualmente está sucediendo una adaptación tecnológica en casi todos los ámbitos y sectores, desde los profesionales como podrían ser
+ el sector agrícola y marketing hasta sociales como podrían ser las redes sociales. Esto es debido a todos los cambios y desarrollos
+ tecnológicos producidos en los últimos años.
 Cada vez son mas las empresas, organizaciones y grupos que están apoyando la toma de decisiones, ya sea a pequeña o gran escala,
 en diferentes sistemas pensados para ello. Esto es debido a que el campo de la inteligencia artificial (IA a partir de ahora)
 avanzó al ritmo suficiente como para poder permitirlo. Se puede definir como IA una combinación de algoritmos que permiten a
@@ -142,29 +152,37 @@ avanzó al ritmo suficiente como para poder permitirlo. Se puede definir como IA
  aquellas que actúan racionalmente.
 
 \smallskip
-Algunos ejemplos de estos casos son los sistemas que ayudan a los bancos a decidir si un cliente es de riesgo o no. También se hacen investigaciones
+Hay muchísima información de la cual no se está sacando todo el provecho que se debería. Esto es conocido como
+ big data debido a la gran cantidad de información. Big Data no es mas que una gran cantidad de información, actualmente podríamos hablar de Teras mientras
+ que hace un lustro podrían ser Gigas, la cual no puede ser procesada a simple vista y se requieren de diferentes máquinas y procesos para ello. Estos procesos
+ se conocen como KDD~\cite{kdd} del ingles \textit{Knowledge Discovery in Databases}. Por suerte durante años se han guardado muchos datos, pero por desgracia
+ la mayoría de estos no han sido utilizados para nada y es actualmente con estas técnicas con las que se empieza a sacar conocimiento de ellos. Pero muchos de estos
+ datos no estaban pensados para ser utilizados después por lo que habrá que tratarlos y en muchos casos no servirá toda la información que hay almacenada
+ y es aquí donde hay que saber filtrarla. Dicha información puede estar almacenada en BBDD o en internet en diferentes páginas webs por ejemplo.
+
+\smallskip
+Algunos ejemplos de estas máquinas son los sistemas que ayudan a los bancos a decidir si un cliente es de riesgo o no. También se hacen investigaciones
  para averiguar aquellos delincuentes que son potenciales de ser reincidentes en su delito. Otro ejemplo podría ser aquellos asistentes virtuales como
  podría ser el ejemplo de Irene de renfe. Otro de los ejemplos podría ser en la agricultura cuando abonar o no una planta, cuando esperar a
  recoger los frutos de un arbol, cuando una planta tiene una enfermedad, etc.
 
-
-\bigskip
+\smallskip
 % Hablamos sobre IC pasando a SBC
-Este último caso nombrado sería un claro ejemplo de un sistema basado en el conocimiento. Para desarrollar estos sistemas hace falta aplicar ingeniería del conocimiento.
+Este último caso nombrado sería un claro ejemplo de un Sistema Basado en el Conocimiento (SBC a partir de ahora). Para desarrollar estos sistemas hace falta aplicar ingeniería del conocimiento.
 Esta consiste en extraer todo el conocimiento posible de una forma totalmente natural para después poder plasmarla en una máquina. Para ello se requiere de habilidades
  de comunicación, herramientas de desarrollo, conocimientos mínimos de psicología para poder interpretar las expresiones y manifestaciones del experto humano. Aquél ICO (Ingeniero del conocimiento)
  ha de encargarse de que el experto se sienta cómodo y pueda comunicarle todo su conocimiento de la forma mas entendible que posible para que las labores de implementación
- y desarrollo del sistema sean lo mas eficientes posibles. Como bien se puede imaginar un Sistema Basado en el Conocimiento (SBC a partir de ahora) será un sistema
+ y desarrollo del sistema sean lo mas eficientes posibles. Como bien se puede imaginar un SBC será un sistema
  en el cúal estará plasmado todo el conocimiento de uno o varios expertos, adquirido por uno o varios ingenieros del conocimiento, de tal forma que se pueda comoportar
  como si este sistema fuera experto en la materia, pudiendo hacer consultas y que sea capáz de contestarlas como lo haría una de las personas con sabiduría en el sector.
- Esta ingeniería del conocimiento sería una subcategoría dentro de la inteligencia artificial.
+ Esta ingeniería del conocimiento sería una subcategoría dentro de la IA.
 
 \smallskip
 Gracias a los sistemas anteriores podremos apoyarnos en algo mas que nuestra intuición para tomar una decisión, cuando es la mejor combinación para hacer crecer una planta,
  cúal es el mejor momento de invertir en bolsa, cúal es la mejor formación de un equipo de rugby contra una del equipo rival, cúal es la mejor estrategia a tomar frente a un tirador de esgrima
  de puño francés que es más alto que nosotros, etc.
 
-\bigskip
+\newpage
 % Hablamos de esgrima
 La esgrima es un deporte en el cual dependiendo de la modalidad se puede tocar de una manera u otra y en diferentes partes del cuerpo. Esto lleva a que haya diferentes estrategias
  y estilos. Estos estilos llevan a trazar un plan y una táctica dentro del combate para vencer a tu rival. Esto se puede hacer gracias una experiencia adquirida con anterioridad
@@ -176,7 +194,7 @@ La esgrima es un deporte en el cual dependiendo de la modalidad se puede tocar d
  si lo tuviera, lo cual haría la situación todavía mas injusta. Además en estos casos se suele sumar la falta de experiencia, lo cual hace que el salto entre estos dos casos sea
  mayor de lo deseado, otorgando una gran ventaja a quien pueda tener esta figura frente a quien no la tenga.
 
-\bigskip
+\smallskip
 % Falta de IA en esgrima
 Curiosamente en un mundo en el que se desarrollan tantas aplicaciones, se investiga tanto en diferentes areas, se aprovecha la tecnología para facilitar la vida a las personas
  en el deporte de esgrima lo mas cercano a IA es un aparato de entrenamiento el cual marca diferentes objetivos aleatoriamente. Ahora se están empezando a guardar los datos de
@@ -206,27 +224,6 @@ https://es.wikipedia.org/wiki/Inteligencia_artificial
 
 \fi
 
-
-
-\iffalse
-%%%%%%%%%%%
-% viejo
-%%%%%%%%%%
-\bigskip
-\bigskip
-\bigskip
-En todo aspecto competitivo que te enfrente directamente a otra persona se tendrán que plantear diferentes estrategias para superar al rival. Estas estrategias se deciden a raíz del conocimiento sobre el deporte adquirido con el paso de los años y las experiencias vividas de cada persona. Además de esto hay otro componente principal a la hora de decantarse por una estrategia u otra, el adversario. Tomar estas decisiones no es nada fácil para una persona visto desde fuera, analizando todo lo que sucedió y pensando cuales serán los siguientes movimientos del rival. Una variable que aumenta la dificultad para esta toma de decisiones es tener que llevar a cabo estos pensamientos mientras intentas llevarlos a cabo. Esto pasa en los deportes individuales, has de pensar que hacer mientras pones en marcha el plan trazado con anterioridad.
-
-\smallskip
-Para ayudar en estas situaciones se inventó una figura de entrenador, la cuál ayudará a elegir una estrategia u otra en función de lo que se ve desde fuera, sin tener que preocuparse en llevar a cabo la anterior. De este modo al separar trabajos, mente y cuerpo, se podrá focalizar en cada uno de ellos y tener mayores probabilidades de obtener el éxito. Este caso sería el ideal pero a niveles bajos no se dispone de esta figura, por lo que resulta difícil sacar todo el potencial en competición.
-
-\bigskip
-El objetivo de este Trabajo de Fin de Grado (TFG a partir de ahora) consiste en desarrollar un entrenador virtual que sirva como apoyo en tiempo real para la toma de decisiones sobre estrategias en las competiciones de esgrima. También servirá para aquellas personas que quieran ampliar su conocimiento y saber que posibilidades hay ante diferentes situaciones en combate.
-
-\bigskip
-La elección del tema sobre el que versa este TFG surge a raíz de un problema visualizado durante las competiciones que no eran de alto nivel de esgrima. Solamente los tiradores de mas alto nivel tenían un entrenador personal que les pudiera ayudar, de este modo ellos solo se tenían que preocupar de llevar a cabo lo que les decían. Sin embargo el resto de tiradores tenían que pensar en que hacer a la vez que se tenían que defender del rival. De este modo en el momento que puedan consultar su teléfono móvil u ordenador portátil podrán hacer una consulta la cual les ayudará a tomar una decisión basándose en parámetros apreciables por el tirador, argumentando las razones y dando varias alternativas.
-\fi
-
 \newpage
 
 \section{Tecnología específica cursada}
@@ -235,24 +232,6 @@ En el presente apartado se muestran dos tablas (Tabla 1 y Tabla 2) que indican r
     \item Tabla 1: La tecnología especifica / intensificación / itinerario cursado por el autor en su estancia en la ESI como alumno del Grado en Ingeniería en Informática.
     \item Tabla 2: Dentro de cada intensificación existen una serie de competencias para las cuales el alumno está capacitado, se muestran y explican cuáles de dichas competencias van a ser aplicadas durante el desarrollo de este TFG.
 \end{itemize}
-
-% Tratamiento de la tabla como un float
-%\begin{table}[htb]
-   %\centering
-   %\caption{Tecnología Espécifica cursada por el alumno}
-	 %\label{tab:tecno}
-   %\rowcolors{1}{white}{sombra}
-   %\begin{tabular}{cl}
-		%\hline
-          %& Tecnologías de la Información \\
-          %& Computación   \\
-          %& Ingeniería del Software \\
-		%\ding{52}		& Ingeniería de Computadores \\
-		%\hline
-   %\end{tabular}
-%\end{table}
-
-% OJO: A petición de algunos alumnos he añadido un método poco ortodoxo para la creación de las tablas sin hacer uso de un entorno table. De este modo la tabla se incluye justo en el punto de su inclusión. El título y la numeración de la misma se incluye de modo "manual". En realidad este hack solo es preciso si la estructura final del documento es excepcionalmente rara con alguna sección en la que haya muy poco texto frente al tamaño de los elementos floats.
 
 \begin{center}
    \textbf{Tabla 1}: Tecnología específica cursada por el alumno\\[1em]
@@ -285,27 +264,14 @@ En el presente apartado se muestran dos tablas (Tabla 1 y Tabla 2) que indican r
    \end{tabular}
 \end{center}
 
-
-% Resto de competencias sin asignar.
-
-%Capacidad para tener un conocimiento profundo de los principios fundamentales y modelos de la computación y saberlos aplicar para interpretar, seleccionar, valorar, modelar, y crear nuevos conceptos, teorías, usos y desarrollos tecnológicos relacionados con la informática.
-%Capacidad para conocer los fundamentos, paradigmas y técnicas propias de los sistemas inteligentes y analizar, diseñar y construir sistemas, servicios y aplicaciones informáticas que utilicen dichas técnicas en cualquier ámbito de aplicación.
-
-
 \newpage
 
 \section{Objetivos}
-%%%%%%%%%%%
-% nuevo
-% Escribir la parte nueva aquí
-%%%%%%%%%%
-
-
 
 El principal objetivo de este TFG es contribuir al mundo del deporte, en concreto al deporte de la esgrima.
  Se quiere reducir la inclinación en la curva de aprendizaje en el momento que tienes que aprender por ti
- mismo y necesitas ayuda de los demás para saber que es lo correcto hasta que te puedes valer por si mismo
- un tirador es capaz de identificar las acciones que están ocurriendo y analizar cuales son las mejores
+ mismo y necesitas ayuda de los demás para saber que es lo correcto hasta que te puedes valer por ti mismo
+ como tirador que es capaz de identificar las acciones que están ocurriendo y analizar cuales son las mejores
  decisiones para contrarrestarlas.
 
 \medskip
@@ -314,10 +280,10 @@ Para ello se pretende desarrollar una aplicación la cual sea capaz de llevar a 
  como son las características de los tiradores, como se está desarrollando el asalto, etc.
 
 \medskip
-Esta aplicación será desarrollada llevando a cabo una labor de Ingeniería de conocimiento para describir el problema,
- extraer el conocimiento de expertos, conceptualizar, formalizar e implementar dicho conocimiento de manera entendible
- para los usuarios de dicha aplicación.
-Dicha aplicación será un sistema basado en el conocimiento el cual aglutine todo el conocimiento de los expertos en
+Esta aplicación será desarrollada llevando a cabo una labor de Ingeniería de Conocimiento junto con una extración y análisis de datos
+ para describir el problema, extraer el conocimiento de expertos, conceptualizar, formalizar e implementar dicho conocimiento
+ de manera entendible para los usuarios de dicha aplicación.
+Dicha aplicación será un SBC el cual aglutine todo el conocimiento de los expertos en
  su conjunto, además del análisis de datos. Dicho sistema tendrá el objetivo darle una respuesta a un tirador
  de tal forma que este tenga un punto de vista mas para tomar sus decisiones, de tal modo que le sea mas fácil
  alcanzar la victoria. Además de ayudarle a anteponerse a su rival, también servirá como entrenamiento y salir
@@ -327,7 +293,7 @@ Esto nos lleva a la conclusión de que para alcanzar el objetivo de este TFG ten
  para darle accesibilidad al programa desde cualquier sitio. También tendremos que desarrollar una página web
  para darle una interfaz al programa.
 
-\bigskip
+\medskip
 El alcance de este proyecto está basado en el tiempo disponible para realizarlo. Varios autores han escrito
  libros para plasmar su conocimiento sobre este deporte, ya sea como plantear la gestión de un club, como
  preparar a los tiradores para competiciones, como iniciarlos, etc. Este último caso es el de Elain Cheris
@@ -337,77 +303,13 @@ El alcance de este proyecto está basado en el tiempo disponible para realizarlo
  adquirir este conocimiento se requiere de muchas horas de trabajo y entrevistas con profesionales por
  lo que automáticamente descartamos la modalidad de sable, ya que hay poco conocimiento reutilizable.
 
-\bigskip
+\medskip
 Debido a los motivos expuestos anteriormente la modalidad de sable se dejará para un futuro lejano a modo
  de ampliación. Respecto a la modalidad de florete es cierto que comparten las bases pero las técnicas
  específicas y el conocimiento es totalmente distinto, por lo que se podrían utilizar partes del desarrollo
  pero toda la adquisición de conocimiento, desarrollo del sistema experto habría que realizarlo partiendo
  de cero. Para ambas modalidades hay que sumar que conseguir expertos resulta de gran dificultad actualmente,
  cosa que en un futuro lejano, tres años, espero solventar. Todo esto ha llevado a los objetivos expuestos anteriormente.
-
-
-
-
-\iffalse
-%%%%%%%%%%%
-% viejo
-% esperar a revisión por si sirviera algo
-%%%%%%%%%%
-
-%De acuerdo a la Introducción, el alumno deberá especificar cuál o cuáles son las hipótesis de trabajo de las que se parten, qué se pretende resolver, y en base a eso formular el objetivo principal delTFG.
-
-%El objetivo principal deberá desglosarse en sub-objetivos parciales. Los sub-ojetivos deberán describirse de forma breve y concisa.
-
-%Como preámbulo a la formulación del objetivo parcial, el alumno deberá discutir sobre las limitaciones y condicionantes a tener en cuenta en el desarrollo del TFG (lenguaje de desarrollo, equipos, madurez de la tecnología, etc.).
-
-%Del mismo modo, será recomendable incluir una lista preliminar de requisitos del sistema a construir.
-
-De acuerdo con la introducción dada al comienzo de este documento, el objetivo final de este
-TFG es desarrollar un prototipo de aplicación que sea capaz de dar una respuesta a ciertas situaciones
-planteadas durante un asalto de esgrima. Hay que tener en cuenta que al ser un prototipo tendrá un margen
-de error y no será completo debido que trataremos las nociones básicas de la modalidad de espada.
- Una mejora en un futuro que está fuera del alcance sería desarrollar esto mismo para las modalidades
- de florete y sable. Para ello se propone desarrollarlo en los siguientes sub-objetivos:
-
-
-%El objetivo de este TFG es contribuir al mundo del deporte, en concreto de la esgrima.
-
-%Llevar a cabo una labor de Ingeniería del Conocimiento para desddcribir el problema. Para ello se extraerá conocimiento de expertos ...
-
-%Desarrollar un SBC que aglutine el conocimiento de un experto junto con el obtenido de un análisis de datos ...
-
-\begin{itemize}
-    \item Desarrollar sistema experto. Para esta parte será necesario desarrollar las siguientes partes:
-    \begin{itemize}
-        \item Estudio de viabilidad. Este estudio será llevado a cabo mediante el test de Slagel.
-        \item Adquisición de conocimiento. Se obtendrá conocimiento sobre el tema a tratar basandonose sobre todo en entrevistas a expertos de la materia.
-        \item Conceptualización. Se plasmará de una forma entendible todo el conocimiento adquirido.
-        \item Representación del conocimiento. Esta representación se mostrara en forma de reglas.
-        \item Evaluación. Conclusiones del sistema experto.
-    \end{itemize}
-    \item Desarrollar modelo de aprendizaje para competiciones con base de datos.
-    \begin{itemize}
-        \item Adquisición datos.
-        \item Tratamiento datos.
-        \item Procesamiento datos.
-        \item Obtener conocimiento.
-    \end{itemize}
-    \item Desarrollar aplicación juntando ambas partes anteriores.
-    \begin{itemize}
-        \item Alimentar sistema experto. Esto se hará con el conocimiento obtenido de los datos.
-        \item Levantar servidor web. Para darle accesibilidad al programa desde cualquier sitio.
-        \item Desarrollar página web. Para darle interfaz al programa.
-        \item Conectar con sistema experto. Para que se pueda visualizar desde cualquier sitio con conexión a internet.
-    \end{itemize}
-\end{itemize}
-
-El alcance de este proyecto está basado en el tiempo disponible para realizarlo. Varios autores han escrito libros para plasmar su conocimiento sobre este deporte, ya sea como plantear la gestión de un club, como preparar a los tiradores para competiciones, como iniciarlos, etc. Este último caso es el de Elain Cheris hablando sobre los fundamentos básicos de la esgrima en las modalidades de florete y espada ya que ambas comparten las bases. Este libro \textit{Manual de esgrima} \cite{manualdeesgrima} consta de 160 páginas en el que se habla sobre el primer año de aprendizaje de una persona que se inicia en el deporte. Para adquirir este conocimiento se requiere de muchas horas de trabajo y entrevistas con profesionales por lo que automáticamente descartamos la modalidad de sable, ya que hay poco conocimiento reutilizable.
-
-\bigskip
-Debido a los motivos expuestos anteriormente la modalidad de sable se dejará para un futuro lejano a modo de ampliación. Respecto a la modalidad de florete es cierto que comparten las bases pero las técnicas específicas y el conocimiento es totalmente distinto, por lo que se podrían utilizar partes del desarrollo pero toda la adquisición de conocimiento, desarrollo del sistema experto habría que realizarlo partiendo de cero. Para ambas modalidades hay que sumar que conseguir expertos resulta de gran dificultad actualmente, cosa que en un futuro lejano, tres años, espero solventar. Todo esto ha llevado a los objetivos expuestos anteriormente.
-
-\fi
-
 
 \newpage
 
@@ -487,8 +389,19 @@ Para el product backlog se usará trello~\cite{trello} ya que nos permite crear 
    \end{tabular}
 \end{center}
 
+Respecto a la metodología elegida para el desarrollo de IC/KDD será la siguiente:
+\begin{itemize}
+  \setlength\itemsep{1pt}
+  \item Selección de datos
+  \item Preprocesamiento
+  \item Transformación
+  \item Data Mining
+  \item Interpretación y Evaluación
+\end{itemize}
 
-Respecto a la metodología elegida para el desarrollo del sistema experto será la siguiente:
+\iffalse
+Esta es la parte vieja a fecha 2019-02-10
+Respecto a la metodología elegida para el desarrollo de Ingeniería del Conocimiento será la siguiente:
 \begin{itemize}
   \setlength\itemsep{1pt}
   \item Estudio de viabilidad. Este estudio será llevado a cabo mediante el test de Slagel.
@@ -497,6 +410,7 @@ Respecto a la metodología elegida para el desarrollo del sistema experto será 
   \item Representación del conocimiento. Esta representación se mostrara en forma de reglas.
   \item Evaluación. Conclusiones del sistema experto.
 \end{itemize}
+\fi
 
 Respecto a la metodología seguida para el desarrollo del modelo de aprendizaje será la siguiente:
 \begin{itemize}
