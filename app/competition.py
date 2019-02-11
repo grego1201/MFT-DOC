@@ -2,6 +2,7 @@ import codecs
 import time
 import requests
 import pandas as pd
+import numpy as np
 from bs4 import BeautifulSoup
 
 class Competition:
@@ -44,10 +45,31 @@ class Competition:
         competition_file.close
         fill_data_log.close
 
+    def obtain_competition_data(self, url):
+        try:
+            req = requests.get(url)
+            if req.status_code == 200:
+                html = BeautifulSoup(req.text, "html.parser")
+
+                competition_data = html.find('div', {'class': 'table-white'})
+                competition_data = competition_data.find_all('td')
+                return f"{competition_data[0].text},{competition_data[1].text},{competition_data[2].text},{competition_data[3].text},{competition_data[4].text},{competition_data[5].text},{competition_data[6].text},{competition_data[7].text}\n"
+            else:
+                print("Conexión: Fallo en competición --> " + url)
+                return url
+        except Exception as e:
+            print(e)
+            print(e)
+            print("\n")
+            print("Excepción: Fallo en competidor --> " + url)
+            return url
+
+
+
+
     def scrap_competitions(self):
         pages = []
         competitions = []
-
         competitionHead = "Category, Gender, Weapon, Competition, Place, Date, Type, Event\n"
         competitionsFile = codecs.open("../data/competiciones.csv", "w+", encoding='utf-8')
         competitionsFile.write(competitionHead)
@@ -56,15 +78,17 @@ class Competition:
         eliminatoriaFile = codecs.open("../data/eliminatoria.csv", "w+", encoding='utf-8')
         eliminatoriaFile.write(eliminiatoriaHead)
 
+        print("\n \n -------------------- ")
+        print("Ficheros creados")
+        print(" -------------------- \n \n")
+
         a = time.clock()
 
-        self.obtenerPaginas()
+        competitions = self.obtenerPaginas()
+        competitions = np.array(competitions)
+        competitions = np.hstack(competitions.flat).tolist()
         print("\n \n -------------------- ")
         print("Paginas obtenidas")
-        print(" -------------------- \n \n")
-        self.obtenerCompeticiones(self.fieUrl)
-        print("\n \n -------------------- ")
-        print("Competiciones creadas")
         print(" -------------------- \n \n")
 
         errors = []
@@ -72,9 +96,10 @@ class Competition:
 
         for competition in competitions:
             base_url = self.fieUrl + competition
-            print(base_url)
 
             try:
+                competition_data = self.obtain_competition_data(base_url)
+                competitionsFile.write(competition_data)
                 tipo, pestanias = self.detectarTipoCompeticionYTablones(base_url)
                 if tipo == "Individual":
                     self.obtenerRankingCompeticion(base_url + "/rank")
@@ -127,13 +152,14 @@ class Competition:
 
     def obtenerPaginas(self):
         pages = []
+        competitions = []
         baseUrl = "http://fie.org/results-statistic/result?calendar_models_CalendarsCompetition%5BFencCatId%5D=&calendar_models_CalendarsCompetition%5BWeaponId%5D=&calendar_models_CalendarsCompetition%5BGenderId%5D=&calendar_models_CalendarsCompetition%5BCompTypeId%5D=&calendar_models_CalendarsCompetition%5BCompCatId%5D=&calendar_models_CalendarsCompetition%5BCPYear%5D=&calendar_models_CalendarsCompetition%5BFedId%5D=&calendar_models_CalendarsCompetition%5BDateBegin%5D=&calendar_models_CalendarsCompetition%5BDateEnd%5D=&calendar_models_CalendarsCompetition_page="
         validPages = 59
         for x in range(1,validPages+1):
             pages.append(baseUrl + str(x))
         for page in pages:
-            self.obtenerCompeticiones(page)
-        return pages
+            competitions.append(self.obtenerCompeticiones(page))
+        return competitions
 
     def obtenerCompeticiones(self, page):
         competitions = []
@@ -502,5 +528,3 @@ class Competition:
             ', ' + fencer1['Result'] + ', ' + fencer2['Result'] + "\n"
 
         return line
-
-
