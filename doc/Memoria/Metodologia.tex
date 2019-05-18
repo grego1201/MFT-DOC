@@ -1,0 +1,112 @@
+\chapter{Metodología}
+\label{cap:Metodologia}
+
+En este capítulo se debe detallar las metodologías empleadas para planificación y desarrollo del trabajo,
+así como explicar de modo claro y conciso cómo se han aplicado dichas metodologías.
+
+
+Obtención de la BBDD.
+
+Ante la nula información almacenada de una forma estructurada se ha tenido que buscar
+ diversas maneras de obtener y almacenar la información, estructurarla y tratarla para
+ poder sacar conocimiento de ella.
+
+En la página de la federación internacional de esgrima (FIE) se almacenan los resultados
+ de las competiciones de los últimos tiempos. De ahí se puede obtener los resultados
+ de cada competición tanto como el ranking general, pasando por la fase de poules
+ y acabando con los tablones eliminatorios de estos mismos. Viendo toda esta información
+ almacenada se decide extraer y almacenar dicha información. Para la extracción se
+ utilizarán técnicas de scrapping web mediante la cual se descarga la página y se
+ obtiene su contenido para tratarlo. En este caso navegamos por dicha página y una
+ vez obtenida la información la guardamos en nuestra BBDD. Puesto que no está del
+ todo estructurada tendremos que ir almacenando dicha información en diferentes BBDD
+ y después juntarlas.
+
+Descripción de la BBDD.
+
+La primera BBDD que generaremos será aquella en la que guardaremos la información
+ básica de los asaltos. Para ello guardaremos el ID de la competición, el número
+ de tablón en el que se efectuó el asalto, ID del primer tirador, ID del segundo
+ tirador, tocados obtenidos por el segundo primer tirador y tocados obtenidos por
+ el segundo tirador.
+
+\begin{table}[htb]%
+  \centering
+  \caption{Estructura BBDD asaltos inicial}
+  \label{tab:anchura}
+  \begin{tabular}{ | l | l | l | l | l | l | }
+    \hline
+    Nombre de Campo & Tipo de campo & Ejemplo \\ \hline
+    CompetitionID & Texto & 2019-64 \\ \hline
+    Tableu & Entero & 32 \\ \hline
+    Competitor1 & Texto & /fencers/Anna-KOROLEVA-40351/ \\ \hline
+    Competitor2 & Texto & /fencers/Kira-KESZEI-49034/ \\ \hline
+    ResultCompetitor1 & Texto & V/15 \\ \hline
+    ResultCompetitor2 & Texto & D/3 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+El siguiente paso que tendremos que dar será obtener la información de los tiradores
+ para ello ser visitará la página correspondiente. Un ejemplo de página que almacena
+ la información de un tirador sería el siguiente http://fie.org/es/fencers/Mario-PERSU-31870
+ como se puede observar el final de la URL es el mismo que el identificador almacenado en la
+ anterior tabla. De modo que explorando la anterior BBDD podremos visitar las páginas de cada
+ tirador almacenado y de ese modo generar una nueva BBDD con toda la información de cada uno de ellos.
+ En dicha BBDD tendremos su identificador, edad, ranking (si lo tuvieran), nacionalidad, mano usada
+ y arma.
+
+\begin{table}[htb]%
+  \centering
+  \caption{Estructura BBDD tiradores}
+  \label{tab:anchura}
+  \begin{tabular}{ | l | l | l | l | l | l | }
+    \hline
+    Nombre de Campo & Requerido & Tipo de campo & Ejemplo \\ \hline
+    competitorID & Si & Texto & ADRIANA-MILANO-36467 \\ \hline
+    Age & Si & Entero & 21 \\ \hline
+    FieRanking & No & Entero & 300 \\ \hline
+    HandNess & Si & Texto & Right \\ \hline
+    Weapon & Si & Texto & Epée \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Una vez obtenidos todos los datos referentes a los tiradores tendremos que cruzar
+ las dos tablas mencionadas anteriormente de modo que tengamos toda la información
+ en una sola BBDD. Esta última BBDD tendrá la información de la primera, sustituyendo
+ las columnas de ID de cada tirador por su registro correspondiente en la anterior tabla.
+
+De modo que la estructura será la siguiente
+\begin{table}[htb]%
+  \centering
+  \caption{Estructura BBDD asaltos final}
+  \label{tab:anchura}
+  \begin{tabular}{ | l | l | l | l | l | l | }
+    \hline
+    Nombre de Campo & Tipo de campo & Ejemplo \\ \hline
+    ComptetitionID & Texto & 2019-176 \\ \hline
+    TABLEU & Entero & 32 \\ \hline
+    C1\_ID & Texto & Sergey-KHODOS-13869 \\ \hline
+    C1\_RANKING & Entero & 22 \\ \hline
+    C1\_NATIONALITY & Texto & RUSSIA \\ \hline
+    C1\_HANDNESS & Texto & Right \\ \hline
+    C1\_WEAPON & Texto & Epée \\ \hline
+    C2\_ID & Texto & Laurin-EGGENSCHWILER-5966 \\ \hline
+    C2\_RANKING & Entero & 34 \\ \hline
+    C2\_NATIONALITY & Texto & SWITZERLAND \\ \hline
+    C2\_HANDNESS & Texto & Right \\ \hline
+    C2\_WEAPON & Texto & Epée \\ \hline
+    C2\_ID & Texto & Laurin-EGGENSCHWILER-5966 \\ \hline
+    C1\_RESULT & Texto & V/15 \\ \hline
+    C2\_RESULT & Texto & D/3 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Modo de empleo.
+
+El modo de empleo de esta BBDD será para el entrenamiento de una red neuronal
+ la cual servirá para apoyar al sistema experto. En total hay unos 28.000 registros,
+ de los cuales se emplearán entorno al 60 por ciento para entrenar al modelo y un 40
+ por ciento para comprobar que el entrenamiento ha sido satisfactorio.

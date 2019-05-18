@@ -13,6 +13,8 @@ import pandas as pd
 import numpy as np
 from competition import Competition
 from competitor import Competitor
+from dataManager import DataManager
 
 competition_manager = Competition()
 competitor_manager = Competitor()
+data_manager = DataManager()
