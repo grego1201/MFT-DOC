@@ -1,0 +1,175 @@
+\chapter{Propuesta}
+\label{cap:Propuesta}
+
+\section{Sistema experto}
+En este apartado se abordarán los pasos a seguir para desarrollar un sistema experto.
+ En la figura se puede observar el ciclo de vida de creación y mantenimiento de un software
+ de este tipo:
+
+\begin{figure}[htb]
+  \centering
+    \includegraphics[width=0.4\linewidth]{DesarrolloSE}
+  \caption[Desarrollo SE]{Desarrollo SE}
+  \label{fig:Desarrollo Sistema Experto}
+\end{figure}
+
+\subsection{Características del sistema experto}
+%inicio pendiente de revision palabras
+Cuando se desea implementar un sistema experto en primer lugar se debe definir el
+ alcance y los límites de dicho sistema, se deben indicar que aspectos cubre el
+ sistema experto y que aspectos quedan fuera del ámbito del sistema.
+
+Define las características del problema. Se pretende determinar la naturaleza
+ del problema y los objetivos precisos que indique exactamente cómo se espera
+ que el sistema experto contribuya a la solución de los problemas. Existirá
+ una interacción entre experto e ingeniero. Cuando el experto en el dominio
+ muestre distintos casos, el ingeniero del conocimiento desarrolla una primera descripción
+ del problema. Normalmente el experto no esta de acuerdo con ella, o mejor dicho,
+ no siente que representa el problema en su totalidad, entonces el ingeniero reformulará
+ la descripción. Esta actividad prosigue hasta que los dos estén de acuerdo en la
+ descripción.
+
+El método del test de SLAGEL se define en el Anexo I.
+%fin pendiente de revision palabras
+
+\subsection{Estudio de viabilidad}
+%inicio pendiente de revision palabras
+Teniendo claro el alcance del sistema experto debe estudiarse si la implementación
+ del mismo es posible desde el punto de vista de la computación. Para esto se
+ realiza un estudio de viabilidad, en este caso se utiliza un estudio de viabilidad basado
+ en el test de SLAGEL. Este estudio establece sie l proyecto cumple con las siguientes
+ características.
+
+\begin{compactitem}
+  \item \textbf{Plausible}: Determina si es posible resolver el problema desde el
+     punto de vista de la ingeniería del conocimiento.
+  \item \textbf{Justificable}: Analiza si está justificado el desarrollo del
+     sistema desde la perspectiva d la ingeniería dle conocimiento, se basa en
+     temas como la necesidad del sistema y la inversión a realizar.
+  \item \textbf{Adecuado}: Establece si el problema a resolver está dentro
+     del marco de la ingeniería del conocimiento, existen problemas que son más
+     adecuados resolverlos por métodos tradicionales.
+  \item \textbf{Éxito}: Determina las probabilidades de éxito del sistema a
+     desarrollar, es una estimación
+\end{compactitem}
+
+El método del test de SLAGEL se define en el Anexo I.
+%fin pendiente de revision palabras
+
+
+\subsection{Adquisición del conocimiento}
+%inicio pendiente de revision palabras
+
+Una de las partes más importantes y a la vez más complicadas de la implementación
+ de un sistema experto es obtener el conocimiento, normalmente un experto, y
+ volcarlo en el sistema experto. Existen muchas herramientas y métodos para obtener
+ este conocimiento entre las cuales está la entrevista, la observación y la creación
+ de escenarios.
+
+La adquisición del conocimiento es la principal complicación en el desarrollo de
+ Sistemas Expertos. Consiste en que las personas no expertas en el dominio donde
+ se va a desarrollar el Sistema Experto extraigan el conocimiento necesario para resolver
+ problemas de diversas fuentes. El proceso de adquisición del conocimiento ha seguido
+ diferentes etapas que podrían resumirse en las siguientes:
+
+\begin{compactitem}
+  \item Primeras reuniones con los expertos y evaluación de la viabilidad del proyecto.
+  \item Extración de conocimientos, a partir de la documentación disponible, como
+     por ejemplo libros, conferencias, internet, etc.
+  \item Deducción de conocimientos a partir de los expertos.
+\end{compactitem}
+
+Además se logra la familiarización del Ingeniero del Conocimiento en el contexto en
+ el que se va a trabajar. Se busca en las primeras reuniones describir conocimientos
+ generales, así como afianzarse con la terminología.
+
+La estructura de las entrevistas se define en el anexo III.
+
+Una vez obtenido el conocimiento hay que designar estructuras para organizar el
+ el conocimiento. Después de haber determinado el problema en toda su magnitud,
+ sin haberse referido a técnicas de programación o a indagar solo en los métodos
+ que son exitosos en inteligencia artificial, es en esta etapa donde el ingeniero del
+ conocimiento selecciona las estructuras apropiadas a este sistema experto en particular.
+ Es decir, que dan solución total o parcial al problema analizado en las etapas precedentes.
+ Una de las responsabilidades principales del ingeniero del conocimiento es analizar
+ situaciones tipo y a partir de ellas extraer las reglas que describen el conocimiento del
+ experto en el dominio.
+
+%fin pendiente de revision palabras
+
+\subsection{Implantación}
+%inicio pendiente de revision palabras
+
+Desarrolla la transformación de los conocimientos representados en el modelo formal
+ en un modelo computable.
+
+Elaboración de las reglas que incorporen el conocimiento. Se peretende en esta ocasión
+ usar las herramientas y técnicas predeterminadas para implementar una primera versión
+ o prototipo del sistema. Este prototipo esta destinado a evaluar los progresos que se
+ van haciendo, y por ende, retornar a etapas anteriores si es necesario.
+
+Una vez que el sistema prototipo se ha perfeccionado lo suficiente para ser ejecutado,
+ el sistema experto estará listo para ser probado.
+
+%fin pendiente de revision palabras
+
+\subsection{Evaluación y pruebas}
+%inicio pendiente de revision palabras
+
+Establece el grado de experiencia alcanzado por el sistema. De manera tal que expertos
+ en el área que han o no partilcipado en el desarrollo del proyecto se comprometen a
+ evaluar el desempeño del sistema, tratando de vislumbrar la calidad de asistencia que
+ brinda el Sistema Experto ante diferentes casos de problemas a resolver por software.
+ También se evalúa la amplitud y generalidad de marcos compuestos que posee el repositorio
+ y cómo el sistema guía su uso.
+
+Se considera que el sistema experto está terminado cuando realiza trabajos a nivel
+ del especialista. Entonces, el proceso de prueba no esta listo hasta que las soluciones
+ propuestas por el sistema seantan válidas como las propuestas por el experto humano.
+%fin pendiente de revision palabras
+
+\subsection{Motor de inferencia}
+%inicio pendiente de revision palabras
+El sistema experto que se va a desarrollar siguiendo la metodología anterior va
+ a funcionar sobre un motor de inferencia desarrollado para tal fin, el motor
+ de inferencia se basa en el motor implementado para CLIPS y a continuación se van
+ a detallar las características de dicho motor.
+
+\subsubsection{Algoritmo de selección de reglas aplicables en CLIPS}
+\begin{compactitem}
+  \item Elegir la regla aplicable con máxima prioridad.
+  \item Elegir la regla según estrategia de resolución de conflictos.
+  \item Elegir de forma arbitraria.
+\end{compactitem}
+
+Estas son las estrategias definidas en el motor de inferencia de CLIPS para
+ la selección de reglas aplicables o activas son varias:
+
+\begin{compactitem}
+  \item \textbf{Depth Strategy (estrategia por defecto)}. Una activación que contiene el hecho
+    más reciente se sitúa por encima de las activaciones con igual o mayor antigüedad.
+ \item \textbf{Breadth Strategy}. Una activación que contiene el hecho más reciente se
+    sitúa por debajo de las activaciones con igual o mayor antigüedad.
+ \item \textbf{Complexity Strategy}. Las nuevas activaciones se sitúan por encima de las
+    activaciones con igual o menor especificidad (no de comparaciones que han de
+    realizarse en el antecedente una la regla).
+ \item \textbf{Simplicity Strategy}. Las nuevas activaciones se sitúan por debajo de las
+    activaciones con igual o mayor especificidad.
+ \item \textbf{LEX Strategy}. Se ordenan los time-tag en orden decreciente y se comparan
+    uno a uno, hasta encontrar uno mayor que otro, en caso de que no haya el mismo
+    número de time-tag se añaden ceros al final.
+ \item \textbf{MEA Strategy}. Parecido a LEX, pero mirando sólo el primer patrón que
+    equipara en la regla.
+ \item \textbf{Random Strategy}. A cada activación se le asigna un número aleatorio para
+    determinar su orden en la agenda.
+\end{compactitem}
+
+\subsubsection{Definición de prioridades en CLIPS}
+\begin{compactitem}
+  \item Asignar un valor de prioridad (entero positivo) a cada regla.
+  \item En CLIPS se definen como propiedades de reglas.
+  \item Se recomienda minimizar el uso de prioridades de reglas.
+\end{compactitem}
+
+%fin pendiente de revision palabras
+
