@@ -2,6 +2,7 @@
 
 doc/PlantillaAnteTFG/*
 doc/PlantillaTFG/*
+doc/documentsToCheck/*
 
 # Ignore vim files
 *.swp
