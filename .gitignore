@@ -17,6 +17,12 @@ doc/documentsToCheck/*
 *.bbl
 *.blg
 *.run.xml
+*.idx
+*.loa
+*.lof
+*.lol
+*.lot
+*.out
 
 # Ignore pycache
 app/__pycache__
