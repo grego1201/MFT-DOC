@@ -51,18 +51,38 @@ class MatchPreprocess:
     def preprocess_file(self):
         self.replaces_nones_fie_ranking()
         self.remove_none_results_rows()
+        self.normalize_handness()
+        self.normalize_weapon()
         self.add_victory_field()
         self.drop_results_columns()
         self.drop_id_column()
         self.drop_fencers_id_column()
         self.make_fencers_ranking_to_int()
 
+    def normalize_handness(self):
+        df = pd.read_csv(self.origin_file_path, header=1, names=self.origin_file_head)
+        for i in range(1, 3):
+            df["C" + str(i) + "_HANDNESS"].replace(' Right', 0.0, inplace=True)
+            df["C" + str(i) + "_HANDNESS"].replace(' Left', 1.0, inplace=True)
+        df.to_csv(self.origin_file_path)
+
+    def normalize_weapon(self):
+        df = pd.read_csv(self.origin_file_path, header=1, names=self.origin_file_head)
+        for i in range(1, 3):
+            df["C" + str(i) + "_WEAPON"].replace(' Sabre ', 0.0, inplace=True)
+            df["C" + str(i) + "_WEAPON"].replace(' Foil ', 1.0, inplace=True)
+            df["C" + str(i) + "_WEAPON"].replace(' Epée ', 2.0, inplace=True)
+        df.to_csv(self.origin_file_path)
+
+
+
     def replaces_nones_fie_ranking(self):
         df = pd.read_csv(self.origin_file_path, header=1, names=self.origin_file_head)
         for i in range(1, 3):
             df["C" + str(i) + "_RANKING"].replace('None', 9999999, inplace=True)
             df["C" + str(i) + "_RANKING"].replace(' None', 9999999, inplace=True)
-            df["C" + str(i) + "_HANDNESS"].replace('right', 'Right', inplace=True)
+            df["C" + str(i) + "_HANDNESS"].replace(' right ', ' Right', inplace=True)
+            df["C" + str(i) + "_HANDNESS"].replace(' right', ' Right', inplace=True)
         df.to_csv(self.origin_file_path)
 
     def remove_none_results_rows(self):
@@ -113,7 +133,7 @@ class MatchPreprocess:
         for i in range(df.shape[0]):
             f1_points = int(fencer1_results[i].split("/")[1])
             f2_points = int(fencer2_results[i].split("/")[1])
-            match_winner.append(0 if f1_points > f2_points else 1)
+            match_winner.append(float(0) if f1_points > f2_points else float(1))
 
         df['WINNER'] = match_winner
         df.to_csv(self.winner_path)
