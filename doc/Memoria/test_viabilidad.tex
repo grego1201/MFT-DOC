@@ -1,0 +1,324 @@
+\chapter{Test de viabilidad}
+\label{cap: Introducción y objetivos}
+
+Este capítulo está dedicado a analizar como de viable es el proyecto. De este modo
+se justificará la realización y continuación del mismo. Debido a que se cuenta con
+un experto y para realizar el sistema basado en el conocimiento, se llevará a cabo
+el estudio de viabilidad mediante el Test de Slagel.
+
+\section{Test de Slagel}
+
+
+Este test está pensado para Sistemas Expertos. Para la evaluación utilizará una serie
+de valores para las características los cuales estarán ponderados de una manera
+específica en función de las mismas. Dicho estudio de viabilidad se divide en tres etapas:
+
+\begin{itemize}
+  \item Definición de características
+  \item Asignación de pesos a cada una de las características
+  \item Evaluación de cada aplicación candidata.
+\end{itemize}
+
+Las características están divididas en cuatro dimensiones:
+
+\begin{enumerate}
+  \item \textbf{Plausibilidad:} En esta dimensión se intentará determinar si se cuenta
+  con los medios necesarios desde la perspectiva de la Ingeniería del Conocimiento.
+  Para ello se analizan dos aspectos:
+  \begin{itemize}
+    \item \textbf{Características del experto:} se evaluará su fama dentro dentro del sector.
+      Esto quiere decir si los demás profesionales del entorno reconocen su trabajo. También
+      se valorará la capacidad de cooperar. Asimismo, otro aspecto a tener en cuenta será
+      si es competente articulando sus métodos y procedimientos de trabajo. Otra cuestión
+      de suma importancia será que el experto se haya enfrentado al problema con anterioridad
+      y que este lo haya resuelto con éxito.
+    \item \textbf{Características de la tarea que lleva a cabo el experto} se analizará el
+      grado de dificultad que tiene esta. Además se valorará si está adecuadamente estructurada
+      y que tipo de habilidades se requieren para su realización.
+  \end{itemize}
+  \item \textbf{Justificación:} Se puede dar el caso de que el desarrollo de un Sistema Experto
+    sea posible, pero esto no quiere decir que esté justificado. En esta dimensión se tratará
+    de comprobar la justificación del desarrollo del dicho sistema desde la perspectiva de la
+    Ingeniería del Conocimiento. Para ello se analizará lo siguiente:
+    \begin{itemize}
+      \item \textbf{Necesidad de la experiencia:} se evaluará las características del ambiente
+        donde hay que realizar la tarea. Los principales factores a tener en cuenta será
+        el peligro que hay en el entorno (terreno hostil), además de la escasez de expertos
+        humanos y la necesidad de su presencia en diferentes sitios a la vez.
+      \item \textbf{Inversión a realizar:} se tendrá en cuenta los costes que conllevarán
+        realizar el Sistema Experto frente al retorno de la inversión realizada. También se
+        tendrán en cuenta soluciones alternativas.
+      \item \textbf{Transferencia de conocimiento:} un buen motivo para justificar la realización
+        del sistema experto sería la posible pérdida de conocimiento. En casos como avanzada
+        edad del experto hará que todo el conocimiento adquirido por el mismo pueda perderse.
+    \end{itemize}
+  \item \textbf{Adecuación: } se estudiará si el problema es adecuado para ser resuelto con técnicas
+    de Ingeniería del Conocimiento. Algunos problemas podrán ser resueltos mediante algoritmos convencionales
+    o aquellos problemas que requieran de sentido común. Se tendrá en cuenta la naturaleza, complejidad
+    y tipo de tarea.
+  \item \textbf{Éxito: } se intentarán determinar las posibilidades de éxito del sistema a desarrollar. Para
+    ello se tendrán en cuenta como de entrenadas estén las personas implicadas, que el Sistema Experto tenga
+    una ubicación idonea, que este sea aceptado por los usuarios como una herramienta de mejora y que este sea
+    concordante en sus soluciones junto a la de los expertos.
+\end{enumerate}
+
+Se establecerá una categoría de aplicación sobre cada una de estas dimensiones,
+mediante las cuales se identificará quien es el destinatario de la tarea.
+Se pueden distinguir tres actores: experto, usuario o directivo, o la propia tarea.
+Dentro de cada tarea tendremos dos tipos: esenciales o deseables. Las primeras no
+podrán tener una puntuación mínima de 7 puesto que como su nombre indica, son esenciales.
+El sistema de puntuación será entre 0 y 10 dependiendo de la importancia relativa de la misma.
+
+Teniendo en cuenta lo explicado anteriormente, el proceso de evaluación del proyecto es el siguiente:
+
+\begin{enumerate}
+  \item Asignar un valor a cada una de las características en cada dimensión. Dicho valor estará
+    entre 0 y 10, cuya escala representará como de presente está respectivamente, siendo 10 totalmente
+    presente. En el caso de que una característica esencial obtenga un valor menor de 7 la aplicación
+    quedará automáticamente descartada.
+  \item Ponderar el valor de la características respecto a su peso.
+  \item Multiplicar para cada dimensión los valores ponderados obtenidos anteriormente.
+  \item Obtener la media para cada dimensión de los valores ponderados d elas características.
+    Para ello se calculará la raíz n-ésima del producto obtenido del apartadado anterior. Hay que
+    emplear como índice el valor máximo de los índices usados en cada dimensión.
+  \item Dividir la suma del resultado de cada dimensión entre cuatro (4) pudiendo obtener como máximo
+    un valor de 76,21.
+\end{enumerate}
+
+A continuación se detalla el cálculo de la viabilida del TFG haciendo uso del Test de Slagel.
+Para mayor comprensión consultar la leyenda de la tabla 2.1.
+
+\begin{table}[]
+  \centering
+  \caption{Leyenda}
+  \label{tab:Leyenda}
+  \begin{tabular}{|l|l|l|}
+    \hline
+    Acrónimo & Significado & Rango \\ \hline
+    CAT & Categoría &  \\ \hline
+    EX & Experto(s) &  \\ \hline
+    TA & Tarea &  \\ \hline
+    IDEN. CAR. & Identificador de la característica &  \\ \hline
+    Pi & Identificador de la dimensión de Plausibilidad & P1...P10 \\ \hline
+    Ji & Identificador de la dimensión de Justificación & J1...J7 \\ \hline
+    Ai & Identificador de la dimensión de Adecuación & A1...A12 \\ \hline
+    Ei & Identificador de la dimensión de Éxito & E1...E17 \\ \hline
+    E & Esencial & 0...10 \\ \hline
+    D & Deseable & 0...10 \\ \hline
+  \end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+%inicio pendiente de revision palabras
+\subsection{Características de Plausibilidad}
+
+\begin{table}[htb]%
+  \centering
+  \caption{Tabla con las características de plausibilidad}
+  \label{tab:anchura}
+  \begin{tabular}{ | l | l | l | l | p{8cm} | l | }
+    \hline
+    Cat. & Iden & Peso & Valor & Denominación & Tipo \\ \hline
+    EX & P1 & 10 & 10 & Existen Expertos & E \\ \hline
+    EX & P2 &  10 & 9 & El experto asignado es genuino & E \\ \hline
+    EX & P3 & 8 & 9 & El experto es cooperativo & D \\ \hline
+    EX & P4 & 7 & 8 & El experto es capaz de articular sus métodos pero no categoriza & D \\ \hline
+    TA & P5 & 10 & 9 & Existen suficientes casos de prueba; normales, típicos, ejemplares, correosos, etc & E \\ \hline
+    TA & P6 & 10 & 9 & La tarea está bien estructurada y se entiende & D \\ \hline
+    TA & P7 & 10 & 9 & Solo requiere habilidad cognoscitiva (no pericia física) & D \\ \hline
+    TA & P8 & 9 & 8 & No se precisan resultados óptimos sino sólo satisfactorios, sin comprometer el proyecto & D \\ \hline
+    TA & P9 & 9 & 7 & La tarea no requiere sentido común & D \\ \hline
+    DU & P10 & 7 & 9 & Los directivos están verdaderamente comprometidos con el proyecto & D \\ \hline
+  \end{tabular}
+\end{table}
+
+\textbf{Fundamentos de plausibilidad}
+
+A continuación se fundamentan algunos de los valores elegidos para las características de Plausibilidad
+
+
+\begin{compactitem}
+  \item[\textbf{P1}:] Actualmente se dispone de muchos expertos en el sector. Toda sala de esgrima
+     tiene un maestro el cual es un experto, con mayor o menor experiencia, el cual transmite
+     sus conocimientos adquiridos con los años y los sucesos que vivió a sus alumnos. Por lo tanto
+     podríamos decir que hay al menos un experto por sala de esgrima.
+  \item[\textbf{P3}:] El experto escogido tiene especial interés en el proyecto, puesto que
+     serviría de gran ayuda para sus alumnos en competiciones dado que actualmente es el único
+     en poder dar apoyo a estos en esas situaciones.
+  \item[\textbf{P7}:] Unicamente se requiere el conocimiento suficiente y experiencia en competición
+     para poder identificar las acciones del rival para poder decidir que acciones llevar a cabo
+     de manera que se contrarresten las del rival.
+  \item[\textbf{P9}:] Al ser una serie de casos con unas entradas y salidas bien definidas, no requiere
+     de un gran ingenio poder llevar a cabo la decisión, una vez tengamos todos los casos, o el mayor
+     número de estos posibles, identificados.
+\end{compactitem}
+
+
+\subsection{Características de justificación}
+\begin{table}[htb]%
+  \centering
+  \caption{Tabla con las características de justificación}
+  \label{tab:anchura}
+  \begin{tabular}{ | l | l | l | l | p{8cm} | l | }
+    \hline
+    Cat. & Iden & Peso & Valor & Denominación & Tipo \\ \hline
+    EX & J1 & 10 & 9 & El experto no esta disponible & E \\ \hline
+    EX & J2 & 10 & 8 & Hay escasez de experiencia humana & D \\ \hline
+    TA & J3 & 8 & 9 & Existe la necesidad de experiencia simultánea en muchos lugares & D \\ \hline
+    TA & J4 & 10 & 7 & Necesidad de experiencia en entornos hostiles, penosos y/o poco gratificantes & D \\ \hline
+    TA & J5 & 8 & 9 & No existen soluciones alternativas admisibles & E \\ \hline
+    DU & J6 & 10 & 9 & Se espera una alta tasa de recuperación de la inversión & D \\ \hline
+    DU & J7 & 10 & 9 & Resuelve una tarea útil y necesaria & E \\ \hline
+   \end{tabular}
+\end{table}
+
+\textbf{Fundamentos de justificación}
+A continuación se fundamentan algunos de los valores elegidos para las características de justificación
+
+\begin{compactitem}
+  \item[\textbf{J1}:] En competiciones, sobre todo regionales y clubes pequeños, el experto
+     no suele estar disponible puesto que en la mayoría de las ocasiones tiene otras labores
+     como directorio técnico o incluso ser el mismo un partipante mas de la competición.
+     En el mejor de los casos de que no tenga ninguan de estas labores lo normal será que
+     tenga a varios alumnos que atender a la vez, por lo que será una situación común que no esté libre.
+  \item[\textbf{J3}:] Se puede dar el caso de que dos alumnos de un mismo maestro tengan un
+     asalto en el mismo instante. Este no podrá estar en ambos sitios a la vez y tampoco es
+     aconsejable estar poco tiempo en uno, después ir al otro y así sucesivamente, por lo que
+     se ve la necesidad de este conocimiento en el mismo instante en distintos lugares.
+  \item[\textbf{J7}:] Al resolver la tarea de las incertidumbres sobre que hacer
+     en cada una de las situacione será mas accesible el deporte para aquellos que estén
+     empezando, puesto que no generará esos sentimientos de frustración por no saber que hacer.
+\end{compactitem}
+\newpage
+
+\subsection{Características de adaptación}
+\begin{table}[htb]%
+  \centering
+  \caption{Tabla con las características de adaptación}
+  \label{tab:anchura}
+  \begin{tabular}{ | l | l | l | l | p{8cm} | l | }
+    \hline
+    Cat. & Iden & Peso & Valor & Denominación & Tipo \\ \hline
+    EX & A1 & 5 & 8 & La experiencia del experto está poco organizada & D \\ \hline
+    TA & A2 & 6 & 9 & Tiene valor práctico & D \\ \hline
+    TA & A3 & 7 & 9 & Es una tarea más táctica que estratégica & D \\ \hline
+    TA & A4 & 7 & 10 & La tarea da soluciones que sirvan de necesidades a largo plazo & E \\ \hline
+    TA & A5 & 5 & 8 & La tarea no es demasiado fácil, pero es de conocimiento intensivo, tanto propio del dominio, como de manipulación de la información & D \\ \hline
+    TA & A6 & 6 & 9 & Es de tamaño manejable, y/o es posible un enfoque gradual y/o, una descomposición en subtareas independientes & D \\ \hline
+    EX & A7 & 7 & 9 & La transferencia de experiencia entre humanos es factible (experto a aprendiz) & E \\ \hline
+    TA & A8 & 6 & 6 & Estaba identificada como un problema en el área y los efectos de la introducción de un SE pueden planificarse & D \\ \hline
+    TA & A9 & 9 & 8 & No requiere respuestas en tiempo real “Inmediato” & E \\ \hline
+    TA & A10 & 9 & 8 & La tarea no requiere investigación básica & E \\ \hline
+    TA & A11 & 5 & 8 & El experto usa básicamente razonamiento simbólico que implica factores subjetivos & D \\ \hline
+    TA & A12 & 5 & 8 & Es esencialmente de tipo heurístico & D \\ \hline
+  \end{tabular}
+\end{table}
+
+\textbf{Fundamentos de adaptación}
+A continuación se fundamentan algunos de los valores elegidos para las características de adaptación
+
+\begin{compactitem}
+  \item[\textbf{A1}:] Actualmente el experto no tiene ningún sistema en el que
+     se pueda consultar su experiencia, no hay nada documentado por lo tanto no
+     hay organización alguna.
+  \item[\textbf{A4}:] En este caso el sistema no solo sirve para ayudar en el
+     instante que se consulta, si no que también sirve para transmitir dicho
+     conocimiento al deportista, logrando así una mayor comunidad con
+     conocimiento básico sobre el deporte. De este modo con el paso del tiempo
+     será mas fácil que el conocimiento se pueda expandir
+  \item[\textbf{A6}:] Puesto que los ataques pueden ser compuestos, se podrán
+     hacer enfoques graduales en los que se lleven a cabos pensamientos y
+     acciones con mayor profundidad, pudiendo dar estos lugar a acciones mas
+     complejas. De igual manera se podrá hacer de una manera mas sencilla
+     en función de las cualidades del tirador.
+  \item[\textbf{A7}:] Es algo tan factible como que se lleva haciendo durante
+     mucho tiempo, puesto que son los maestros de esgrima (expertos) quienes
+     pasan su experiencia a sus alumnos a diario en las clases que se imparten.
+  \item[\textbf{A9}:] Antes de empezar un asalto de esgrima se ha de tener
+     clara la táctica a seguir, por lo que no serviría de nada reinventarse
+     en mitad del asalto. Por lo tanto se puede llegar a la conclusión de que
+     no es necesaria una respuesta inmediata ya que entre asaltos como mínimo
+     hay un minuto de descanso, tiempo mas que suficiente para obtener una respuesta.
+  \item[\textbf{A11}:] Algunas de las características que se comparan entre
+     tiradores son totalmente objetivas, como la altura, pero otras como la experiencia
+     la rapidez y la frialdad serán cosas subjetivas que se han de percibir.
+\end{compactitem}
+\newpage
+
+\subsection{Características de éxito}
+\begin{table}[htb]%
+  \centering
+  \caption{Tabla con las características de éxito}
+  \label{tab:anchura}
+  \begin{tabular}{ | l | l | l | l | p{8cm} | l | }
+    \hline
+    Cat. & Iden & Peso & Valor & Denominación & Tipo \\ \hline
+    EX & E1 & 8 & 9 & No se sienten amenazados por el proyecto, son capaces de sentirse intelectualmente unidos al proyecto & D \\ \hline
+    EX & E2 & 6 & 9 & Tienen un brillante historial en la realización de esta tarea.  & D \\ \hline
+    EX & E3 & 5 & 6 & Hay acuerdos en lo que constituye una buena solución a la tarea & D \\ \hline
+    EX & E4 & 5 & 8 & La única justificación para dar un paso en la solución es la calidad de la solución final & D \\ \hline
+    EX & E5 & 6 & 9 & No hay un plazo de finalización estricto, ni ningún otro proyecto depende de esta tarea & D \\ \hline
+    TA & E6 & 7 & 10 & No está influenciada por vaivenes políticos & E \\ \hline
+    TA & E7 & 8 & 5 & Existen ya SSEE que resuelvan esa o parecidas tareas & D \\ \hline
+    TA & E8 & 8 & 7 & Hay cambios mínimos en los procedimientos habituales & D \\ \hline
+    TA & E9 & 5 & 9 & Las soluciones son explicables o interactivas & D \\ \hline
+    TA & E10 & 7 & 8 & La tarea es de I+D de carácter práctico, pero no ambas cosas simultáneamente.  & E \\ \hline
+    DU & E11 & 6 & 8 & Están mentalizados y tienen expectativas realistas tanto en alcance como en las limitaciones & D \\ \hline
+    DU & E12 & 7 & 9 & No rechazan de plano esta tecnología & E \\ \hline
+    DU & E13 & 6 & 8 & El sistema interactúa inteligente y amistosamente con el usuario & D \\ \hline
+    DU & E14 & 9 & 9 & El sistema es capaz de explicar al usuario su razonamiento & D \\ \hline
+    DU & E15 & 8 & 9 & La inserción del sistema se efectúa sin traumas; es decir, apenas se interfiere en la rutina cotidiana de la empresa & D \\ \hline
+    DU & E16 & 6 & 9 & Están comprometidos durante toda la duración del proyecto, incluso después de su implementación & D \\ \hline
+    DU & E17 & 8 & 8 & Se efectúa una adecuada transferencia tecnológica & E \\ \hline
+  \end{tabular}
+\end{table}
+
+\textbf{Fundamentos de éxito}
+A continuación se fundamentan algunos de los valores elegidos para las características de éxito.
+
+\begin{compactitem}
+  \item[\textbf{E1}:] La idea de llevar a cabo este proyecto fue totalmente respaldada
+     por el experto una vez que se comentó, involucrandose y formando parte de él desde
+     el primer momento.
+  \item[\textbf{E9}:] Todas las soluciones se pueden explicar argumentando los motivos
+     que da el experto por las que fueron tomadas, de tal manera que el usuario sea
+     capaz de entenderlas.
+\end{compactitem}
+
+\newpage
+\subsection{Resulado}
+
+En la siguiente tabla se muestra el resultado de la evaluación de las diferentes dimensiones
+ siguiendo las fórmulas enunciadas en el test de SLAGEL. Una vez evaluadas dichas dimensiones
+ se obtiene la media y se normaliza el valor, es decir, se expresa en tanto por ciento.
+
+\begin{table}[htb]%
+  \centering
+  \caption{Resultados de viabilidad}
+  \label{tab:anchura}
+  \begin{tabular}{ | l | l | l | l | p{1.5cm} | p{1.5cm} | }
+    \hline
+    Característica & $\pi\text{(Valor total)}$ & $\pi\text{(Peso total)}$ & Resultado & Resultado VC & Resultado máximo \\ \hline \hline
+    Plausibilidad & $3.1752\text{e}9$ & $2.38085568\text{e}9$ & $(7.559692955\text{e}18)^{1/10}$ & 77.24 & 86.63 \\ \hline
+    Justificación & $3.584\text{e}6$  & $3.31\text{e}6$ & ($1.18\text{e}13)^{1/7}$ & 73.73 & 85.37 \\ \hline
+    Adecuación & $3.75\text{e}9$ & $1.03\text{e}11$ & $(3.87\text{e}20)^{1/12}$ & 51.95 & 82.75 \\ \hline
+    Éxito & $9.83\text{e}13$ & $2.96\text{e}15$ & $(2.91\text{e}29)^{1/17}$ & 54.59 & 81.30 \\ \hline \hline
+    \multicolumn{4}{|l|}{VC Total} & \multicolumn{2}{l|}{64.38} \\ \hline
+    \multicolumn{4}{|l|}{VC Normalizado} & \multicolumn{2}{l|}{84.01} \\ \hline
+
+  \end{tabular}
+\end{table}
+
+\textbf{Conclusión}
+
+El porcentaje obtenido en la evaluación es suficiente como para seguir adelante
+ con el proyecto, además si normalizamos el porcentaje sube hasta el 84.01\%, porcentaje
+ mas que suficiente para confiar en la viabilidad del proyecto.
+
+%fin pendiente de revision palabras
