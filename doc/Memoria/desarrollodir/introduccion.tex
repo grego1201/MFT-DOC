@@ -3,8 +3,15 @@ de apoyo a la toma de decisiones en esgrima. Para ello se ha seguido la dinámic
 para el inicio del proyecto y después utililzando el desarrollo iterativo e incremental para
 las primeras versiones.
 
-Para la resoluciónd el proyecto han sido necesarias X iteraciones para cubrir
-los objetivos propuestos en el Capítulo 1 (Ver figura 6.1).
+Para la resoluciónd el proyecto han sido necesarias cinco iteraciones para cubrir
+los objetivos propuestos en el Capítulo 1 (Ver figura 5.1).
+
+\begin{figure}[htb]
+  \centering
+    \includegraphics[width=0.4\linewidth]{Iteraciones}
+  \caption[Desarrollo SE]{Desarrollo SE}
+  \label{fig:Desarrollo Sistema Experto}
+\end{figure}
 
 \section{Agile Inception Deck}
 
@@ -101,7 +108,15 @@ del proyecto son los siguietnes:
 
 \subsection{Muestra la solución}
 En este apartado se muestra un resumen de la arquitectura del proyecto a alto nivel
-(Ver figura X.x) y las herramientas empleadas para el desarrollo del mismo.
+(Ver figura 5.2) y las herramientas empleadas para el desarrollo del mismo.
+
+\begin{figure}[htb]
+  \centering
+    \includegraphics[width=0.4\linewidth]{Arquitectura}
+  \caption[Desarrollo SE]{Desarrollo SE}
+  \label{fig:Desarrollo Sistema Experto}
+\end{figure}
+
 
 Para llevar a cabo el proyecto se han empleado las siguientes herramientas:
 \begin{itemize}
@@ -137,9 +152,14 @@ Puesto que el sistema ha de ser bastante completo para tener una alta fiabilidad
 será complicado dar una aproximación precisa. Es por esto que se hará una estimación,
 teniendo muy presente que son estimaciones y puede variar. La estimación se dará en
 tiempo dedicado sin indicar fechas dada la disponiblidad de los recursos. La linea
-temporal del proyecto se puede ver en la figura X.x expuesta a continuación.
+temporal del proyecto se puede ver en la figura 5.3 expuesta a continuación.
 
-% Insertar figura linea temporal
+\begin{figure}[htb]
+  \centering
+    \includegraphics[width=0.95\linewidth]{LineaTemporal}
+  \caption[Desarrollo SE]{Desarrollo SE}
+  \label{fig:Desarrollo Sistema Experto}
+\end{figure}
 
 \subsection{Muestra con claridad lo que se va a dar}
 Los objetivos a cumplir son los siguientes:
@@ -154,18 +174,50 @@ Los objetivos a cumplir son los siguientes:
 
 \subsection{Muestra lo que va a conllevar}
 El análisis de costes del proyecto se llevará a cabo basandose a la planificación que se
-puede ver en el punto 8 (ver Figura X.x).
-
+puede ver en el punto 8 (ver Figura 5.3).
 Los costes del proyecto se pueden dividir principalmente en dos tipos: personal e infraestructura.
 
 El primer tipo, personal, dependerá del rol que se tome, puesto que dependiendo de este
 el coste a la hora será mayor. El primer rol que tendrémos será el de desarrollador, el
 cual está estimado en 16€/h. Por otro lado tendremos el rol de experto, cuyo valor está estimado
-en 30€/h. En la tabla X.x se puede ver el coste de cada iteración, por rol y por horas.
+en 30€/h. En la tabla 5.1 se puede ver el coste de cada iteración, por rol y por horas.
 Además se podrá ver el coste total.
+
+\begin{table}[]
+  \centering
+  \caption{Horas del proyecto}
+  \label{tab:Horas del proyecto}
+  \begin{tabular}{|l|l|l|}
+    \hline
+    Etapas & Horas dedicadas por autor & Hora dedicadas por Experto \\ \hline
+    Iteración 0 & 4h & 4h \\ \hline
+    Iteración 1 & 76h & 20h \\ \hline
+    Iteración 2 & 40h & 5h \\ \hline
+    Iteración 3 & 80h & 10h \\ \hline
+    Iteración 4 & 20h & 0h \\ \hline
+    Iteración 5 & 80h & 5h \\ \hline
+    Total & 300 & 44 \\ \hline
+  \end{tabular}
+\end{table}
 
 Por otro lado los costes de infraestructura han sido reducidos a cero. Puesto que no se
 busca lucrarse con el uso de herramienta, si no que sea útil para el resto se han buscado
 alternativas para reducir el coste disminuyendo en rendimiento de estas. Se ha optado
 por Heroku puesto que ofrece un plan totalmente gratuito a pesar de sus bajos recursos.
 Estos serán ampliables según las necesidades que se tengan.
+
+Por lo que el coste total del proyecto puede verse en la tabla 5.2
+
+\begin{table}[]
+  \centering
+  \caption{Costes del proyecto}
+  \label{tab:Costes del proyecto}
+  \begin{tabular}{|c|c|l|l|}
+    \hline
+    Concepto & Desglose & Horas & Coste \\ \hline
+    \multirow{2}{*}{Personal} & Autor del proyecto & 300h & 4800€ \\ \cline{2-4}
+    & Experto & 44h & 1320€ \\ \hline
+    Infraestroctura & Heroku proyect & - & 0€ \\ \hline
+    Total & \multicolumn{3}{c|}{6120€} \\ \hline
+  \end{tabular}
+\end{table}
