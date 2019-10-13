@@ -7,8 +7,8 @@ proporcionar una interfaz amigable para el usuario a la par que accesible
 desde cualquier lugar.
 
 Para ello lo primero fue crear unos bocetos sobre el diseño que se quería tener
-en la web a papel y bolígrafo. La idea original es que esta se componga de una página
-principal en la que se explique el objetivo de la página y cual es su propósito.
+en la web a papel y boli. La idea original es que esta se componga de una página
+principal en la que se explique el objetivo de la página y cual es su proposito.
 
 Por otro lado tendremos dos secciones que se diferencien la una de la otra de las
 cuales una de ellas estará destinada a una versión rápida del sistema de apoyo mientras
@@ -21,6 +21,7 @@ tendremos prisa para ello.
 
 Los resultados los bocetos son los siguientes:
 
+\textbf{Falta por hacer bocetos}
 % Realizar bocetos para TFG
 
 Una vez con los bocetos claros se decidió que tecnologías usar. Para el desarrollo
@@ -39,58 +40,59 @@ etc.
 El desarrollo de la aplicación web se hizo en local, utilizando las herramientas
 que proporciona ruby para ello.
 
-El diagrama de desarrollo será el siguiente:
+Para ello se siguieron los siguientes pasos:
 
-% Hacer diagrama desarrollo web
+\begin{enumerate}
+  \item \textbf{Inicialización:} Lo primero de todo será inicializar el proyecto.
+    Hay muchos ejemplos de como inicializar un poryecto en ruby pero se siguio
+    la documentación que te da la propia página web de ruby. Con esto tendremos
+    lo básico para poder empezar a desarrollar la aplicacion e ir añadiendo todo
+    aquello que necesitemos.
 
-\subsection{Inicialización proyecto}
+  \item \textbf{Creación controladores:} Crearemos los primeros controladores de
+    la aplicación que serán los mas importantes puesto que serán los encargados
+    de manejar las peticiones hechas a las dos partes principales de la aplicación.
+    Estos son los controladores para el apartado guiado y el completo. Además
+    en este paso añadiremos los formularios en las vistas de dichos controladores
+    de modo que podamos hacer las primeras pruebas.
 
-Lo primero será inicializar el proyecto. Para ello se seguirá la guia encontrada
-en la página de documentación de ruby. Después añadiremos bootstrap para los estilos.
+  \item \textbf{Creación servicio toma decisión:} Crearemos un servicio que será
+    encargado de toda la lógica del sistema de apoyo a la toma de decisión. Aquí
+    nos encargaremos de trasladar todo el conocimiento obtenido anteriormente
+    a una clase que tenga toda la lógica de modo que este servicio sea accesible
+    por toda la aplicación. Además en este apartado añadiremos los correspondientes
+    test para comprobar que la implementación ha sido la adecuada.
 
-\subsection{Creación controladores principales}
+  \item \textbf{Creación vista resultados:} Daremos visualización a los resultados
+    obtenidos por el servicio de toma de decisiones. De esta forma el usuario podrá
+    ver cual es el resultado de dicho sistema.
 
-Crearemos los dos primeros controladores y los mas importantes de la aplicación.
-Estos serán los que nos ayuden con la parte guiada (rápida) y por otro lado la
-completa. También se agregarán las correspondientes traducciones. También se
-agregarán las vistas correspondientes con un pequeño formulario inicial.
+  \item \textbf{Añadir bootstrap:} Añadiremos el framework bootstrap para ayudarnos
+    a la aplicación de estilos en la página. De esta manera mejoraremos la usabilidad
+    de la misma.
 
-\subsection{Creación servicio tomar decisión}
+  \item \textbf{Añadir traducciones:} Haremos los cambios necesarios para permitir
+    a la aplicación traducciones en distintos idiomas de forma que se pueda
+    internacionalizar. En esta primera iteración se añadirá castellano e inglés.
 
-Se creará el servicio que será el encargado de llevar a cabo el sistema experto.
-Esto quiere decir que será este servicio el que tendrá toda la lógica de la parte
-mas importante de la aplicación. Aquí tendremos que traducir el sistema experto.
+  \item \textbf{Añadir página de inicio:} Crearemos la página de inicio en la que
+    daremos información general de la aplicación, cual es su objetivo y de donde surje.
 
-\subsection{Creación vista resultados}
+  \item \textbf{Añadir página de contacto:} Crearemos una página de contacto en la que
+    se dará información de los responsables del proyecto y donde encontrarles.
 
-Daremos visualización a los resultados obtenidos por el servicio de toma de decisiones.
+  \item \textbf{Añadir página de sugerencias:} Crearemos una página en la que los usuarios
+    podrán plasmar sus sugerencias de modo que la página y el sistema tenga retro-alimentación
+    y así perfeccionarlo.
 
-\subsection{Añadir bootstrap}
+  \item \textbf{Añadir página entrenamiento:} Se añadirá un apartado en la página cuyo destino
+    será que los tiradores puedan consultarla y obtener ideas de entrenamiento. Al principio
+    tendrá una serie de acciones con un seleccionador de estas aleatorio y así que puedan
+    prácticarlas forzando a realizar dichas acciones.
 
-Se añadirá bootstrap para facilitar la aplicación de estilos en la página y de esta
-manera mejorar la usabilidad de la misma.
+  \item \textbf{Definir y añadir estilos:} Se definirán los estilos de los formularios, botones,
+    textos, etc de la aplicación.
+\end{enumerate}
 
-\subsection{Añadir traducciones}
-
-Se añadirán las traducciones de todo lo agregado además de preparar la aplicación
-para el resto de cambios.
-
-\subsection{Añadir página inicio}
-
-Se añadirá página de inicio
-
-\subsection{Añadir página contacto}
-
-Se añadirá página de contacto
-
-\subsection{Añadir página sugerencias}
-
-Se añadirá página de sugerencias
-
-\subsection{Añadir página entrenamiento}
-
-Se añadirá página de entrenamiento
-
-\subsection{Definir y añadir estilos}
-
-Se definirán los estilos dentro de bootstrap para los formularios, botones, etc.
+Con todo esto ya terminado podremos pasar al siguiente paso que será
+dar acceso a la aplicación a cualquier persona que tenga acceso a internet.
