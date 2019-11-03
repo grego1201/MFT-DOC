@@ -162,7 +162,7 @@ de la BBDD se puede ver en la tabla 5.11
     C2\_WEAPON & String & Arma principal del segundo tirador & Epee \\ \hline
 
     \rowcolor[HTML]{969696}
-    RESULT\_C1 & String & Resultado del primer tirador & V/15 \\ \hline
+sii en     RESULT\_C1 & String & Resultado del primer tirador & V/15 \\ \hline
     \rowcolor[HTML]{636363}
     RESULT\_C2 & String & Resultado del segundo tirador & D/7 \\ \hline
 
@@ -463,23 +463,3 @@ que vimos que podrían ser válidos. Estos rangos son de 1 a 2500 para número d
 de 1 a 60 para el tamaño de hoja y de 1 a 20 para el valor de p.
 
 Dicho algoritmo lo podemos encontrar en el anexo X.
-
-
-% Ahora hablar sobre lo que se obtuvo y si cambiar uno u otro. Mencionar el tiempo que es tardó
-% blablabla
-
-\subsection{Usar conocimiento en aplicación}
-
-Con el modelo optimizado lo máximo posible y obtenido un resultado mas que aceptable
-para los datos que manejamos podremos incluirlo en nuestro sistema. Para ello aprovecharemos
-que el modelo nos proporciona el porcentaje de probabilidad de que gane cada uno, lo cual nos
-dará la oportunidad de poder crear reglas en función de las probabilidaes. Para poder acceder
-a ello crearemos una API a la cual llamaremos cada vez que queramos realizar la consulta.
-
-Esta API estará realizada en python con flask la cual solo tendrá una llamada que devolverá
-la probabilidad de que gane cada uno de los tiradores. En los parámetros de esta API estarán
-incluidas las características del asalto, es decir, características de cada tirador y tablón.
-De esta forma podremos llamar al modelo, que este haga la predicción y que nos
-devuelva el resultado.
-
-% Consultar si llevarlo a cabo antes de hacerlo.
