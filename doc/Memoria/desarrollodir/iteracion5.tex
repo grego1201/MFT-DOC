@@ -487,4 +487,94 @@ incluidas las características del asalto, es decir, características de cada ti
 De esta forma podremos llamar al modelo, que este haga la predicción y que nos
 devuelva el resultado.
 
-% Consultar si llevarlo a cabo antes de hacerlo.
+El endpoint llamado con curl será de la siguiente manera:
+
+\begin{lstlisting}
+curl -X GET https://mftapi.herokuapp.com/predict/ -d "tableu=16&fencer1_age=26&fencer1_ranking=33& fencer1_handness=0&fencer1_weapon=1.0&fencer2_age=44& fencer2_ranking=99999999&fencer2_handness=0& fencer2_weapon=1.0"
+\end{lstlisting}
+
+Los parámetros con sus características se podrán consultar en la tabla 5.16
+
+
+\begin{table}[]
+  \centering
+  \caption{Parámetros petición predicción}
+  \label{tab: Parmetros peticin prediccin}
+  \begin{tabular}{llllll}
+    Parámetro & Descripción & Tipo & Requerido & Valores admitidos & Ejemplo \\ \hline
+    \multicolumn{1}{l|}{tableu} & Tablón encuentro & Integer & Si & \{2, 4, 8, 16, 32, 64, ...\} & 2 \\ \hline
+    \multicolumn{1}{l|}{fencer1\_age} & Edad tirador 1 & Integer & Si & \{1, inf\} & 26 \\ \hline
+    \multicolumn{1}{l|}{fencer1\_ranking} & Ranking tirador 1 & Integer & Si & \{1, inf\} & 33 \\ \hline
+    \multicolumn{1}{l|}{fencer1\_handness} & Mano tirador 1 (0 derecha, 1 izquierda) & Integer & Si & {[}0, 1{]} & 0 \\ \hline
+    \multicolumn{1}{l|}{fencer1\_weapon} & Arma tirador 1 (0 florete, 1 sable, 2 espada) & Integer & Si & {[}0, 1, 2{]} & 1 \\ \hline
+    fencer2\_age & \multicolumn{1}{l|}{Edad tirador 2} & Integer & Si & \{1, inf\} & 44 \\ \hline
+    fencer2\_ranking & \multicolumn{1}{l|}{Ranking tirador 2} & Integer & Si & \{1, inf\} & 9999999999 \\ \hline
+    fencer2\_handness & \multicolumn{1}{l|}{Mano tirador 2 (0 derecha, 1 izquierda)} & Integer & Si & {[}0, 1{]} & 0 \\ \hline
+    fencer2\_weapon & \multicolumn{1}{l|}{Arma tirador 2 (0 florete, 1 sable, 2 espada)} & Integer & Si & {[}0, 1, 2{]} & 1
+  \end{tabular}
+\end{table}
+
+Para la implementación de dicha API se utilizó el lenguaje de programación Python 3.6.9 para
+aprovechar el código utilizado a la hora de entrenar el modelo anterior. Las librerías
+utilizadas para las peticiones fueron Flask junto a GUnicorn para darle una interfaz web.
+
+% Meter aquí las dependencias de librerías para el fichero requirements
+% También meter que poner en el procfile y como montarlo para rellenar
+
+
+Por otro lado el hosting utilizado volvió a ser Heroku dado que tiene un límite de cinco
+proyectos por cuenta de forma gratuita. Esto nos permite ahorrar costes en el proyecto
+Además del endpoint mencionado anteriormente tendremos otro para que haga una llamada vacía
+la cual será la encargada de levantar el servidor, puesto que el programa gratuito apaga
+las máquinas a los treinta minutos de no recibir peticiones. Cuando accedan a la página, una
+vez por sesión hará la llamada asincrona a dicho endpoint, de este modo la máquina de la API
+se irá levantando mientras el usuario navega por la web o rellena el formulario. De este modo
+bajaremos el tiempo de espera del usuario de treinta segundos aproximados que tarda la máquina en
+estar lista a esos treinta segundos menos el tiempo que tarde en rellenar el formulario, siendo
+este una media de 20 segundos. El mínimo de tiempo que estará el usuario esperando será de tres
+segundos puesto que es lo que tarda el endpoint de predicción en llevar a cabo la petición.
+
+El código utilizado se puede ver en el anexo G.
+
+Una vez con todo este proceso hecho, se mantuvo una conversación con el experto mediante mensajería
+instantanea. En dicha conversación se volvieron a destacar conceptos ya mencionados anteriormente
+como la confianza del tirador, tanto la de uno mismo como la del rival. También menciono cuanto
+había que arriesgar en función de la diferencia de nivel entre ambos tiradores. Pudiendo
+arriesgar más cuanta mas haya, siempre que esté a tu favor. En caso contrario se procurará ser
+lo mas conservador posible. Al ser conservadores el tirador irá cogiendo confianza con los
+tocados que mejor le salen y de esta forma podrá llevar el asalto a su terreno.
+
+Esto nos llevó a ampliar las variables del sistema experto añadiendo un parámetro más: diferncia
+de nivel. Este parámetro será un número entre 0 y 100 representando porcentajes de probabilidad
+de que gane el primer tirador.
+
+\begin{table}[]
+  \centering
+  \caption{}
+  \label{tab:Tabla objeto atributo y valor}
+  \begin{tabular}{lll}
+    Objeto & Atributo & Valor \\ \hline
+    \multicolumn{1}{l|}{Tirador} & Probabilidad victoria tirador 1 & [0, 100]\%
+  \end{tabular}
+\end{table}
+
+Esta variable será tenida en cuenta para el siguiente arbol que representará
+cuanto riesgo ha de tomar un esgrimista en la pista. Dicho arbol se puede
+ver en la figura 5.10
+
+\begin{figure}[htb]
+  \centering
+    \includegraphics[width=0.8\linewidth]{mapaArriesgar}
+  \caption[Mapa conocimiento arriesgar]{Mapa conocimiento arriesgar}
+  \label{fig:Mapa conocimiento arriesgar}
+\end{figure}
+
+La representación del mapa es que si la estadística juega totalmente a nuestro favor
+podremos arriesgar bastante, dado que en teoría podremos tomar las riendas del asalto
+en cualquier momento. Si se decantan hacia nuestro lado, pero no del todo nos podremos
+permitir arriesgar de vez en cuando, pero sin tomarnos demasiadas licencias, puesto que
+nos costará mas remontar el asalto si se complica. En caso de que las cosas estén empatadas
+podremos probar de vez en cuando, pero siendo la mayor parte del tiempo conservadores. En
+caso de que se decanten un poco hacia su lado las cosas tendremos que arriesgar en las ocasiones
+mas claras. Por último si se decantan hacia su lado no podremos arriesgar nada, puesto que lo normal
+es que cualquier error sea pagado muy caro.

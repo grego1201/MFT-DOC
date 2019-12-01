@@ -8,6 +8,7 @@ doc/documentsToCheck/*
 *.swp
 *.swo
 *.swn
+*.swm
 
 # Ignore latex files
 *.bcf
