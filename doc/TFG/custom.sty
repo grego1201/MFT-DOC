@@ -1,0 +1,33 @@
+%% -- Escribe aquí tu personalización del estilo
+
+\usepackage{xspace}
+\usepackage{blindtext}
+\usepackage{longtable}
+\usepackage{multirow}
+
+%% -- Added packages
+
+%% -- List packages
+\usepackage{enumitem}
+%\usepackage{paralist}
+
+%% -- Maths packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%% -- For euro symbol
+\usepackage{eurosym}
+\DeclareUnicodeCharacter{20AC}{\euro}
+
+%% -- For code input
+%\newcommand{\includecode}[2][c]{\lstinputlisting[caption=#2, keywords{*, defrule}, escapechar=, style=custom#1]{#2}<!---->}
+
+\usepackage[spanish]{babel}
+
+
+\definecolor{deepskyblue}{rgb}{0.0, 0.75, 1.0}
+
+
+\lstloadlanguages{[ISO]C++, Python, XML}
+\def\esitfg{\emph{esi-tfg}\xspace}
+\def\texcmd#1{\texttt{$\backslash$#1}}

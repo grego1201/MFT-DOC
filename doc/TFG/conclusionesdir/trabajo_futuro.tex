@@ -1,0 +1,183 @@
+\section{Trabajo futuro}
+
+Como se indicó al comienzo de este documento este sistema no es más
+que un prototipo. Es por esto que es muy susceptible a mejoras
+debido a que no está completado. En este apartado hablaremos de las
+debilidades que presenta actualmente el sistema. Después hablaremos
+sobre las principales mejoras que se podrían hacer a este para subsanar
+dichas flaquezas, además de otras para ampliar y mejorar el sistema.
+Este proyecto estará en continua evolución debido a que el conocimiento
+y las tácticas variarán con los años como se ha podido ver en la historia
+desarrollando diferentes estilos en la esgrima. También se crearán nuevos
+equipos como los puños, lo cual hará que haya que adaptarse a ellos. Asímismo
+las reglas van cambiando como este año cambió la pasividad, lo cual hace
+que haya que cambiar ciertas partes de la estrategia, permitiendo hacer
+cosas nuevas o evitando que se hagan otras.
+
+\subsection{Carencias}
+\begin{enumerate}
+  \item \textbf{Limitación armas:} La primera carencia que nos encontramos es
+    la limitación en cuanto a las armas de este deporte. Solamente contamos
+    con una de las tres existentes. A pesar de hacer el sistema para la mas
+    popular, no se ofrece ayuda a todo el público posible, por lo que se deberá
+    trabajar en ampliar para poder cubrir las tres armas.
+  \item \textbf{Tiempos carga:} A pesar de desarrollar dos modos para facilitar
+    y agilizar los tiempos para cuando necesitemos una respuesta mas rápida (recordemos
+    que los descansos entre asaltos son de un minuto) para la versión completa
+    necesitamos, en el mejor de los casos, mínimo entre tres y cuatro segundos
+    para que se calcule el resultado. Esto es debido a que la llamada la API
+    tarda ese tiempo en calcular la predicción. Esto puede ser un problema para
+    usuarios con poca paciencia. Otro de los problemas relacionados con los tiempos
+    es el primer acceso a la aplicación. El plan gratuito de Heroku apaga los servidores
+    al no recibir peticiones en treinta minutos, lo cual hace que se tengan que levantar
+    de nuevo en el primer acceso, tardando estos unos 25 segundos.
+  \item \textbf{Experiencia usuario web:} La aplicación web ha sido desarrollada
+    en poco tiempo debido al límite de horas dispuestas para este TFG. Otro factor
+    a tener en cuenta es que el desarrollador de la aplicación no es experto
+    en desarrollar interfaces. Por los motivos expuestos anteriormente el usuario
+    final puede no tener la mejor experiencia y actualmente es bastante mejorable,
+    desde los formularios haciendo que estos sean mas intuitivos, rápidos y explicativos
+    por si mismos. No solo los formularios deberán ser repasados y mejorados, también la forma
+    en la que se dan los resultados, los colores, la distribución del menú, etc.
+  \item \textbf{Limitación web:} Solo se ha desarrollado una aplicación web y no fue
+    adaptada para móvil por falta de tiempo. Uno de los usos de la aplicación es
+    en competición, por lo que no podrás estar con un ordenador portátil con conexión
+    a internet. Es por esto que no se verá del todo bien desde el navegador del móvil
+    y no se cubren los casos en los que no tengamos internet, como cuando viajemos
+    al extranjero y no contemos con una tarifa para poder navegar por internet.
+  \item \textbf{Predicción:} El sistema de predicción terminó con un porcentaje
+    aproximado de 65\% de acierto, es por esto que se deberá tener en cuenta
+    debido a que es mejor que tirar una moneda al aire, pero su fiabilidad
+    no esta cerca de ser totalmente fiable.
+  \item \textbf{Internacionalización:} La aplicación actualmente solo está
+    disponible en dos idiomas, cierto es que de los mas comunes y utilizados
+    no se llega a todos los tiradores de todos los paises. Faltan idiomas
+    en los que la esgrima esta muy presente como húngaro, francés e italiano.
+\end{enumerate}
+
+A continuación se hablará sobre las mejoras que se podrán hacer en cada apartado
+del sistema, dando una primera aproximación sobre la solución a tener en cuenta y,
+en caso de que corresponda, que problema subsana.
+
+\subsection{Sistema experto}
+
+\begin{itemize}
+  \item \textbf{Lógica difusa:} Añadiendo lógica difusa al sistema experto hará que las reglas,
+    junto a los resultados, seán bastante mas precisos. Esto hará que el usuario final
+    tenga mas claro como de certera es una acción.
+
+  \item \textbf{Ampliar reglas:} Se han dejado numerosos movimientos, técnicas y tácticas
+    fuera del sistema experto, es por esto que habrá que seguir trabajando con el
+    experto, buscando nuevos a ser posible para tener diferentes puntos de vista,
+    para cubrir todo el arbol táctico de espada. Para ello se deberá seguir
+    trabajando igual que se hizo anteriormente, con sistema de entrevistas, analizando
+    los resultados anteriores y confirmando el conocimiento adquirido con el experto.
+    Después se traspasará dicho conocimiento al sistema experto. Otro punto a tener
+    en cuenta es que actualmente solo se está presentando el caso inicial de un
+    asalto. Un horizonte nuevo a explorar en el desarrollo del sistema sería
+    introducir las acciones y/o tácticas ya realizadas con el resultado que obtuvieron
+    y que el sistema sea capaz de recalcular los resultados en función de estos
+    datos introducidos.
+\end{itemize}
+
+\subsection{API predicción}
+\begin{itemize}
+  \item \textbf{Mejorar fiabilidad predicción:} El sistema de predicción no obtuvo un
+    porcentaje de fiabilidad muy alto, es por esto por lo que se deberá trabajar
+    en mejorarla. Para ello el primer paso será ampliar la BBDD. Lo primero y mas sencillo
+    será obtener mas registros. Esto es fácil de realizar puesto que la base de obtención
+    de datos ya está hecha, solo habría que renovar el código puesto que es posible
+    que la página haya cambiado y ya no sirva, pero se juega con la carta de que
+    hay varias competiciones al mes entre las diferentes categorías. Es por esto
+    que será fáil ampliarla. Otro objetivo a conseguir será ampliar las columnas
+    de cada registro. Se puede intentar conseguir mas características de los tiradores
+    como la altura de estos, categoría (no es lo mismo que se enfrenten dos de la misma,
+    que un junior y un senior, aunque esto se subsana en parte con la edad), ranking
+    obtenido en poules puesto que esto marca como estaba el tirador en ese día, etc.
+    Con todo esto podremos mejorar el modelo de entrenamiento y con esto aumentaremos
+    la fiabilidad del sistema.
+
+  \item \textbf{Mejorar tiempos API calcular predicción:} Actualmente la API tarda entre
+    tres y cuatro segundos (suponiendo que la máquina esté levantada y a pleno funcionamiento)
+    lo cual hace que no podamos incluir esto en toda la parte de la aplicación. El método
+    que corresponde con la llamada en la API junta el entrenamiento del modelo junto
+    al cálculo de predicción en la llamada. Lo que mas tarda con diferncia, llegando a ser
+    del 95\% del tiempo es el entrenamiento del modelo. Es por esto que si se separara
+    el entrenamiento del modelo, que con hacerse una vez debería ser suficiente, del
+    cálculo de predicción se debería ahorrar mucho tiempo en la llamada de predicción.
+    El resultado de este cambio debería ser dejar la respuestá de dicho endpoint prácticamente
+    inmediata
+\end{itemize}
+
+\subsection{Aplicación web}
+\begin{itemize}
+  \item \textbf{Mejorar UX web:} Para reducir los tiempos que tarda el usuario y mejorar
+    la comprensión de estos se deberá rehacer los formularios o mejorar ciertos aspectos
+    como los seleccionables siendo estos mas específicos. También se deberá añadir una
+    ayuda rápida y explicativa de que es cada campo y para que sirve. Por otro lado
+    habrá que revisar la distribución de los botones para ahorrar tiempo y que sean mas
+    fáciles de encontrar cada sección.
+  \item \textbf{Mejorar mensajes feedback resultados:} Los resultados son poco explicativos
+    debido a que solo te indican si debes realizar una acción o no. Esto es útil para aquellos
+    usuarios que tengan cierta experiencia y puedan discernir que es dicha acción. En un futuro
+    se deberá ampliar estos mensajes, indicando que es dicha acción o táctica y porque se ha
+    tomado dicha decisión.
+  \item \textbf{Sección FAQ:} Prácticamente toda web con este formato tiene un apartado de
+    preguntas frecuentes el cuál no ha sido desarrollado por falta de tiempo. Incluir este apartado
+    puede ayudar positivamente a aquellos usuarios que tengan ciertas dudas sobre el sistema
+    o incluso con el mundo de la esgrima.
+  \item \textbf{Foro:} Incluir un foro puede ser muy enriquecedor para la aplicación debido a que
+    los usuarios pueden compartir diferentes opiniones sobre los resultados y ayudarse entre ellos.
+    Esto abre la posibilidad a generar una comunidad alrededor de la aplicación, haciendo de esta
+    un factor mas a tener en cuenta en el mundo de la esgrima.
+  \item \textbf{Usuarios:} Añadiendo usuarios se podrá habilitar y mejorar la posiblidad del foro
+    mencionanda anteriormente. También abre otras tantas puertas como la gestión de perfiles de usuario
+    guardando el idioma por defecto, sin tener que cambiarlo cada vez que acceda a la aplicación.
+    También se podrán guardar perfiles de tiradores, pudiendo hacer las consultas al sistema
+    cargando dichos tiradores en vez introducir sus características, agilizando de este modo
+    el proceso. Asímismo se podrá guardar el historial de las consultas realizadas, ahorrando
+    consultas, evitando cargas extra al sistema y ahorrando tiempo al usuario.
+  \item \textbf{Adaptación responsive:} La aplicación solo fue desarrollada pensando en el
+    uso desde el ordenador de escritorio. Es por esto que se deberá seguir trabajando en la
+    adapatación a diferentes dispositivos como los móviles, tablets, etc. También se deberá
+    facilitar el uso para personas con cierta discapacidad visual, adaptando la web a dicha
+    para que el uso de esta para dichas personas sea lo mas cómodo posible.
+  \item \textbf{Mejora SEO:} Dedicando recursos al SEO conseguiremos que la aplicación web
+    sea mas fácil de encontrar para los usuarios, haciendo que sea mas conocida la página y
+    por tanto mas utilizada.
+\end{itemize}
+
+\subsection{General}
+\begin{itemize}
+  \item \textbf{Sistema experto para entrenamiento:} Durante el proceso de desarrollo de
+    la aplicación y tras recibir feedback de los usuarios que la utilizaron en las pruebas
+    se llego a la conclusión de que un apartado de entrenamiento aportaría mucho a la aplicación.
+    Es obvio que esto es algo totalmente diferente al sistema de apoyo a la toma de decisión,
+    pero si se complementan debido a que esta parte puede ayudar mucho a los clubes pequeños
+    a perfeccionar y ampliar sus entrenamientos. Se hizo un primer desarrollo indicando
+    acciones de manera aleatoria para trabajar durante los asaltos de entrenamiento. Pero el
+    objetivo principal de esto es desarrollar un sistema experto el cuál nos indique un
+    entrenamiento a realizar en función de nuestras fortalezas y debilidades, nuestras
+    características como tiradores (altura, puño utilizado, estilo de esgrima,
+    acciones conocidas, etc), tiempo disponible y forma física de la que se parte.
+  \item \textbf{Cambiar a plan pago para mejorar tiempos:} Una de las limitaciones
+    impuestas por el plan gratuito de Heroku son los tiempos de inicio de los servidores
+    siendo estos de unos 25-30 segundos. Ampliando el plan a uno de pago, siendo este
+    de 7 dolares al mes, evitaremos que se apaguen los servidores. También podremos
+    comprar un dominio par que el acceso a este dando una mejor imagen de la página.
+    Para esto se podrá buscar algún tipo de financiación como la publicidad dentro
+    de la aplicación o algún tipo de subvencion de las diferentes federaciones, tanto
+    regionales como la española, incluso llegando a presentar a la internacional el
+    proyecto.
+  \item \textbf{Añadir sección florete y sable:} Como se menciono antes el sistema
+    solo está pensado para espada, faltando florete y sable. Añadiendo estas dos
+    armas conseguiremos cubrir todo el público. Para ello deberemos seguir
+    todo el proceso llevado a cabo con la espada, desarrollando un sistema experto
+    basado en conocimiento, extrayendo este de un experto en la materia.
+  \item \textbf{Crear aplicación móvil offline:} Uno de los problemas
+    que se mencionó antes fue la falta de acceso a la aplicación cuando no se
+    tiene acceso a internet, además de la dificultad de uso desde el móvil.
+    Por estas razones se deberá desarrollar una aplicación móvil, tanto android
+    como ios. Del mismo modo también será conveniente desarrollar una aplicación
+    de escritorio para aquellos usuarios que utilicen un PC en sus lugares de entrenamiento
+\end{itemize}
