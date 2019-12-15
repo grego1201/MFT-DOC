@@ -1,8 +1,7 @@
 \section{Iteración 5}
 
-%Aquí va la ampliación con IA, BBDD y análisis de datos
 
-Para ampliar el conocimiento y dar un mayor abaníco de opciones
+Para ampliar el conocimiento y dar un mayor abanico de opciones
 a tener en cuenta en nuestro sistema de apoyo a la toma de decisión
 se intenta pronosticar quien será el ganador de un asalto, de esa forma
 el sistema podrá tenerlo en cuenta para dar una recomendación u otra.
@@ -21,7 +20,7 @@ a esto podemos recopilar toda la información necesaria para poder obtener conoc
 y transmitirlo a nuestro sistema para que este pueda nutrirse de él y que de este
 modo sea mas amplio y fiable.
 
-Para la obtención de datos se han realizado diferntes scripts desarrollados en
+Para la obtención de datos se han realizado diferentes scripts desarrollados en
 python mediante la técnica de scrapping, por lo que es posible que no sean funcionales
 cuando esté leyendo esto dado que la página podría haber cambiado el diseño y/o
 estructura, pero tan solo habría que adaptar parte de ellos para que vuelvan a
@@ -49,7 +48,7 @@ conocida como poules. Esta fase también la ignoraremos de momento pudiendo ser 
 información a analizar en un futuro. Ya sólo nos quedarían las fases eliminatorias o
 cuadros de directas. Estos contienen el resultado del enfrentamiento: tocados dados por cada tirador,
 quien ganó, el identificador de cada tirador y el tablón que se disputaba. Con esto la estructura de la BBDD
-se queda de la siguiente forma (ver tabla 5.7):
+se queda de la siguiente forma (ver cuadro 5.7):
 
 \begin{table}[]
   \centering
@@ -67,7 +66,7 @@ se queda de la siguiente forma (ver tabla 5.7):
   \end{tabular}
 \end{table}
 
-A continuación en la tabla 5.8 se puede ver un ejemplo del estado inicial de la BBDD.
+A continuación en el cuadro 5.8 se puede ver un ejemplo del estado inicial de la BBDD.
 
 \begin{table}[]
   \centering
@@ -81,12 +80,12 @@ A continuación en la tabla 5.8 se puede ver un ejemplo del estado inicial de la
   \end{tabular}
 \end{table}
 
-Con esta información recopilada nos faltaría completarla. Para ello extraimos en una BBDD
+Con esta información recopilada nos faltaría completarla. Para ello extrajimos en una BBDD
 aparte todos los identificadores de los competidores, de esa forma podríamos extraer
 sus características en una tabla aparte la cual recopile la información de todos
 los competidores. Esta tabla contendrá la siguiente información de cada tirador:
 identificador, edad, ranking, nacionalidad, mano dominante y arma. De tal forma
-que la estructura se puede ver en la tabla 5.9 y un ejemplo en la tabla 5.10.
+que la estructura se puede ver cuadro 5.9 y un ejemplo en el cuadro 5.10.
 
 \begin{table}[]
   \centering
@@ -117,13 +116,13 @@ que la estructura se puede ver en la tabla 5.9 y un ejemplo en la tabla 5.10.
   \end{tabular}
 \end{table}
 
-Con toda la información recopilada juntarmeos ambas BBDD de forma que
+Con toda la información recopilada juntaremos ambas BBDD de forma que
 cruzando los datos de ambas podremos sustituir los identificadores del
 de los tiradores de la primera BBDD con los datos recopilados de cada tirador.
 
 De esta forma conseguiremos tener toda la información en una sola BBDD para
 que los datos puedan ser comparados con mayor facilidad. La estructura final
-de la BBDD se puede ver en la tabla 5.11
+de la BBDD se puede ver en el cuadro 5.11
 
 \begin{table}[]
   \centering
@@ -175,7 +174,7 @@ El primer paso que daremos será añadir una columna numérica indicando quien
 fue el ganador del encuentro. Esta contendrá 0 o 1 dependiendo de si ganó
 el primer tirador o el segundo respectivamente. De esta forma será mas fácil
 identificar quien de los dos tiradores ganó. La estructura del nuevo campo
-se podrá ver en la tabla 5.12. Para la obtención de este campo se exploró
+se podrá ver en el cuadro 5.12. Para la obtención de este campo se exploró
 el asalto correspondiente y se comprobó quien tenía dentro de su resultado
 la letra "V" dado que esta es la que indicaba la victoria.
 
@@ -193,13 +192,13 @@ la letra "V" dado que esta es la que indicaba la victoria.
 Una vez calculado este campo ya no nos harían falta los campos de resultados
 por lo que se procedió al borrado de los mismos.
 
-El siguiente cambio que harémos será normalizar la BBDD. Esto se hace para
+El siguiente cambio que haremos será normalizar la BBDD. Esto se hace para
 que los datos puedan ser comparados de una forma mas eficiente. Para ello
 transformamos aquellas variables de texto a numéricas, de este modo serán
 mas sencillos los cálculos estadísticos.
 
 En nuestro caso tenemos la mano usada por el tirador y el arma usada por este.
-Para ello seguiremos la transformación mostrada en la taba 5.13 y 5.14 para
+Para ello seguiremos la transformación mostrada en el cuadro 5.13 y 5.14 para
 las equivalencias de mano y arma respectivamente. Esto se resume en
 cambiar la mano dominante diestra por un valor de 0 mientras que la zurda será
 sustituida por el valor 1. También cambiaremos las armas siendo el equivalente
@@ -239,7 +238,7 @@ Este no tendrá ninguna relación con el resultado. Del mismo modo quitaremos la
 de resultados de resultados de ambos tiradores puesto que ya tenemos la de victoria.
 Otro campo que está en la misma situación será el identificador de la competición.
 
-Después de esto la estructura de la BBDD se puede ver en la tabla 5.15.
+Después de esto la estructura de la BBDD se puede ver en el cuadro 5.15.
 
 \begin{table}[]
   \centering
@@ -281,8 +280,8 @@ Después de esto la estructura de la BBDD se puede ver en la tabla 5.15.
 \subsection{Extraer conocimiento de los datos}
 
 Una vez que tenemos la BBDD normalizada el siguiente paso será buscar relaciones
-entre los datos de modo que se pueda extraer conocimiento de estos mismo y de
-esa forma poder mejorar nuestros sistema. El objetivo inicial es el de obtener
+entre los datos de modo que se pueda extraer conocimiento de estos mismos y de
+esa forma poder mejorar nuestro sistema. El objetivo inicial es el de obtener
 un pronóstico de quien ganará en un enfrentamiento directo. De este modo podremos
 completar nuestro sistema adaptando una táctica mas defensiva en función
 del resultado. No podremos ser agresivos o intentar movimientos que no tengamos afianzados
@@ -299,11 +298,11 @@ Además podremos aplicar técnicas de aprendizaje supervisado, dado que tenemos 
 previamente etiquetados gracias a todo el trabajo realizado anteriormente. Además podemos
 estar seguros de que el etiquetado es el correcto, puesto que la veracidad de estos datos
 es completa. Ante un problema de tales características los algoritmos más utilizados suelen ser
-arboles de decisión, clasificación de Naïve Bayes, regresión por minimos cuadrados, regresión
+arboles de decisión, clasificación de Naïve Bayes, regresión por mínimos cuadrados, regresión
 logística, Support Vector Machines (SVM) y métodos ensemble (conjuntos de clasificadores).
 
 Para elegir alguno de estos podemos seguir la chuleta que nos proporciona scikit-learn la cuál se
-puede encontrar en la figura 5.7
+puede encontrar en la figura 5.9
 
 \begin{figure}[htb]
   \centering
@@ -319,7 +318,7 @@ etiquetados, las dos siguientes respuestas serán afirmativas. La siguiente preg
 es que si tenemos menos de 100.000 ejemplos y en este caso también será afirmativa.
 Nuestra BBDD se compone de 25.045 registros.
 
-Para aplicar los algortimos usaremos la librería scikit-learn dado que nos proporciona
+Para aplicar los algoritmos usaremos la librería scikit-learn dado que nos proporciona
 todas las herramientas que necesitaremos para aplicarlos.
 
 El primer algoritmo que deberemos aplicar según la chuleta será linear SVC. En caso
@@ -466,7 +465,7 @@ Dicho algoritmo lo podemos encontrar en el anexo G.
 
 Los resultados obtenidos se consiguieron después de mas de dos días de procesamiento.
 Para el valor de K se obtuvo que el valor de 56, siendo este el número de grupos. Por otro lado
-el tamáño máximo de hoja será de 29. Por último el valor de p será de 5. Con esto se consiguió
+el tamaño máximo de hoja será de 29. Por último el valor de p será de 5. Con esto se consiguió
 una precisión de 0.652315190901706\%, consiguiendo una mejora de 0.05 puntos de precisión.
 
 Esto mereció la pena debido a que teníamos bastante tiempo para lanzar el algoritmo. Puesto que
@@ -478,7 +477,7 @@ quedaremos con ellos.
 Con el modelo optimizado lo máximo posible y obtenido un resultado mas que aceptable
 para los datos que manejamos podremos incluirlo en nuestro sistema. Para ello aprovecharemos
 que el modelo nos proporciona el porcentaje de probabilidad de que gane cada uno, lo cual nos
-dará la oportunidad de poder crear reglas en función de las probabilidaes. Para poder acceder
+dará la oportunidad de poder crear reglas en función de las probabilidades. Para poder acceder
 a ello crearemos una API a la cual llamaremos cada vez que queramos realizar la consulta.
 
 Esta API estará realizada en python con flask la cual solo tendrá una llamada que devolverá
@@ -493,7 +492,7 @@ El endpoint llamado con curl será de la siguiente manera:
 curl -X GET https://mftapi.herokuapp.com/predict/ -d "tableu=16&fencer1_age=26&fencer1_ranking=33& fencer1_handness=0&fencer1_weapon=1.0&fencer2_age=44& fencer2_ranking=99999999&fencer2_handness=0& fencer2_weapon=1.0"
 \end{lstlisting}
 
-Los parámetros con sus características se podrán consultar en la tabla 5.16
+Los parámetros con sus características se podrán consultar en el cuadro 5.16
 
 
 \begin{table}[]
@@ -527,7 +526,7 @@ proyectos por cuenta de forma gratuita. Esto nos permite ahorrar costes en el pr
 Además del endpoint mencionado anteriormente tendremos otro para que haga una llamada vacía
 la cual será la encargada de levantar el servidor, puesto que el programa gratuito apaga
 las máquinas a los treinta minutos de no recibir peticiones. Cuando accedan a la página, una
-vez por sesión hará la llamada asincrona a dicho endpoint, de este modo la máquina de la API
+vez por sesión hará la llamada asíncrona a dicho endpoint, de este modo la máquina de la API
 se irá levantando mientras el usuario navega por la web o rellena el formulario. De este modo
 bajaremos el tiempo de espera del usuario de treinta segundos aproximados que tarda la máquina en
 estar lista a esos treinta segundos menos el tiempo que tarde en rellenar el formulario, siendo
@@ -537,14 +536,14 @@ segundos puesto que es lo que tarda el endpoint de predicción en llevar a cabo 
 El código utilizado se puede ver en el anexo G.
 
 Una vez con todo este proceso hecho, se mantuvo una conversación con el experto mediante mensajería
-instantanea. En dicha conversación se volvieron a destacar conceptos ya mencionados anteriormente
+instantánea. En dicha conversación se volvieron a destacar conceptos ya mencionados anteriormente
 como la confianza del tirador, tanto la de uno mismo como la del rival. También menciono cuanto
 había que arriesgar en función de la diferencia de nivel entre ambos tiradores. Pudiendo
 arriesgar más cuanta mas haya, siempre que esté a tu favor. En caso contrario se procurará ser
 lo mas conservador posible. Al ser conservadores el tirador irá cogiendo confianza con los
 tocados que mejor le salen y de esta forma podrá llevar el asalto a su terreno.
 
-Esto nos llevó a ampliar las variables del sistema experto añadiendo un parámetro más: diferncia
+Esto nos llevó a ampliar las variables del sistema experto añadiendo un parámetro más: diferencia
 de nivel. Este parámetro será un número entre 0 y 100 representando porcentajes de probabilidad
 de que gane el primer tirador.
 
@@ -558,8 +557,8 @@ de que gane el primer tirador.
   \end{tabular}
 \end{table}
 
-Esta variable será tenida en cuenta para el siguiente arbol que representará
-cuanto riesgo ha de tomar un esgrimista en la pista. Dicho arbol se puede
+Esta variable será tenida en cuenta para el siguiente árbol que representará
+cuanto riesgo ha de tomar un esgrimista en la pista. Dicho árbol se puede
 ver en la figura 5.10
 
 \begin{figure}[htb]
