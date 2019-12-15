@@ -340,7 +340,14 @@ El siguiente a probar será un clasificador por cercanía de vecinos o mas conoc
 Para ello lo primero será averiguar el número de vecinos óptimo. El plan que seguimos
 fue probar diferentes opciones y ver cual era la que nos daba una mayor precisión. El resultado
 que obtuvimos fue que el mejor valor era de 53 con una precisión del 0.6460194963444355\%.
-En la figura X.x se puede ver la gráfica comparativa.
+En la figura 5.10 se puede ver la gráfica comparativa.
+
+\begin{figure}[htb]
+  \centering
+    \includegraphics[width=0.8\linewidth]{best_k}
+  \caption[Gráfica obtención K]{Gráfica obtención K}
+  \label{fig:Gráfica obtención K}
+\end{figure}
 
 Este fue el código utilizado:
 
@@ -373,9 +380,8 @@ print (max_k)
 
 El siguiente parámetro a probar será el número de hijos que deberá tener
 cada hoja en la exploración. Para ello lanzaremos el siguiente código cuyo
-resultado se puede puede observar en la figura X.x. El resultado que obtuvimos
-fue que le mejor valor estaba entre 29 y 57, por lo que nos quedaremos con un valor
-de 30 puesto que es el de por defecto. Este valor nos proporcionaba una precisión
+resultado se puede puede observar en la figura 5.11. El resultado que obtuvimos
+fue que le mejor valor estaba en 8. Este valor nos proporcionaba una precisión
 de 0.6436839967506093\%. El código utilizado fue el siguiente:
 
 
@@ -409,10 +415,17 @@ print ("max_k:")
 print (max_k)
 \end{lstlisting}
 
+\begin{figure}[htb]
+  \centering
+    \includegraphics[width=0.8\linewidth]{best_leaf_size}
+  \caption[Gráfica obtención leaf size]{Gráfica obtención leaf size}
+  \label{fig:Gráfica obtención leaf size}
+\end{figure}
+
 La siguiente variable a probar sería el valor de P, el cuál representará el power.
 Repetiremos el mismo proceso para esta variable. El mejor resultado lo obtuvimos con
 el valor de 1 con un porcentaje de 0.6487611697806661\%. La gráfica se puede observar
-en la figura X.x y el código utilizado es el siguiente:
+en la figura 5.12 y el código utilizado es el siguiente:
 
 
 \begin{lstlisting}
@@ -444,6 +457,15 @@ print (max_score)
 print ("max_k:")
 print (max_k)
 \end{lstlisting}
+
+\begin{figure}[htb]
+  \centering
+    \includegraphics[width=0.8\linewidth]{best_p}
+  \caption[Gráfica obtención p]{Gráfica obtención p}
+  \label{fig:Gráfica obtención p}
+\end{figure}
+
+
 
 Finalmente el modelo tendrá una precisión de 0.6487611697806661\% el cuál es algo
 aceptable para los datos que tenemos. El modelo es el siguiente:
