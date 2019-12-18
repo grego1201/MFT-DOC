@@ -12,6 +12,18 @@ verán mas adelante. Para poder aplicarlas hace falta una BBDD. Después de
 una larga búsqueda fallida se decide crear nuestra propia BBDD sacando
 la información de la página de la federación internacional de esgrima (FIE).
 
+Todo lo ejecutado en esta iteración ha sido desarrollado con control de versiones
+y se podrá consultar en el siguiente repositorio. Este sufrió modificaciones durante
+el desarrollo y es por eso que el historico puede ser confuso. El repositorio se puede
+consultar en el siguiente enlace \url{https://github.com/grego1201/MFT-API} o en la figura 5.10
+
+\begin{figure}[htb]
+  \centering
+  \scalebox{.3}{\includegraphics[width=0.8\linewidth]{QRApi}}
+  \caption[Código QR repositorio api]{Código QR repositorio api}
+  \label{fig:Código QR repositorio api}
+\end{figure}
+
 \subsection{Obtención BBDD}
 
 En dicha página disponemos de toda la información de cada torneo acontecido
@@ -302,7 +314,7 @@ arboles de decisión, clasificación de Naïve Bayes, regresión por mínimos cu
 logística, Support Vector Machines (SVM) y métodos ensemble (conjuntos de clasificadores).
 
 Para elegir alguno de estos podemos seguir la chuleta que nos proporciona scikit-learn la cuál se
-puede encontrar en la figura 5.9
+puede encontrar en la figura 5.11
 
 \begin{figure}[htb]
   \centering
@@ -340,7 +352,7 @@ El siguiente a probar será un clasificador por cercanía de vecinos o mas conoc
 Para ello lo primero será averiguar el número de vecinos óptimo. El plan que seguimos
 fue probar diferentes opciones y ver cual era la que nos daba una mayor precisión. El resultado
 que obtuvimos fue que el mejor valor era de 53 con una precisión del 0.6460194963444355\%.
-En la figura 5.10 se puede ver la gráfica comparativa.
+En la figura 5.12 se puede ver la gráfica comparativa.
 
 \begin{figure}[htb]
   \centering
@@ -380,7 +392,7 @@ print (max_k)
 
 El siguiente parámetro a probar será el número de hijos que deberá tener
 cada hoja en la exploración. Para ello lanzaremos el siguiente código cuyo
-resultado se puede puede observar en la figura 5.11. El resultado que obtuvimos
+resultado se puede puede observar en la figura 5.13. El resultado que obtuvimos
 fue que le mejor valor estaba en 8. Este valor nos proporcionaba una precisión
 de 0.6436839967506093\%. El código utilizado fue el siguiente:
 
@@ -425,7 +437,7 @@ print (max_k)
 La siguiente variable a probar sería el valor de P, el cuál representará el power.
 Repetiremos el mismo proceso para esta variable. El mejor resultado lo obtuvimos con
 el valor de 1 con un porcentaje de 0.6487611697806661\%. La gráfica se puede observar
-en la figura 5.12 y el código utilizado es el siguiente:
+en la figura 5.14 y el código utilizado es el siguiente:
 
 
 \begin{lstlisting}
@@ -581,7 +593,7 @@ de que gane el primer tirador.
 
 Esta variable será tenida en cuenta para el siguiente árbol que representará
 cuanto riesgo ha de tomar un esgrimista en la pista. Dicho árbol se puede
-ver en la figura 5.10
+ver en la figura 5.15
 
 \begin{figure}[htb]
   \centering
