@@ -51,6 +51,9 @@
 % Las normas tipográficas que aparecen en los comentarios corresponden al libro:
 % J. Martínez de Sousa. Ortografía y ortotipografía del español actual. Trea, 2008.
 
+%% -- Comillas ----------------------------------------------------------------
+\usepackage{csquotes}
+
 %% -- MEDIDAS Y DISTANCIAS -----------------------------------------------------
 \usepackage[left=35mm, right=20mm, top=25mm, bottom=25mm]{geometry}
 \usepackage{setspace}
