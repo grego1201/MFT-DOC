@@ -19,7 +19,7 @@ nos dará un árbol de decisión que podrá ser ampliable en todo momento.
 
 El primer paso para crear dicho árbol será tener claro cual es el proceso en la toma de decisión.
 Para ello se ha creado el diagrama, el cual ha sido corroborado por el experto. Dicho diagrama
-se puede observar en la figura 5.4.
+se puede observar en la \hyperref[fig:Esquema toma decisión]{figura 5.4}.
 
 \begin{figure}[htb]
   \centering
@@ -30,8 +30,8 @@ se puede observar en la figura 5.4.
 
 
 Con el árbol de decisiones resumido, se elaboraron los sub-arboles para cada uno de los casos.
-Estos árboles han sido implantados como diagramas. En la figura 5.5 se puede ver el diagrama
-desarrollado para obtener la experiencia. El resto se puede ver en el anexo C donde se encuentran
+Estos árboles han sido implantados como diagramas. En la \hyperref[fig:Arbol decisión experiencia]{figura 5.5} se puede ver el diagrama
+desarrollado para obtener la experiencia. El resto se puede ver en el \hyperref[cap:Diagramas toma decisión]{anexo C} donde se encuentran
 todos juntos.
 
 \begin{figure}[htb]
@@ -50,7 +50,7 @@ funcional y podrá ser probado. De este modo conseguiremos pulir fallos en el pr
 
 Para ello se han de definir reglas. En el proceso de definición de las reglas se usaron los
 diagramas desarrollados anteriormente. A continuación se muestra el desarrollo seguido para el
-módulo de experiencia. El diagrama de este módulo se puede ver en la figura 5.5 de este mismo capítulo.
+módulo de experiencia. El diagrama de este módulo se puede ver en la \hyperref[fig:Arbol decisión experiencia]{figura 5.5} de este mismo capítulo.
 
 Primero se estudió que variables harían falta. Para ello se definen tres variables las cuales serán booleanas
 indicando la altura. Solo una de ellas podrá ser verdadera y siempre habrá una verdadera. Dichas variables son
@@ -67,8 +67,8 @@ que el rival tiene mas distancia, la segunda que ambos tienen la misma distancia
 indicaría que el primer tirador tiene mas distancia.
 
 Con las variables definidas para cada nodo del árbol se definen las reglas, de tal modo que
-cuando estén todas definidas, todos los caminos del árbol estén cubiertos. En la tabla 5.5 se pueden ver
-las reglas junto al camino que cubren. Los caminos se pueden ver en la figura 5.6.
+cuando estén todas definidas, todos los caminos del árbol estén cubiertos. En la \hyperref[tab:Reglas distancia]{tabla 5.5} se pueden ver
+las reglas junto al camino que cubren. Los caminos se pueden ver en la \hyperref[fig:Arbol decisión distancia con caminos numerados]{figura 5.6}.
 
 \begin{figure}[htb]
   \centering
@@ -104,12 +104,12 @@ Con las reglas definidas las pasamos al sistema experto definidas en CLIPS.
 A continuación se lista la plantilla y reglas utilizadas para el sistema experto en CLIPS.
 \lstinputlisting[keywords={*, defrule, deftemplate, default, slot, type, assert, retract, test}]{code/altura.clp}
 
-El resto de reglas se pueden ver en el anexo D.
+El resto de reglas se pueden ver en el \hyperref[cap:Reglas del sistema experto]{anexo D}.
 
 Con el prototipo desarrollado era hora de ponerlo a prueba. Recordar que cada uno de los módulos
 fue revisado y aprobado por el experto. Para poner a pruebas el prototipo se llevó a la sala de
 esgrima de Ciudad Real. Para las pruebas se utilizaron sujetos cuyas características se pueden
-ver en la tabla 5.6.
+ver en la \hyperref[tab:Sujetos prueba prototipo]{tabla 5.6}.
 
 \begin{table}[]
   \centering
