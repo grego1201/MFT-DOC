@@ -8,5 +8,18 @@ del proyecto sería darle acceso a cualquier persona con internet.
 Para ello tendrá que estar alojada en algún servidor externo.
 Puesto que no guardamos ningún dato sensible, no hace falta
 que esté alojado en Europa. Después de analizar las distintas posibilidades
-% ampliar mostrando diferentes tipos de hsoting y precios
-se decide usar Heroku. El análisis para esta decisión está en el anexo X (realizar anexo).
+se decide usar Heroku. Para ello se hizo un estudio de las herramientas
+de hosting mas conocidas cuyo resultado se puede ver en la \hyperref[tab:Tabla comparativa precios hosting]{tabla 5.7}
+
+\begin{longtable}{|p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.1\linewidth}p{0.15\linewidth}p{0.15\linewidth}p{0.15\linewidth}|}
+  \caption{Tabla comparativa precios hosting}
+  \label{tab:Tabla comparativa precios hosting}
+  \endfirsthead
+  \endhead
+  \hline
+  \multicolumn{1}{|l}{Hosting} & Precio & Dominio incluido & Soporte incluido & Documentación & Retraso en primer acceso & Nº máximo de instancias \\ \hline
+  Heroku & 0€ & No & No & Media & 30 segundos & 5 \\ \hline
+  AWS & 0.69€ & No & Si & Alta & 0 segundos & 1 \\ \hline
+  Azure & 0.49€ & No & Si & Alta & 0 segundos & 1 \\ \hline
+  IBM Cloud & 0€ & No & No & Media & 30 segundos & 1 \\ \hline
+\end{longtable}

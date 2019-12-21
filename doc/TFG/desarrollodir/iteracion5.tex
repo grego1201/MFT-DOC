@@ -60,7 +60,7 @@ conocida como poules. Esta fase también la ignoraremos de momento pudiendo ser 
 información a analizar en un futuro. Ya sólo nos quedarían las fases eliminatorias o
 cuadros de directas. Estos contienen el resultado del enfrentamiento: tocados dados por cada tirador,
 quien ganó, el identificador de cada tirador y el tablón que se disputaba. Con esto la estructura de la BBDD
-se queda de la siguiente forma (ver \hyperref[tab:Estructura BBDD Inicial iteracion5]{tabla 5.7}):
+se queda de la siguiente forma (ver \hyperref[tab:Estructura BBDD Inicial iteracion5]{tabla 5.8}):
 
 \begin{table}[]
   \centering
@@ -78,7 +78,7 @@ se queda de la siguiente forma (ver \hyperref[tab:Estructura BBDD Inicial iterac
   \end{tabular}
 \end{table}
 
-A continuación en la \hyperref[tab:Ejemplo BBDD inicial iteracion5]{tabla 5.8} se puede ver un ejemplo del estado inicial de la BBDD.
+A continuación en la \hyperref[tab:Ejemplo BBDD inicial iteracion5]{tabla 5.9} se puede ver un ejemplo del estado inicial de la BBDD.
 
 \begin{table}[]
   \centering
@@ -97,7 +97,7 @@ aparte todos los identificadores de los competidores, de esa forma podríamos ex
 sus características en una tabla aparte la cual recopile la información de todos
 los competidores. Esta tabla contendrá la siguiente información de cada tirador:
 identificador, edad, ranking, nacionalidad, mano dominante y arma. De tal forma
-que la estructura se puede ver \hyperref[tab:Estructura BBDD tiradores]{tabla 5.9} y un ejemplo en la \hyperref[tab:Ejemplo BBDD tiradores]{tabla 5.10}.
+que la estructura se puede ver \hyperref[tab:Estructura BBDD tiradores]{tabla 5.10} y un ejemplo en la \hyperref[tab:Ejemplo BBDD tiradores]{tabla 5.11}.
 
 \begin{table}[]
   \centering
@@ -134,7 +134,7 @@ de los tiradores de la primera BBDD con los datos recopilados de cada tirador.
 
 De esta forma conseguiremos tener toda la información en una sola BBDD para
 que los datos puedan ser comparados con mayor facilidad. La estructura final
-de la BBDD se puede ver en la \hyperref[tab:estructura BBDD final]{tabla 5.11}.
+de la BBDD se puede ver en la \hyperref[tab:estructura BBDD final]{tabla 5.12}.
 
 
 
@@ -188,7 +188,7 @@ El primer paso que daremos será añadir una columna numérica indicando quien
 fue el ganador del encuentro. Esta contendrá 0 o 1 dependiendo de si ganó
 el primer tirador o el segundo respectivamente. De esta forma será mas fácil
 identificar quien de los dos tiradores ganó. La estructura del nuevo campo
-se podrá ver en la \hyperref[tab:Estructura campo ganador]{tabla 5.12}. Para la obtención de este campo se exploró
+se podrá ver en la \hyperref[tab:Estructura campo ganador]{tabla 5.13}. Para la obtención de este campo se exploró
 el asalto correspondiente y se comprobó quien tenía dentro de su resultado
 la letra \enquote{V} dado que esta es la que indicaba la victoria.
 
@@ -197,7 +197,7 @@ la letra \enquote{V} dado que esta es la que indicaba la victoria.
   \label{tab:Estructura campo ganador}
   \endfirsthead
   \endhead
-  
+
   \hline
   \rowcolor[HTML]{C0C0C0}
   Campo & Tipo & Descripción & Ejemplo \\ \hline
@@ -213,7 +213,7 @@ transformamos aquellas variables de texto a numéricas, de este modo serán
 mas sencillos los cálculos estadísticos.
 
 En nuestro caso tenemos la mano usada por el tirador y el arma usada por este.
-Para ello seguiremos la transformación mostrada en la tabla \hyperref[tab:Tabla equivalencias mano]{5.13} y \hyperref[tab:Tabla equivalencias arma]{5.14} para
+Para ello seguiremos la transformación mostrada en la tabla \hyperref[tab:Tabla equivalencias mano]{5.14} y \hyperref[tab:Tabla equivalencias arma]{5.15} para
 las equivalencias de mano y arma respectivamente. Esto se resume en
 cambiar la mano dominante diestra por un valor de 0 mientras que la zurda será
 sustituida por el valor 1. También cambiaremos las armas siendo el equivalente
@@ -253,7 +253,7 @@ Este no tendrá ninguna relación con el resultado. Del mismo modo quitaremos la
 de resultados de resultados de ambos tiradores puesto que ya tenemos la de victoria.
 Otro campo que está en la misma situación será el identificador de la competición.
 
-Después de esto la estructura de la BBDD se puede ver en la \hyperref[tab:Estructura BBDD final postproceso]{tabla 5.15}.
+Después de esto la estructura de la BBDD se puede ver en la \hyperref[tab:Estructura BBDD final postproceso]{tabla 5.16}.
 
 
 \begin{longtable}{|p{3cm}p{2cm}p{6cm}p{3cm}|}
@@ -533,7 +533,7 @@ El endpoint llamado con curl será de la siguiente manera:
 curl -X GET https://mftapi.herokuapp.com/predict/ -d "tableu=16&fencer1_age=26&fencer1_ranking=33& fencer1_handness=0&fencer1_weapon=1.0&fencer2_age=44& fencer2_ranking=99999999&fencer2_handness=0& fencer2_weapon=1.0"
 \end{lstlisting}
 
-Los parámetros con sus características se podrán consultar en la \hyperref[tab:Parmetros peticion prediccion]{tabla 5.16}.
+Los parámetros con sus características se podrán consultar en la \hyperref[tab:Parmetros peticion prediccion]{tabla 5.17}.
 
 
 \begin{longtable}{llllll}
@@ -596,7 +596,7 @@ tocados que mejor le salen y de esta forma podrá llevar el asalto a su terreno.
 Esto nos llevó a ampliar las variables del sistema experto añadiendo un parámetro más: diferencia
 de nivel. Este parámetro será un número entre 0 y 100 representando porcentajes de probabilidad
 de que gane el primer tirador. La tabla objeto atributo valor de los nuevos atributos se puede
-ver en la \hyperref[tab:Tabla objeto atributo y valor victoria]{tabla 5.17}.
+ver en la \hyperref[tab:Tabla objeto atributo y valor victoria]{tabla 5.18}.
 
 \begin{longtable}{lll}
   \caption{Tabla objeto atributo y valor victoria}
