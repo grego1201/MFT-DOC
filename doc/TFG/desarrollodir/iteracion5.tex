@@ -558,9 +558,6 @@ Para la implementación de dicha API se utilizó el lenguaje de programación Py
 aprovechar el código utilizado a la hora de entrenar el modelo anterior. Las librerías
 utilizadas para las peticiones fueron Flask junto a GUnicorn para darle una interfaz web.
 
-% Meter aquí las dependencias de librerías para el fichero requirements
-% También meter que poner en el procfile y como montarlo para rellenar
-
 
 Por otro lado el hosting utilizado volvió a ser Heroku dado que tiene un límite de cinco
 proyectos por cuenta de forma gratuita. Esto nos permite ahorrar costes en el proyecto
@@ -574,7 +571,19 @@ estar lista a esos treinta segundos menos el tiempo que tarde en rellenar el for
 este una media de 20 segundos. El mínimo de tiempo que estará el usuario esperando será de tres
 segundos puesto que es lo que tarda el endpoint de predicción en llevar a cabo la petición.
 
-El código utilizado se puede ver en el anexo G.
+Para adaptar el proyecto a los requirimientos que tiene heroku fue necesario crear un fichero
+\textit{requirements.txt} con las dependencias de librerías. El contenido de dicho documento
+se puede ver a continuación:
+
+\lstinputlisting[]{code/requirements.txt}
+
+Así mismo Heroku también necesita un fichero con el que indicar al servidor que comando
+utilizar para arrancar. Este comando se tiene que guardar en un fichero llamado
+\textit{Procfile} cuyo contenido se puede ver a continuación:
+
+\lstinputlisting[]{code/Procfile}
+
+% El código utilizado por el servidor se puede ver en el anexo G.
 
 Una vez con todo este proceso hecho, se mantuvo una conversación con el experto mediante mensajería
 instantánea. En dicha conversación se volvieron a destacar conceptos ya mencionados anteriormente
