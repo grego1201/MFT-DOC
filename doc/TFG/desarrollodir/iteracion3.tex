@@ -90,8 +90,7 @@ Para ello se siguieron los siguientes pasos:
     ver cual es el resultado de dicho sistema.
 
   \item \textbf{Añadir bootstrap:} Añadiremos el framework bootstrap para ayudarnos
-    a la aplicación de estilos en la página. De esta manera mejoraremos la usabilidad
-    de la misma.
+    a la aplicación de estilos en la página. De esta manera mejoraremos la usabilidad de la misma.
 
   \item \textbf{Añadir traducciones:} Haremos los cambios necesarios para permitir
     a la aplicación traducciones en distintos idiomas de forma que se pueda
@@ -115,6 +114,39 @@ Para ello se siguieron los siguientes pasos:
   \item \textbf{Definir y añadir estilos:} Se definirán los estilos de los formularios, botones,
     textos, etc de la aplicación.
 \end{enumerate}
+
+Para asegurar la calidad de código se van a seguir dos principios. Estos son comprobar
+el código con test y estos deberán cubrir un mínimo de 90\% de líneas de un fichero.
+También seguiremos una guía de estilos. Esto nos asegurará en un futuro que todo el mundo
+escriba el código de una forma \enquote{parecida}. Al menos seguirán unas reglas las cuales
+no se podrán saltar. Entre ellas estará el número máximo de caracteres por línea,
+número máximo de líneas por método, complejidad máxima de un método, etc.
+
+Para lo primero se usará la gema \textit{simplecov} la cuál nos permite configurar
+los test de manera que luego genere un informe que se podrá consultar desde el navegador
+en local. Un ejemplo del informe se puede ver en la \hyperref[fig:Ejemplo informe cobertura código]{firgura 5.10}.
+En él se puede observar como se obtuvo una cobertura de código del 96.64\%. Esto deberá ser
+mejorado en un futuro siendo el 100\% lo idóneo.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=1\linewidth]{simplecov}
+  \caption[Ejemplo informe cobertura código]{Ejemplo informe cobertura código}
+  \label{fig:Ejemplo informe cobertura código}
+\end{figure}
+
+En cuanto a la calidad de código se usó la librería rubocop. Esta te permite
+fijar unas reglas de código mediante y después comprobar que estas se han cumplido.
+Muchos editores tienen plugins para comprobar dichas normas fijadas en el proyecto
+a la vez que escribes el código. Para este proyecto se cambiaron las normas por defecto
+adaptandolas a las necesidades de este. Las modificaciones hechas fueron las siguientes:
+
+\begin{itemize}
+  \item \textbf{Longitud máxima de línea}. Este fue modificado para aumentarlo a 120 caracteres.
+  \item \textbf{Longitud máxima de método}. Este fue modificado para aumentarlo a 15 líneas.
+  \item \textbf{Longitud máxima de clase}. Este fue modificado para aumentarlo a 140 líneas.
+  \item \textbf{Complejidad máxima}. Este fue modificado para aumentarlo a 21.
+\end{itemize}
 
 Con todo esto ya terminado podremos pasar al siguiente paso que será
 dar acceso a la aplicación a cualquier persona que tenga acceso a internet.
