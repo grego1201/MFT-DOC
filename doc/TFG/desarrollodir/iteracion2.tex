@@ -77,27 +77,28 @@ las reglas junto al camino que cubren. Los caminos se pueden ver en la \hyperref
   \label{fig:Arbol decisión distancia con caminos numerados}
 \end{figure}
 
-\begin{table}[]
-  \centering
+\begin{longtable}[]{|p{0.9\linewidth} p{0.1\linewidth}|}
   \caption{Reglas distancia}
   \label{tab:Reglas distancia}
-  \begin{tabular}{|ll|}
-    \hline
-    Regla & Camino cubierto \\ \hline
-    Si ALTOMASEL y FRANCESEL y FRANCESYO entonces MASDISTANCIAEL & 1.1 \\
-    Si ALTOMASEL y ANATOMICOEL y ANATOMICOYO entonces MASDISTANCIAEL & 1.2.1 \\
-    Si ALTOMASEL y FRANCESEL y ANATOMICOYO entonces MASDISTANCIAEL & 1.1 \\
-    Si ALTOMASEL y ANATOMICOEL y FRANCESYO entonces DISTANCIAIGUAL & 1.2.2 \\
-    Si ALTOIGUAL y FRANCESEL y FRANCESYO entonces DISTANCIAIGUAL & 2.1.2 \\
-    Si ALTOIGUAL y ANATOMICOEL y ANATOMICOYO entonces DISTANCIAIGUAL & 2.2.1 \\
-    Si ALTOIGUAL y FRANCESEL y ANATOMICOYO DISTANCIAMASEL & 2.1.2 \\
-    Si ALTOIGUAL y ANATOMICOEL y FRANCESYO entonces DISTANCIAMASYO & 2.2.2 \\
-    Si ALTOMASYO y FRANCESEL y FRANCESYO entonces DISTANCIAMASYO & 3.1.2 \\
-    Si ALTOMASYO y ANATOMICOEL y ANATOMICOYO entonces DISTANCIAMASYO & 3.2 \\
-    Si ALTOMASYO y FRANCESEL y ANATOMICOYO entonces DISTANCIAIGUAL & 3.1.1 \\
-    Si ALTOMASYO y ANATOMICOEL y FRANCESYO entonces DISTANCIAMASYO & 3.2 \\ \hline
-  \end{tabular}
-\end{table}
+
+  \endfirsthead
+  \endhead
+
+  \hline
+  Regla & Camino cubierto \\ \hline
+  Si ALTOMASEL y FRANCESEL y FRANCESYO entonces MASDISTANCIAEL & 1.1 \\ \hline
+  Si ALTOMASEL y ANATOMICOEL y ANATOMICOYO entonces MASDISTANCIAEL & 1.2.1 \\ \hline
+  Si ALTOMASEL y FRANCESEL y ANATOMICOYO entonces MASDISTANCIAEL & 1.1 \\ \hline
+  Si ALTOMASEL y ANATOMICOEL y FRANCESYO entonces DISTANCIAIGUAL & 1.2.2 \\ \hline
+  Si ALTOIGUAL y FRANCESEL y FRANCESYO entonces DISTANCIAIGUAL & 2.1.2 \\ \hline
+  Si ALTOIGUAL y ANATOMICOEL y ANATOMICOYO entonces DISTANCIAIGUAL & 2.2.1 \\ \hline
+  Si ALTOIGUAL y FRANCESEL y ANATOMICOYO DISTANCIAMASEL & 2.1.2 \\ \hline
+  Si ALTOIGUAL y ANATOMICOEL y FRANCESYO entonces DISTANCIAMASYO & 2.2.2 \\ \hline
+  Si ALTOMASYO y FRANCESEL y FRANCESYO entonces DISTANCIAMASYO & 3.1.2 \\ \hline
+  Si ALTOMASYO y ANATOMICOEL y ANATOMICOYO entonces DISTANCIAMASYO & 3.2 \\ \hline
+  Si ALTOMASYO y FRANCESEL y ANATOMICOYO entonces DISTANCIAIGUAL & 3.1.1 \\ \hline
+  Si ALTOMASYO y ANATOMICOEL y FRANCESYO entonces DISTANCIAMASYO & 3.2 \\ \hline
+\end{longtable}
 
 Con las reglas definidas las pasamos al sistema experto definidas en CLIPS.
 

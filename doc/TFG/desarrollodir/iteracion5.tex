@@ -80,17 +80,18 @@ se queda de la siguiente forma (ver \hyperref[tab:Estructura BBDD Inicial iterac
 
 A continuación en la \hyperref[tab:Ejemplo BBDD inicial iteracion5]{tabla 5.9} se puede ver un ejemplo del estado inicial de la BBDD.
 
-\begin{table}[]
-  \centering
+\begin{longtable}[]{|p{0.1\linewidth} p{0.1\linewidth} p{0.25\linewidth} p{0.25\linewidth} p{0.1\linewidth} p{0.1\linewidth}|}
   \caption{Ejemplo BBDD inicial}
   \label{tab:Ejemplo BBDD inicial iteracion5}
-  \begin{tabular}{|llllll|}
-    \hline \rowcolor[HTML]{C0C0C0}
-    CompetitionID & Tableu & Competitor1 & Competitor2 & ResultCompetitor1 & ResultCompetitor2 \\ \hline
-    2019-64 & 32 & /fencers/Anna-KOROLEVA-40351/ & /fencers/Kira-KESZEI-49034/ & V/15 & D/13 \\ \hline
-    2019-64 & 32 & /fencers/Greta-CECERE-45345/ & /fencers/Andreea-LUPU-37410/ & V/15 & D/12 \\ \hline
-  \end{tabular}
-\end{table}
+
+  \endfirsthead
+  \endhead
+
+  \hline \rowcolor[HTML]{C0C0C0}
+  Competit-ionID & Tableu & Competitor1 & Competitor2 & Result-Competi-tor1 & Result-Competi-tor2 \\ \hline
+  2019-64 & 32 & /fencers/Anna-KOROLEVA-40351/ & /fencers/Kira-KESZEI-49034/ & V/15 & D/13 \\ \hline
+  2019-64 & 32 & /fencers/Greta-CECERE-45345/ & /fencers/Andreea-LUPU-37410/ & V/15 & D/12 \\ \hline
+\end{longtable}
 
 Con esta información recopilada nos faltaría completarla. Para ello extrajimos en una BBDD
 aparte todos los identificadores de los competidores, de esa forma podríamos extraer
@@ -536,22 +537,23 @@ curl -X GET https://mftapi.herokuapp.com/predict/ -d "tableu=16&fencer1_age=26&f
 Los parámetros con sus características se podrán consultar en la \hyperref[tab:Parmetros peticion prediccion]{tabla 5.17}.
 
 
-\begin{longtable}{llllll}
+\begin{longtable}{p{0.1\linewidth} | p{0.2\linewidth} p{0.1\linewidth} p{0.1\linewidth} p{0.2\linewidth} p{0.1\linewidth}}
 	\caption{Parámetros petición predicción}
 	\label{tab:Parmetros peticion prediccion}
 
   \endfirsthead
   \endhead
+
   Parámetro & Descripción & Tipo & Requerido & Valores admitidos & Ejemplo \\ \hline
-  \multicolumn{1}{l|}{tableu} & \multicolumn{1}{l|}{Tablón encuentro} & Integer & Si & \{2, 4, 8, 16, 32, 64, ...\} & 2 \\ \hline
-  \multicolumn{1}{l|}{fencer1\_age} & \multicolumn{1}{l|}{Edad tirador 1} & Integer & Si & \{1, inf\} & 26 \\
-  \multicolumn{1}{l|}{fencer1\_ranking} & \multicolumn{1}{l|}{Ranking tirador 1} & Integer & Si & \{1, inf\} & 33 \\
-  \multicolumn{1}{l|}{fencer1\_handness} & \multicolumn{1}{l|}{Mano tirador 1 (0 derecha, 1 izquierda)} & Integer & Si & \{{[}\}0, 1\{{]}\} & 0 \\
-  \multicolumn{1}{l|}{fencer1\_weapon} & \multicolumn{1}{l|}{Arma tirador 1 (0 florete, 1 sable, 2 espada)} & Integer & Si & \{{[}\}0, 1, 2\{{]}\} & 1 \\ \hline
-  \multicolumn{1}{l|}{fencer2\_age} & \multicolumn{1}{l|}{Edad tirador 2} & Integer & Si & \{1, inf\} & 44 \\
-  \multicolumn{1}{l|}{fencer2\_ranking} & \multicolumn{1}{l|}{Ranking tirador 2} & Integer & Si & \{1, inf\} & 9999999999 \\
-  \multicolumn{1}{l|}{fencer2\_handness} & \multicolumn{1}{l|}{Mano tirador 2 (0 derecha, 1 izquierda)} & Integer & Si & \{{[}\}0, 1\{{]}\} & 0 \\
-  \multicolumn{1}{l|}{fencer2\_weapon} & \multicolumn{1}{l|}{Arma tirador 2 (0 florete, 1 sable, 2 espada)} & Integer & Si & \{{[}\}0, 1, 2\{{]}\} & 1
+  tableu & Tablón encuentro & Integer & Si & \{2, 4, 8, 16, 32, 64, ...\} & 2 \\ \hline
+  fencer1\_age & Edad tirador 1 & Integer & Si & \{1, inf\} & 26 \\
+  fencer1\_ranking & Ranking tirador 1 & Integer & Si & \{1, inf\} & 33 \\
+  fencer1\_handness & Mano tirador 1 (0 derecha, 1 izquierda) & Integer & Si & \{{[}\}0, 1\{{]}\} & 0 \\
+  fencer1\_weapon & Arma tirador 1 (0 florete, 1 sable, 2 espada) & Integer & Si & \{{[}\}0, 1, 2\{{]}\} & 1 \\ \hline
+  fencer2\_age & Edad tirador 2 & Integer & Si & \{1, inf\} & 44 \\
+  fencer2\_ranking & Ranking tirador 2 & Integer & Si & \{1, inf\} & 9999999999 \\
+  fencer2\_handness & Mano tirador 2 (0 derecha, 1 izquierda) & Integer & Si & \{{[}\}0, 1\{{]}\} & 0 \\
+  fencer2\_weapon & Arma tirador 2 (0 florete, 1 sable, 2 espada) & Integer & Si & \{{[}\}0, 1, 2\{{]}\} & 1
 \end{longtable}
 
 Para la implementación de dicha API se utilizó el lenguaje de programación Python 3.6.9 para
