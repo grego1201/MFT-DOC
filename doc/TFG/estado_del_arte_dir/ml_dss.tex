@@ -1,7 +1,7 @@
 \newline
 
-\section{Sistema de apoyo a la toma de decisión usando técnicas de aprendizaje automático en esgrima}
-\subsection{Sistema de apoyo a la toma de decisión (DSS)}
+\section{\acs{DSS} usando técnicas de aprendizaje automático en esgrima}
+\subsection{\acl{DSS}}
 
 Siempre se ha querido tomar una buena decisión y no siempre se ha podido, en la mayoría de los casos
  por no tener los conocimientos suficientes. Pero ¿qué es la mejor, una buena y una mala decisión?
@@ -23,10 +23,10 @@ Una vez aclarada que es una mala, buena y la mejor decisión podremos hablar sob
  a través de conocimiento extraído previamente. Dicho conocimiento se puede apoyar de otros sistemas como
  arboles de decisión o redes bayesianas para obtener conocimiento.
 
-Un ejemplo de lo mencionado anteriormente fue en el DSS basado en redes bayesianas con una aplicación
- a la lucha contra las infecciones nosocomiales (Hela Ltifi, et al). En este caso lo que se pretendía
+Un ejemplo de lo mencionado anteriormente fue en el \acs{DSS} basado en redes bayesianas con una aplicación
+ a la lucha contra las infecciones nosocomiales \cite{hela}. En este caso lo que se pretendía
  era reducir el número de pacientes infectados. Para ello desarrollaron un sistema para ayudar a los
- médicos a prevenir dichas infecciones. Dicho sistema fue desarrollado mediante un proceso KDD el
+ médicos a prevenir dichas infecciones. Dicho sistema fue desarrollado mediante un proceso \acf{KDD} el
  cuál se nutre de una base de datos cedida por un hospital. Dicho proceso consistía en analizar los datos
  e intentar obtener conocimiento de ellos. Para ello habría que seguir una serie de pasos como la
  limpieza, pre-procesamiento de datos, detección de patrones y ahí es cuando se podría obtener conocimiento.
@@ -34,7 +34,7 @@ Un ejemplo de lo mencionado anteriormente fue en el DSS basado en redes bayesian
 
 \subsection{Sistemas basados en el conocimiento}
 
-Parte de un DSS pueden ser los sistemas basados en conocimientos, los cuales parten de un conocimiento extraído de un
+Parte de un \acs{DSS} pueden ser los sistemas basados en conocimientos, los cuales parten de un conocimiento extraído de un
  experto y es transportado a una aplicación informática la cual será lo mas fiel a reproducir
  la decisión de dicho experto. Para ello se siguen una serie de procesos para poder transformar
  dicho conocimiento hacia la aplicación. Esta suele contar con una interfaz de usuario para que
@@ -47,7 +47,7 @@ Parte de un DSS pueden ser los sistemas basados en conocimientos, los cuales par
  analizará el resultado de la entrevista, pasando a reglas dicho conocimiento o elaborando
  una nueva entrevista en caso de que fuera necesario.
 
-Un ejemplo de lo mencionado anteriormente sería el sistema desarrollado en la universidad de Split.
+Un ejemplo de lo mencionado anteriormente sería el sistema desarrollado en la universidad de Split \cite{sportTalent}.
  Aquí desarrollaron un sistema experto el cual era capaz de detectar talento en jóvenes que
  practicaban diferentes deportes con sus modalidades. En este caso iban un paso mas allá puesto
  que no solo jugaban con el conocimiento extraído del experto, si no que generaban una serie de
@@ -58,8 +58,7 @@ Un ejemplo de lo mencionado anteriormente sería el sistema desarrollado en la u
 
 Por tanto nos encontramos ante la siguiente pregunta ¿Cómo nos podríamos aprovechar los
  sistemas basados en conocimiento, sistemas de apoyo a la decisión y todo lo mencionado
- anteriormente en un campeonato de esgrima? Bien pues la respuesta es desarrollar un sistema de apoyo
- a la toma de decisión, ayudado de un sistema basado en el conocimiento. Esto nos permitirá tener una
+ anteriormente en un campeonato de esgrima? Bien pues la respuesta es desarrollar un \acs{DSS}, ayudado de un \acf{SBC}. Esto nos permitirá tener una
  visión mas en el campo de batalla, donde
  nuestras capacidades para tomar decisiones están limitadas, ya sea por cansancio físico, presión del
  momento, etc. Esto no sustituirá a un entrenador, puesto que hay cosas subjetivas y que requieren
@@ -68,13 +67,13 @@ Por tanto nos encontramos ante la siguiente pregunta ¿Cómo nos podríamos apro
  casos nos hará falta. A pesar de todo esto recordamos que no tomará la decisión por nosotros,
  sino que nos aconsejará y será el usuario final el que deba tomar la decisión.
 
-\subsection{Machine Learning}
-Machine Learning (ML) es una disciplina científica que se encuentra dentro de la Inteligencia
+\subsection{\acl{ML}}
+\acf{ML} es una disciplina científica que se encuentra dentro de la Inteligencia
  Artificial en la cual se crean sistemas que aprenden automáticamente. Entendemos por aprender
  como la detección de patrones complejos en gran cantidad de datos. En este caso, quien aprenderá
  será un algoritmo que revisará los datos y será capaz de predecir comportamientos en un futuro.
 
-Dentro del Machine Learning tenemos dos tipos de aprendizajes:
+Dentro del \acs{ML} tenemos dos tipos de aprendizajes:
 
 \begin{itemize}
   \item \textbf{Aprendizaje supervisado:} En este tipo tendremos una serie de datos de entrenamiento
@@ -86,5 +85,5 @@ Dentro del Machine Learning tenemos dos tipos de aprendizajes:
 \end{itemize}
 
 Usaremos diferentes técnicas de ML para obtener conocimiento de una base de datos, de este modo
-podremos reforzar nuestro sistema basado en el conocimiento, haciendo de este un sistema mucho mas
+podremos reforzar nuestro \acs{SBC}, haciendo de este un sistema mucho mas
 completo.

@@ -8,9 +8,9 @@ el sistema podrá tenerlo en cuenta para dar una recomendación u otra.
 
 
 Para el pronóstico se usarán técnicas de aprendizaje automático que se
-verán mas adelante. Para poder aplicarlas hace falta una BBDD. Después de
-una larga búsqueda fallida se decide crear nuestra propia BBDD sacando
-la información de la página de la federación internacional de esgrima (FIE).
+verán mas adelante. Para poder aplicarlas hace falta una \acs{BBDD}. Después de
+una larga búsqueda fallida se decide crear nuestra propia \acs{BBDD} sacando
+la información de la página de la \acl{FIE}\footnote{\url{https://fie.org/}}.
 
 Todo lo ejecutado en esta iteración ha sido desarrollado con control de versiones
 y se podrá consultar en el siguiente repositorio. Este sufrió modificaciones durante
@@ -24,7 +24,7 @@ consultar en el siguiente enlace \url{https://github.com/grego1201/MFT-API} o en
   \label{fig:Código QR repositorio api}
 \end{figure}
 
-\subsection{Obtención BBDD}
+\subsection{Obtención \acs{BBDD}}
 
 En dicha página disponemos de toda la información de cada torneo acontecido
 desde hace varios años con los resultados obtenidos en cada encuentro. Gracias
@@ -50,7 +50,7 @@ los resultados de las eliminatorias además de la clasificación general del tor
 información que nos interesa sacar, dado que con la clasificación general será algo más
 complicado sacar conocimiento de esta para nuestro objetivo final. Mientras que con los
 resultados obtenidos de cada enfrentamiento, junto a las características de cada tirador
-como pueden ser ranking FIE, mano usada, edad y nacionalidad podremos sacar algo de
+como pueden ser ranking \acs{FIE}, mano usada, edad y nacionalidad podremos sacar algo de
 conocimiento con todo ello.
 
 Con la primera criba hecha pasamos a sacar la información de cada torneo. Para ello exploraremos
@@ -59,12 +59,12 @@ la cual no nos interesa almacenar. Por otro lado tenemos la fase de grupos o tam
 conocida como poules. Esta fase también la ignoraremos de momento pudiendo ser esta
 información a analizar en un futuro. Ya sólo nos quedarían las fases eliminatorias o
 cuadros de directas. Estos contienen el resultado del enfrentamiento: tocados dados por cada tirador,
-quien ganó, el identificador de cada tirador y el tablón que se disputaba. Con esto la estructura de la BBDD
+quien ganó, el identificador de cada tirador y el tablón que se disputaba. Con esto la estructura de la \acs{BBDD}
 se queda de la siguiente forma (ver \hyperref[tab:Estructura BBDD Inicial iteracion5]{tabla 5.8}):
 
 \begin{table}[]
   \centering
-  \caption{Estructura BBDD Inicial}
+  \caption{Estructura \acs{BBDD} Inicial}
   \label{tab:Estructura BBDD Inicial iteracion5}
   \begin{tabular}{|llll|}
     \hline \rowcolor[HTML]{C0C0C0}
@@ -78,10 +78,10 @@ se queda de la siguiente forma (ver \hyperref[tab:Estructura BBDD Inicial iterac
   \end{tabular}
 \end{table}
 
-A continuación en la \hyperref[tab:Ejemplo BBDD inicial iteracion5]{tabla 5.9} se puede ver un ejemplo del estado inicial de la BBDD.
+A continuación en la \hyperref[tab:Ejemplo BBDD inicial iteracion5]{tabla 5.9} se puede ver un ejemplo del estado inicial de la \acs{BBDD}.
 
 \begin{longtable}[]{|p{0.1\linewidth} p{0.1\linewidth} p{0.25\linewidth} p{0.25\linewidth} p{0.1\linewidth} p{0.1\linewidth}|}
-  \caption{Ejemplo BBDD inicial}
+  \caption{Ejemplo \acs{BBDD} inicial}
   \label{tab:Ejemplo BBDD inicial iteracion5}
 
   \endfirsthead
@@ -93,7 +93,9 @@ A continuación en la \hyperref[tab:Ejemplo BBDD inicial iteracion5]{tabla 5.9} 
   2019-64 & 32 & /fencers/Greta-CECERE-45345/ & /fencers/Andreea-LUPU-37410/ & V/15 & D/12 \\ \hline
 \end{longtable}
 
-Con esta información recopilada nos faltaría completarla. Para ello extrajimos en una BBDD
+\newpage
+
+Con esta información recopilada nos faltaría completarla. Para ello extrajimos en una \acs{BBDD}
 aparte todos los identificadores de los competidores, de esa forma podríamos extraer
 sus características en una tabla aparte la cual recopile la información de todos
 los competidores. Esta tabla contendrá la siguiente información de cada tirador:
@@ -102,14 +104,14 @@ que la estructura se puede ver \hyperref[tab:Estructura BBDD tiradores]{tabla 5.
 
 \begin{table}[]
   \centering
-  \caption{Estructura BBDD tiradores}
+  \caption{Estructura \acs{BBDD} tiradores}
   \label{tab:Estructura BBDD tiradores}
   \begin{tabular}{|llll|}
     \hline \rowcolor[HTML]{C0C0C0}
     Campo & Tipo & Descripción & Ejemplo \\ \hline
     ID & String & Identificador del tirador & ADRIANA-MILANO-36467 \\ \hline
     Edad & Integer & Edad del tirador & 32 \\ \hline
-    FieRanking & String & Ranking de campeonatos FIE del tirador & 1234 \\ \hline
+    FieRanking & String & Ranking de campeonatos \acs{FIE} del tirador & 1234 \\ \hline
     Nacionalidad & String & Nacionalidad del tirador & VENEZUELA \\ \hline
     Mano & String & Mano dominante del tirador & Right \\ \hline
     Arma & String & Arma principal del tirador & Sabre \\ \hline
@@ -118,7 +120,7 @@ que la estructura se puede ver \hyperref[tab:Estructura BBDD tiradores]{tabla 5.
 
 \begin{table}[]
   \centering
-  \caption{Ejemplo BBDD tiradores}
+  \caption{Ejemplo \acs{BBDD} tiradores}
   \label{tab:Ejemplo BBDD tiradores}
   \begin{tabular}{|llllll|}
     \hline
@@ -129,18 +131,18 @@ que la estructura se puede ver \hyperref[tab:Estructura BBDD tiradores]{tabla 5.
   \end{tabular}
 \end{table}
 
-Con toda la información recopilada juntaremos ambas BBDD de forma que
+Con toda la información recopilada juntaremos ambas \acs{BBDD} de forma que
 cruzando los datos de ambas podremos sustituir los identificadores del
-de los tiradores de la primera BBDD con los datos recopilados de cada tirador.
+de los tiradores de la primera \acs{BBDD} con los datos recopilados de cada tirador.
 
-De esta forma conseguiremos tener toda la información en una sola BBDD para
+De esta forma conseguiremos tener toda la información en una sola \acs{BBDD} para
 que los datos puedan ser comparados con mayor facilidad. La estructura final
-de la BBDD se puede ver en la \hyperref[tab:estructura BBDD final]{tabla 5.12}.
+de la \acs{BBDD} se puede ver en la \hyperref[tab:estructura BBDD final]{tabla 5.12}.
 
 
 
 \begin{longtable}{|p{3cm}p{2cm}p{6cm}p{3cm}|}
-  \caption{Estructura BBDD final}
+  \caption{Estructura \acs{BBDD} final}
   \label{tab:estructura BBDD final}
   \endfirsthead
   \endhead
@@ -183,7 +185,7 @@ de la BBDD se puede ver en la \hyperref[tab:estructura BBDD final]{tabla 5.12}.
   RESULT\_C2 & String & Resultado del segundo tirador & D/7 \\ \hline
 \end{longtable}
 
-\subsection{Tratamiento BBDD}
+\subsection{Tratamiento \acs{BBDD}}
 
 El primer paso que daremos será añadir una columna numérica indicando quien
 fue el ganador del encuentro. Esta contendrá 0 o 1 dependiendo de si ganó
@@ -208,7 +210,7 @@ la letra \enquote{V} dado que esta es la que indicaba la victoria.
 Una vez calculado este campo ya no nos harían falta los campos de resultados
 por lo que se procedió al borrado de los mismos.
 
-El siguiente cambio que haremos será normalizar la BBDD. Esto se hace para
+El siguiente cambio que haremos será normalizar la \acs{BBDD}. Esto se hace para
 que los datos puedan ser comparados de una forma mas eficiente. Para ello
 transformamos aquellas variables de texto a numéricas, de este modo serán
 mas sencillos los cálculos estadísticos.
@@ -254,11 +256,11 @@ Este no tendrá ninguna relación con el resultado. Del mismo modo quitaremos la
 de resultados de resultados de ambos tiradores puesto que ya tenemos la de victoria.
 Otro campo que está en la misma situación será el identificador de la competición.
 
-Después de esto la estructura de la BBDD se puede ver en la \hyperref[tab:Estructura BBDD final postproceso]{tabla 5.16}.
+Después de esto la estructura de la \acs {BBDD} se puede ver en la \hyperref[tab:Estructura BBDD final postproceso]{tabla 5.16}.
 
 
 \begin{longtable}{|p{3cm}p{2cm}p{6cm}p{3cm}|}
-  \caption{Estructura BBDD final}
+  \caption{Estructura \acs{BBDD} final}
   \label{tab:Estructura BBDD final postproceso}
   \endfirsthead
   \endhead
@@ -292,11 +294,9 @@ Después de esto la estructura de la BBDD se puede ver en la \hyperref[tab:Estru
   WINNER & Integer & Este campo nos indicará quien ganó. Siendo 0 el primer tirador y 1 el segundo & 1 \\ \hline
 \end{longtable}
 
-\newpage
-
 \subsection{Extraer conocimiento de los datos}
 
-Una vez que tenemos la BBDD normalizada el siguiente paso será buscar relaciones
+Una vez que tenemos la \acs{BBDD} normalizada el siguiente paso será buscar relaciones
 entre los datos de modo que se pueda extraer conocimiento de estos mismos y de
 esa forma poder mejorar nuestro sistema. El objetivo inicial es el de obtener
 un pronóstico de quien ganará en un enfrentamiento directo. De este modo podremos
@@ -318,7 +318,7 @@ es completa. Ante un problema de tales características los algoritmos más util
 arboles de decisión, clasificación de Naïve Bayes, regresión por mínimos cuadrados, regresión
 logística, Support Vector Machines (SVM) y métodos ensemble (conjuntos de clasificadores).
 
-Para elegir alguno de estos podemos seguir la chuleta que nos proporciona scikit-learn la cuál se
+Para elegir alguno de estos podemos seguir la chuleta\cite{scikitCheatSheet} que nos proporciona scikit-learn la cuál se
 puede encontrar en la \hyperref[fig:Chuleta decisión algoritmo ML]{figura 5.13}.
 
 \begin{figure}[htb]
@@ -333,7 +333,7 @@ Para la primera pregunta la respuesta sería sí, dado que tenemos mas de 50 eje
 Como hemos visto antes intentamos predecir una categoría y además tenemos los datos
 etiquetados, las dos siguientes respuestas serán afirmativas. La siguiente pregunta
 es que si tenemos menos de 100.000 ejemplos y en este caso también será afirmativa.
-Nuestra BBDD se compone de 25.045 registros.
+Nuestra \acs{BBDD} se compone de 25.045 registros.
 
 Para aplicar los algoritmos usaremos la librería scikit-learn dado que nos proporciona
 todas las herramientas que necesitaremos para aplicarlos.

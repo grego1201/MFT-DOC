@@ -26,7 +26,7 @@ de hosting mas conocidas cuyo resultado se puede ver en la \hyperref[tab:Tabla c
 
 Para mejorar el desarrollo del proyecto aplicó integración continua gracias
 a la creación de test, comprobación de cobertura de código en test y además
-calidad de código usando rubocop. Para ello se utilizó CircleCI el cuál te
+calidad de código usando rubocop. Para ello se utilizó CircleCI\footnote{\url{https://circleci.com/}} el cuál te
 permite crear un conjunto de trabajos los cuales deberán tener una salida
 positiva o negativa en función de si han sido satisfactorios o no sus resultados.
 
@@ -36,7 +36,7 @@ están disponibles. Después se crea la base de datos con todas las migraciones
 necesarias. De este modo comprobamos que no hay problemas a la hora
 de generar una base de datos y no habrá problemas en el despliegue.
 Con la base de datos creada se lanzan todo el conjunto de test al completo.
-En caso de que falle alguno este trabajo no será satisfactorio y el CI
+En caso de que falle alguno este trabajo no será satisfactorio y el CI\footnote{CI: Conjunto de trabajos para la integración continua.}
 fallará. Cuando se hayan pasado todos los test entonces se ejecutará
 una tarea para comprobar que la calidad de código es correcta.
 
@@ -55,7 +55,7 @@ fallaron estos trabajos pero al final todos fueron positivos.
 Gracias a estos trabajos se puede tener integración continua. Heroku facilita
 esta labor con sus integraciones de GitHub. Una vez conectamos las cuentas se
 puede elegir el despliegue manual o el automático, seleccionando una rama principal.
-En este proyecto la rama principal será master. Cuando se haga una subida a master
+En este proyecto la rama principal será \textit{master}\footnote{Este es el nombre mas común para la rama principal en la mayoría de proyectos}. Cuando se haga una subida a master
 se lanzarán todos los trabajos que comprueban que todo está correcto y una vez hayan
 pasado todos se subirán los cambios automáticamente a la página web y se verán reflejados.
 De esta manera se ahorra mucho tiempo de trabajo evitando despliegues manuales, llevando estos
