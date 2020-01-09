@@ -14,7 +14,7 @@ la información de la página de la \acl{FIE}\footnote{\url{https://fie.org/}}.
 Todo lo ejecutado en esta iteración ha sido desarrollado con control de versiones
 y se podrá consultar en el siguiente repositorio. Este sufrió modificaciones durante
 el desarrollo y es por eso que el historico puede ser confuso. El repositorio se puede
-consultar en el siguiente enlace \url{https://github.com/grego1201/MFT-API} o en la \hyperref[fig:Código QR repositorio api]{figura 5.12}.
+consultar en el siguiente enlace \url{https://github.com/grego1201/MFT-API} o en la \hyperref[fig:Código QR repositorio api]{figura 4.14}.
 
 \begin{figure}[htb]
   \centering
@@ -59,7 +59,7 @@ conocida como poules. Esta fase también la ignoraremos de momento pudiendo ser 
 información a analizar en un futuro. Ya sólo nos quedarían las fases eliminatorias o
 cuadros de directas. Estos contienen el resultado del enfrentamiento: tocados dados por cada tirador,
 quien ganó, el identificador de cada tirador y el tablón que se disputaba. Con esto la estructura de la \acs{BBDD}
-se queda de la siguiente forma (ver \hyperref[tab:Estructura BBDD Inicial iteracion5]{tabla 5.8}):
+se queda de la siguiente forma (ver \hyperref[tab:Estructura BBDD Inicial iteracion5]{tabla 4.8}):
 
 \begin{table}[]
   \centering
@@ -77,7 +77,7 @@ se queda de la siguiente forma (ver \hyperref[tab:Estructura BBDD Inicial iterac
   \end{tabular}
 \end{table}
 
-A continuación en la \hyperref[tab:Ejemplo BBDD inicial iteracion5]{tabla 5.9} se puede ver un ejemplo del estado inicial de la \acs{BBDD}.
+A continuación en la \hyperref[tab:Ejemplo BBDD inicial iteracion5]{tabla 4.9} se puede ver un ejemplo del estado inicial de la \acs{BBDD}.
 
 \begin{longtable}[]{|p{0.1\linewidth} p{0.1\linewidth} p{0.25\linewidth} p{0.25\linewidth} p{0.1\linewidth} p{0.1\linewidth}|}
   \caption{Ejemplo \acs{BBDD} inicial}
@@ -99,7 +99,7 @@ aparte todos los identificadores de los competidores, de esa forma podríamos ex
 sus características en una tabla aparte la cual recopile la información de todos
 los competidores. Esta tabla contendrá la siguiente información de cada tirador:
 identificador, edad, ranking, nacionalidad, mano dominante y arma. De tal forma
-que la estructura se puede ver \hyperref[tab:Estructura BBDD tiradores]{tabla 5.10} y un ejemplo en la \hyperref[tab:Ejemplo BBDD tiradores]{tabla 5.11}.
+que la estructura se puede ver \hyperref[tab:Estructura BBDD tiradores]{tabla 4.10} y un ejemplo en la \hyperref[tab:Ejemplo BBDD tiradores]{tabla 4.11}.
 
 \begin{table}[]
   \centering
@@ -136,7 +136,7 @@ de los tiradores de la primera \acs{BBDD} con los datos recopilados de cada tira
 
 De esta forma conseguiremos tener toda la información en una sola \acs{BBDD} para
 que los datos puedan ser comparados con mayor facilidad. La estructura final
-de la \acs{BBDD} se puede ver en la \hyperref[tab:estructura BBDD final]{tabla 5.12}.
+de la \acs{BBDD} se puede ver en la \hyperref[tab:estructura BBDD final]{tabla 4.12}.
 
 
 
@@ -190,7 +190,7 @@ El primer paso que daremos será añadir una columna numérica indicando quien
 fue el ganador del encuentro. Esta contendrá 0 o 1 dependiendo de si ganó
 el primer tirador o el segundo respectivamente. De esta forma será mas fácil
 identificar quien de los dos tiradores ganó. La estructura del nuevo campo
-se podrá ver en la \hyperref[tab:Estructura campo ganador]{tabla 5.13}. Para la obtención de este campo se exploró
+se podrá ver en la \hyperref[tab:Estructura campo ganador]{tabla 4.13}. Para la obtención de este campo se exploró
 el asalto correspondiente y se comprobó quien tenía dentro de su resultado
 la letra \enquote{V} dado que esta es la que indicaba la victoria.
 
@@ -215,7 +215,7 @@ transformamos aquellas variables de texto a numéricas, de este modo serán
 mas sencillos los cálculos estadísticos.
 
 En nuestro caso tenemos la mano usada por el tirador y el arma usada por este.
-Para ello seguiremos la transformación mostrada en la tabla \hyperref[tab:Tabla equivalencias mano]{5.14} y \hyperref[tab:Tabla equivalencias arma]{5.15} para
+Para ello seguiremos la transformación mostrada en la tabla \hyperref[tab:Tabla equivalencias mano]{4.14} y \hyperref[tab:Tabla equivalencias arma]{4.15} para
 las equivalencias de mano y arma respectivamente. Esto se resume en
 cambiar la mano dominante diestra por un valor de 0 mientras que la zurda será
 sustituida por el valor 1. También cambiaremos las armas siendo el equivalente
@@ -255,7 +255,7 @@ Este no tendrá ninguna relación con el resultado. Del mismo modo quitaremos la
 de resultados de resultados de ambos tiradores puesto que ya tenemos la de victoria.
 Otro campo que está en la misma situación será el identificador de la competición.
 
-Después de esto la estructura de la \acs {BBDD} se puede ver en la \hyperref[tab:Estructura BBDD final postproceso]{tabla 5.16}.
+Después de esto la estructura de la \acs {BBDD} se puede ver en la \hyperref[tab:Estructura BBDD final postproceso]{tabla 4.16}.
 
 
 \begin{longtable}{|p{3cm}p{2cm}p{6cm}p{3cm}|}
@@ -317,7 +317,7 @@ arboles de decisión, clasificación de Naïve Bayes, regresión por mínimos cu
 logística, Support Vector Machines (SVM) y métodos ensemble (conjuntos de clasificadores).
 
 Para elegir alguno de estos podemos seguir la chuleta\cite{scikitCheatSheet} que nos proporciona scikit-learn la cuál se
-puede encontrar en la \hyperref[fig:Chuleta decisión algoritmo ML]{figura 5.13}.
+puede encontrar en la \hyperref[fig:Chuleta decisión algoritmo ML]{figura 4.15}.
 
 \begin{figure}[htb]
   \centering
@@ -355,7 +355,7 @@ El siguiente a probar será un clasificador por cercanía de vecinos o mas conoc
 Para ello lo primero será averiguar el número de vecinos óptimo. El plan que seguimos
 fue probar diferentes opciones y ver cual era la que nos daba una mayor precisión. El resultado
 que obtuvimos fue que el mejor valor era de 53 con una precisión del 0.6460194963444355\%.
-En la \hyperref[fig:Gráfica obtención K]{figura 5.14} se puede ver la gráfica comparativa.
+En la \hyperref[fig:Gráfica obtención K]{figura 4.16} se puede ver la gráfica comparativa.
 
 \begin{figure}[htb]
   \centering
@@ -395,7 +395,7 @@ print (max_k)
 
 El siguiente parámetro a probar será el número de hijos que deberá tener
 cada hoja en la exploración. Para ello lanzaremos el siguiente código cuyo
-resultado se puede puede observar en la \hyperref[fig:Gráfica obtención leaf size]{figura 5.15}. El resultado que obtuvimos
+resultado se puede puede observar en la \hyperref[fig:Gráfica obtención leaf size]{figura 4.17}. El resultado que obtuvimos
 fue que le mejor valor estaba en 8. Este valor nos proporcionaba una precisión
 de 0.6436839967506093\%. 
 
@@ -443,7 +443,7 @@ print (max_k)
 La siguiente variable a probar sería el valor de P, el cuál representará el power.
 Repetiremos el mismo proceso para esta variable. El mejor resultado lo obtuvimos con
 el valor de 1 con un porcentaje de 0.6487611697806661\%. La gráfica se puede observar
-en la \hyperref[fig:Gráfica obtención p]{figura 5.16}.
+en la \hyperref[fig:Gráfica obtención p]{figura 4.18}.
 
 \begin{figure}[htb]
 	\centering
@@ -532,8 +532,9 @@ El endpoint llamado con curl será de la siguiente manera:
 curl -X GET https://mftapi.herokuapp.com/predict/ -d "tableu=16&fencer1_age=26&fencer1_ranking=33& fencer1_handness=0&fencer1_weapon=1.0&fencer2_age=44& fencer2_ranking=99999999&fencer2_handness=0& fencer2_weapon=1.0"
 \end{lstlisting}
 
-Los parámetros con sus características se podrán consultar en la \hyperref[tab:Parmetros peticion prediccion]{tabla 5.17}.
+Los parámetros con sus características se podrán consultar en la \hyperref[tab:Parmetros peticion prediccion]{tabla 4.17}.
 
+\newpage
 
 \begin{longtable}{p{0.1\linewidth} | p{0.2\linewidth} p{0.1\linewidth} p{0.1\linewidth} p{0.2\linewidth} p{0.1\linewidth}}
 	\caption{Parámetros petición predicción}
@@ -546,12 +547,12 @@ Los parámetros con sus características se podrán consultar en la \hyperref[ta
   tableu & Tablón encuentro & Integer & Si & \{2, 4, 8, 16, 32, 64, ...\} & 2 \\ \hline
   fencer1\_age & Edad tirador 1 & Integer & Si & \{1, inf\} & 26 \\
   fencer1\_ranking & Ranking tirador 1 & Integer & Si & \{1, inf\} & 33 \\
-  fencer1\_handness & Mano tirador 1 (0 derecha, 1 izquierda) & Integer & Si & \{{[}\}0, 1\{{]}\} & 0 \\
-  fencer1\_weapon & Arma tirador 1 (0 florete, 1 sable, 2 espada) & Integer & Si & \{{[}\}0, 1, 2\{{]}\} & 1 \\ \hline
+  fencer1\_handness & Mano tirador 1 (0 derecha, 1 izquierda) & Integer & Si & \{{[}0, 1{]}\} & 0 \\
+  fencer1\_weapon & Arma tirador 1 (0 florete, 1 sable, 2 espada) & Integer & Si & \{{[}0, 1, 2{]}\} & 1 \\ \hline
   fencer2\_age & Edad tirador 2 & Integer & Si & \{1, inf\} & 44 \\
   fencer2\_ranking & Ranking tirador 2 & Integer & Si & \{1, inf\} & 9999999999 \\
-  fencer2\_handness & Mano tirador 2 (0 derecha, 1 izquierda) & Integer & Si & \{{[}\}0, 1\{{]}\} & 0 \\
-  fencer2\_weapon & Arma tirador 2 (0 florete, 1 sable, 2 espada) & Integer & Si & \{{[}\}0, 1, 2\{{]}\} & 1
+  fencer2\_handness & Mano tirador 2 (0 derecha, 1 izquierda) & Integer & Si & \{{[}0, 1{]}\} & 0 \\
+  fencer2\_weapon & Arma tirador 2 (0 florete, 1 sable, 2 espada) & Integer & Si & \{{[}0, 1, 2{]}\} & 1
 \end{longtable}
 
 Para la implementación de dicha API se utilizó el lenguaje de programación Python 3.6.9 para
@@ -598,7 +599,7 @@ tocados que mejor le salen y de esta forma podrá llevar el asalto a su terreno.
 Esto nos llevó a ampliar las variables del sistema experto añadiendo un parámetro más: diferencia
 de nivel. Este parámetro será un número entre 0 y 100 representando porcentajes de probabilidad
 de que gane el primer tirador. La tabla objeto atributo valor de los nuevos atributos se puede
-ver en la \hyperref[tab:Tabla objeto atributo y valor victoria]{tabla 5.18}.
+ver en la \hyperref[tab:Tabla objeto atributo y valor victoria]{tabla 4.18}.
 
 \begin{longtable}{lll}
   \caption{Tabla objeto atributo y valor victoria}
@@ -613,7 +614,7 @@ ver en la \hyperref[tab:Tabla objeto atributo y valor victoria]{tabla 5.18}.
 
 Esta variable será tenida en cuenta para el siguiente árbol que representará
 cuanto riesgo ha de tomar un esgrimista en la pista. Dicho árbol se puede
-ver en la \hyperref[fig:Mapa conocimiento arriesgar]{figura 5.17}.
+ver en la \hyperref[fig:Mapa conocimiento arriesgar]{figura 4.19}.
 
 \begin{figure}[htb]
   \centering
