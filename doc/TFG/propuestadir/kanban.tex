@@ -3,7 +3,7 @@
 Kanban es un método de gestión de trabajo. Este fue pionero en su época y fue pensado para
 aumentar el rendimiento en los procesos de producción de las fábricas. Toyota se encargó
 de desarrollar dicho método. Surge a raíz de querer cambiar la relación de fabricar y vender.
-Al principio las fábricas se dedicaban precisamente a eso, fabricar con todo lo que podían
+Al principio las fábricas se dedicaban precisamente a eso, fabricar todo lo que podían
 para después vender todo lo que pudieran, creando excedentes en la mayoría de ocasiones. Después
 estos podrían ser reutilizados de otra forma, pero se perdían gran cantidad de recursos.
 
@@ -13,10 +13,10 @@ esta forma no tendrían excedentes y ahorrarían en todo el proceso de fabricaci
 Kanban consiste en dividir el trabajo en tareas mas pequeñas. Además de crear un tablero
 con tantas columnas como se desee para organizar el trabajo.
 El tablero mas básico será aquel compuesto de tres columnas las cuales serán \enquote{pendiente},
-\enquote{en progreso}, \enquote{hecho}. Dichas tareas serán movidas entre las columnas siguiendo un flujo
+\enquote{en progreso} y \enquote{hecho}. Dichas tareas serán movidas entre las columnas siguiendo un flujo
 establecido por cada proyecto. En el caso del tablero básico será añadir las tareas a la columna
 de \textit{pendiente}. Cuando se inicien serán movidas a la columna \textit{en progreso} y cuando haya sido completada
-finalizará en la columna \textit{hecho}. Una vez en esta columna ya podrán ser eliminadas o
+finalizará en la columna \textit{hecho}. Una vez en ahí ya podrán ser eliminadas o
 almacenadas.
 
 Este método de trabajo fue adaptado al desarrollo software, siendo actualmente de los más utilizados.
@@ -35,12 +35,11 @@ Un motivo por el que fue elegida esta herramienta es la retroalimentación que b
 el progreso de las tareas. En todo momento se puede saber el número de tareas que tenemos
 en cada columna. Además hay un histórico de proyectos. Esto facilitará el cambio de metodología
 en un futuro si se quisiera usar SCRUM en vez de XP, pudiendo facilitar
-el concepto de sprints. El cambio será tan sencillo como crear un proyecto por cada sprint.
+el concepto de sprints\footnote{Sprint: periodo en el cual se realizan tareas. Cada sprint debería tener un objetivo final como por ejemplo terminar una funcionalidad}. El cambio será tan sencillo como crear un proyecto por cada sprint.
 El flujo de trabajo será el mismo, el cual será explicado a lo largo de este capítulo.
 
 El tablero elegido fue el básico puesto que el flujo de trabajo no será de gran complejidad.
-Como se explicó antes, tendremos tres columnas por las que irán pasando las tareas. Dichas
-tareas serán pequeños progresos y avances que sean requeridos para completar la iteración
+Como se explicó antes, tendremos tres columnas por las que irán pasando las tareas. Estas serán pequeños progresos y avances que sean requeridos para completar la iteración
 que se esté desarrollando. El flujo de trabajo será el siguiente:
 
 \begin{enumerate}
@@ -60,9 +59,9 @@ Cada parte del proyecto tendrá su propio tablero para identificar cuales son la
 De este modo tendremos independencia entre ellos y así facilitar la continuidad de los mismos
 con un trabajo futuro.
 
-Añadir que además GitHub facilita un sistema de tickets, también conocidos como issues. Con la
+Añadir que además GitHub facilita un sistema de tickets\footnote{Sugerencias sobre cambios o mejoras.}, también conocidos como issues. Con la
 configuración correcta estas issues crearán una nueva tarjeta en el tablero kanban correspondiente.
-Además, siguiendo un flujo de trabajo de Pull Request y, de nuevo, con la configuración adecuada se
+Además, siguiendo un flujo de trabajo de Pull Request\footnote{Pull request: petición que se hace a un proyecto para llevar a cabo un cambio en él.} y, de nuevo, con la configuración adecuada se
 podrá automatizar el movimiento de las tareas en nuestro tablero. De este modo se conseguirá la
 automatización de todo este proceso ahorrando mucho trabajo y pudiendo centrarnos en analizar los
 resultados.
