@@ -1,11 +1,9 @@
-# TFG
+Repositorio para la documentación del TFG Gregorio B. Patiño Esteo.
 
-Follow task list here:
+Para ver mas consultar los siguientes repositorios:
 
-https://trello.com/b/7484e41M/tfg-obtener-datos
+API:
+https://github.com/grego1201/MFT-API
 
-https://trello.com/b/VDYXdUBA/tfg-procesar-datos
-
-This is the doc followed to scrap:
-https://www.crummy.com/software/BeautifulSoup/bs4/doc/
-  
+WEB:
+https://github.com/grego1201/MFT-WEB
